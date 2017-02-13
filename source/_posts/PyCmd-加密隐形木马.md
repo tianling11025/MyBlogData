@@ -1,0 +1,51 @@
+---
+title: PyCmd 加密隐形木马
+date: 2016-09-18 16:35:58
+comments: true
+tags: 木马后门
+categories: 安全工具
+---
+
+　　之前写了一个基于python的一句话木马客户端程序，这个程序的作用大致就是为了绕过防护设备，使敏感数据能在网络里自由穿梭。由于编程能力有限，当时以python程序作为客户端，php代码作为服务端，勉强能用，但是缺乏jsp的服务端，使之功能很局限。幸好有大神[caomei](https://github.com/8caomei)相助，帮助实现了jsp端的代码，故将两者相结合，方便使用。
+<!-- more -->
+#### PyCmd使用
+
+　　我这里准备了2个靶机，分别装有php与jsp的运行环境，用来模拟真实的网站服务器。
+为了方便，我已经把服务端木马程序放到了服务器网站目录下：
+
+* php网站木马地址：http://10.0.3.13/test/p.php
+* jsp网站木马地址：http://192.168.10.149:8080/Test/1.jsp
+
+此时，运行PyCmd.py程序：
+
+```bash
+python PyCmd.py -u http://10.0.3.13/test/p.php -p test [--proxy]
+```
+或者
+```bash
+python PyCmd.py -u http://192.168.10.149:8080/Test/1.jsp -p test [--proxy]
+```
+程序会自动判断输入的网站类型
+输入参数：
+* -h         查看帮助信息
+* -u         网站木马地址
+* -p         木马shell密码
+* --proxy    开启本地代理（方便调试）
+
+注：当开启本地调试，需运行Fiddler程序，或者其他抓包软件。
+
+#### PyCmd数据加密
+
+PyCmd程序的长处在于它对往来的数据进行了加密，可以绕过防火墙对数据内容的校验。
+当执行cmd命令时，通过Fiddler抓包查看数据：
+![](/upload_image/20160918/002.png)
+![](/upload_image/20160918/003.png)
+
+#### PyCmd木马隐身
+
+用D盾扫描上传的木马服务端文件，显示为正常文件，成功躲过查杀
+![](/upload_image/20160918/001.png)
+
+#### 工具下载
+
+PyCmd  [下载地址](https://github.com/tengzhangchao/PyCmd)

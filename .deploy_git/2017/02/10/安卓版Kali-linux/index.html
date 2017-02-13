@@ -1,0 +1,1061 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="kali," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="nMask" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="据说OPPO拍照神器最近很火，于是便凑热闹买了一款（R9s），外形不错，性能说得过去。尤其是自拍功能爱不释手（……），于是手头原本的小米便闲置了出来。作为一名崇尚节俭持家的技术男，当然是要废物利用一番，于是便有了以下的一番折腾。　　我的目的是打造一款渗透测试专用手机，最先想到的方案是在手机上安装kali-linx系统，因为该系统集成了很多渗透测试工具，解决了很多依赖问题，省去不少麻烦。那么问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓版Kali-linux">
+<meta property="og:url" content="http://thief.one/2017/02/10/安卓版Kali-linux/index.html">
+<meta property="og:site_name" content="nMask">
+<meta property="og:description" content="据说OPPO拍照神器最近很火，于是便凑热闹买了一款（R9s），外形不错，性能说得过去。尤其是自拍功能爱不释手（……），于是手头原本的小米便闲置了出来。作为一名崇尚节俭持家的技术男，当然是要废物利用一番，于是便有了以下的一番折腾。　　我的目的是打造一款渗透测试专用手机，最先想到的方案是在手机上安装kali-linx系统，因为该系统集成了很多渗透测试工具，解决了很多依赖问题，省去不少麻烦。那么问题">
+<meta property="og:image" content="http://thief.one/upload_image/20170210/3.png">
+<meta property="og:image" content="http://thief.one/upload_image/20170210/1.png">
+<meta property="og:image" content="http://thief.one/upload_image/20170210/2.png">
+<meta property="og:image" content="http://thief.one/upload_image/20170210/4.png">
+<meta property="og:image" content="http://thief.one/upload_image/20170210/6.png">
+<meta property="og:image" content="http://thief.one/upload_image/20170210/5.png">
+<meta property="og:updated_time" content="2017-02-12T13:50:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安卓版Kali-linux">
+<meta name="twitter:description" content="据说OPPO拍照神器最近很火，于是便凑热闹买了一款（R9s），外形不错，性能说得过去。尤其是自拍功能爱不释手（……），于是手头原本的小米便闲置了出来。作为一名崇尚节俭持家的技术男，当然是要废物利用一番，于是便有了以下的一番折腾。　　我的目的是打造一款渗透测试专用手机，最先想到的方案是在手机上安装kali-linx系统，因为该系统集成了很多渗透测试工具，解决了很多依赖问题，省去不少麻烦。那么问题">
+<meta name="twitter:image" content="http://thief.one/upload_image/20170210/3.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6326656503453320000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://thief.one/2017/02/10/安卓版Kali-linux/"/>
+
+  <title> 安卓版Kali-linux | nMask </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">nMask</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">那一年，风陵渡口.......</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-collect_url">
+          <a href="/collect_url/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            网站收集
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-technical">
+          <a href="/categories/技术交流/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            技术交流
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tools">
+          <a href="/categories/安全工具/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            安全工具
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-biancheng">
+          <a href="/categories/编程之道/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            编程之道
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于作者
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                安卓版Kali-linux
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-10T11:36:30+08:00" content="2017-02-10">
+              2017-02-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术交流/" itemprop="url" rel="index">
+                    <span itemprop="name">技术交流</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/10/安卓版Kali-linux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/10/安卓版Kali-linux/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/10/安卓版Kali-linux/" class="leancloud_visitors" data-flag-title="安卓版Kali-linux">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　据说OPPO拍照神器最近很火，于是便凑热闹买了一款（R9s），外形不错，性能说得过去。尤其是自拍功能爱不释手（……），于是手头原本的小米便闲置了出来。作为一名崇尚节俭持家的技术男，当然是要废物利用一番，于是便有了以下的一番折腾。<br>　　我的目的是打造一款渗透测试专用手机，最先想到的方案是在手机上安装kali-linx系统，因为该系统集成了很多渗透测试工具，解决了很多依赖问题，省去不少麻烦。那么问题来了，怎么在手机上安装kali-linux系统呢？在查找了一些资料之后，我理了理思路：<br>（1）手机需要root<br>（2）手机上安装linux-deploy<br>（3）在linux-deploy上安装kali<br>（4）在kali里面安装渗透测试工具<br>思路有了，那么让我们撸起袖子干起来吧！(以下提到的安装包会在文章最后提供下载！)</p>
+<h3 id="Root"><a href="#Root" class="headerlink" title="Root"></a>Root</h3><p>　　起初看到网上的一些教程，介绍root手机非常简单，下载第三方软件，便可一键root。于是抱着轻松地态度在电脑上下载了一款软件（root精灵），接着将手机连上电脑，便开始点击一键root了。过了几分钟提示root成功，心想，原来破解手机这么简单，刚想吐槽小米，打开手机便发现根本没有root成功，NM坑爹。然后卸载了此软件，又重新找了一款（root大师），结果同样如此。<br>　　心中默默骂了几条街后，喝口水冷静了会，重新上网搜索资料，竟然无意看到了小米官方提供开发者版本的安装包（晕倒，所以不能盲目使用第三方软件，一般厂商会给出相应的软件或者安装包）。<br>　　官方下载地址：<a href="http://www.miui.com/download-241.html" target="_blank" rel="external">http://www.miui.com/download-241.html</a><br>　　根据官方提供的教程安装即可（我选择了第二种安装方式），安装完以后在安全中心授予应用程序root权限，其他品牌的手机请自行百度，方法大同小异。</p>
+<h3 id="安装linux-deploy"><a href="#安装linux-deploy" class="headerlink" title="安装linux-deploy"></a>安装linux-deploy</h3><p>　　Linux deploy是一个可以快速在Android设备上安装运行Linux操作系统的App,遵循GPLv3协议，运行需要root权限。linux-deploy软件介绍：<a href="http://www.cnblogs.com/mzlw/p/4841707.html" target="_blank" rel="external">http://www.cnblogs.com/mzlw/p/4841707.html</a><br>在手机上安装完linux-deploy，运行后进行配置：<br><img src="/upload_image/20170210/3.png" alt=""><br>运行界面如上图所示，点击右下角进行配置：<br><img src="/upload_image/20170210/1.png" alt=""><br>发行版选择：kali-linux；源地址选择国内镜像：<a href="http://202.141.160.110/kali/" target="_blank" rel="external">http://202.141.160.110/kali/</a><br><img src="/upload_image/20170210/2.png" alt=""><br>勾选上ssh,vnc，在启动系统后会自动开启ssh以及vnc服务，方便远程管理。<br>配置完成后点击安装，等待一会。<br><img src="/upload_image/20170210/4.png" alt=""><br>安装完以后点击启动，如若成功，便可以用ssh工具连接此系统。<br><img src="/upload_image/20170210/6.png" alt=""></p>
+<p>注：linux-deploy只是一款软件，安装它对应手机本身不会造成什么影响（除了占用存储空间），也不会清空数据（不是刷机）</p>
+<p>linux-deploy安装kali参考：<br><a href="http://www.freebuf.com/articles/terminal/13209.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/13209.html</a><br><a href="http://www.freebuf.com/articles/terminal/47817.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/47817.html</a></p>
+<h3 id="kali上安装渗透工具"><a href="#kali上安装渗透工具" class="headerlink" title="kali上安装渗透工具"></a>kali上安装渗透工具</h3><p>　　虽然手机上安装kali成功了，但是此kali系统上并没有任何工具，需要自己安装。因为kali官方的源太慢了，因此建议更换国内的源。手机上安装一个ssh远程连接工具，连接上kali系统，并输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/apt/sources.list</div></pre></td></tr></table></figure></p>
+<p>清空文件内容并添加以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">deb http://202.141.160.110/kali/ kali-rolling main contrib non-free</div><div class="line">deb-src http://202.141.160.110/kali kali-rolling main contrib non-free</div></pre></td></tr></table></figure></p>
+<p>更换完以后，更新源：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo su       <span class="comment">#切换到root用户</span></div><div class="line">apt-get update</div><div class="line">apt-get upgrade</div></pre></td></tr></table></figure></p>
+<p>安装工具：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">apt-get install nmap</div><div class="line">apt-get install sqlmap</div><div class="line">apt-get install metasploit-framework</div><div class="line">......</div></pre></td></tr></table></figure></p>
+<p>运行截图：<br><img src="/upload_image/20170210/5.png" alt=""><br><em>运行速度还行，方便携带，居家旅行必备神器！</em></p>
+<h3 id="其他安全工具"><a href="#其他安全工具" class="headerlink" title="其他安全工具"></a>其他安全工具</h3><p>　　除了在安卓手机上安装kali系统以外，很多安全软件也支持安卓系统，比如dsploit、busybox、nmap for android等。首先在手机上安装busybox软件（授予root权限），运行软件以后勾选上智能安装选项，然后点击安装busybox。安装完busybox后，才可以使用dsploit等软件，当然这些软件也都是需要root权限的。至于这些安全软件的用法，网上一搜一大推，这里便不再介绍了。</p>
+<h3 id="软件工具下载"><a href="#软件工具下载" class="headerlink" title="软件工具下载"></a>软件工具下载</h3><p>链接: <a href="https://pan.baidu.com/s/1miqcGjQ" target="_blank" rel="external">https://pan.baidu.com/s/1miqcGjQ</a>  密码: ch5f</p>
+<center><em>有时候折腾仅仅只是为了折腾，仅此而已！</em></center>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kali/" rel="tag">#kali</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/09/WireShark过滤规则/" rel="next" title="WireShark过滤规则">
+                <i class="fa fa-chevron-left"></i> WireShark过滤规则
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/13/联想Z470黑苹果教程/" rel="prev" title="联想Z470黑化之路">
+                联想Z470黑化之路 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/02/10/安卓版Kali-linux/"
+     data-title="安卓版Kali-linux"
+     data-content=""
+     data-url="http://thief.one/2017/02/10/安卓版Kali-linux/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/10/安卓版Kali-linux/"
+           data-title="安卓版Kali-linux" data-url="http://thief.one/2017/02/10/安卓版Kali-linux/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="nMask" />
+          <p class="site-author-name" itemprop="name">nMask</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/tengzhangchao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/nmask" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/142105003/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://butian.360.cn/vul/profile/uid/3069874" target="_blank" title="补天">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  补天
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://BBB-man.github.io" title="Yzf'Blog" target="_blank">Yzf'Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://whitehat001.github.io/" title="hackyzh'Blog" target="_blank">hackyzh'Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://8caomei.github.io/" title="草莓'Blog" target="_blank">草莓'Blog</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Root"><span class="nav-number">1.</span> <span class="nav-text">Root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装linux-deploy"><span class="nav-number">2.</span> <span class="nav-text">安装linux-deploy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kali上安装渗透工具"><span class="nav-number">3.</span> <span class="nav-text">kali上安装渗透工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他安全工具"><span class="nav-number">4.</span> <span class="nav-text">其他安全工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件工具下载"><span class="nav-number">5.</span> <span class="nav-text">软件工具下载</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">nMask</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thief"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("z4gJQDYWtJaYDKAY3kuPtn2i-gzGzoHsz", "NPG4o0CWzLFqSTL94JmNAm7X");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
