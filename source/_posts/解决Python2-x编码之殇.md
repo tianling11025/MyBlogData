@@ -1,6 +1,7 @@
 ---
 title: 解决Python2.x编码之殇
 date: 2017-02-16 12:55:57
+comments: true
 tags: python编码问题
 categories: 编程之道
 ---
