@@ -3,3 +3,4 @@ node_modules
 scaffolds
 
 public
+.deploy_git
