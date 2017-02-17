@@ -1,4 +1,4 @@
-<html><head><title>Thief安全态势</title><link rel='stylesheet' id='twentytwelve-style-css'  href='http://thief.one/css/collect_url/style.css' type='text/css' media='all' /></head><body><h2 class="site-title"><a href="http://thief.one/collect_url/" rel="home">Thief.one &#8211;安全态势</a></h2>
+<html><head><title>Thief安全态势</title><link rel='stylesheet' id='twentytwelve-style-css'  href='http://thief.one/css/collect_url/style.css' type='text/css' media='all' /></head><body><h2 class="site-title"><a href="http://thief.one/collect_url/" rel="home">Thief.one &#8211;安全态势</a>　　　　　　　　　　　　　　[个人博客](http://thief.one)</h2>
 【安全导航】
 
 [WebSec安全导航](http://nav.mayter.cn/index.htm)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　
