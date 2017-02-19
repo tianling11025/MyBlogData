@@ -37,8 +37,8 @@ page:
   tags: 标签
 
 footer:
-  powered: "由 %s 强力驱动"
-  theme: 主题
+  powered: "Power %s"
+  theme: Theme #主题
 
 
 counter:

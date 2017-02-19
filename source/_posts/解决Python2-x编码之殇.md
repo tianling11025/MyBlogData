@@ -113,7 +113,7 @@ print type(a)
 a='你好'
 print a.decode("utf-8").encode("gbk")
 ```
-　　说明：首先我们定义的变量a是str格式，编码为utf-8的字符串，我们要将之转化为str格式，GBK编码的字符串。在python内部无法直接转化，需要借助decod()与encode()函数。decode()函数先将str格式的字符串a转化为unicode，再将unicode编码为str格式GBK。而在Unix系统下，不存在这个问题，因为都是utf-8编码，不会存在乱码。print语句默认会将unicode编码的字符串，encode为相应系统的str编码并输出（windows下为gbk,unix下为utf-8）,因此不用担心print unicode编码字符串会报错。
+　　说明：首先我们定义的变量a是str格式，编码为utf-8的字符串，我们要将之转化为str格式，GBK编码的字符串。在python内部无法直接转化，需要借助decode()与encode()函数。decode()函数先将str格式的字符串a转化为unicode，再将unicode编码为str格式GBK。而在Unix系统下，不存在这个问题，因为都是utf-8编码，不会存在乱码。print语句默认会将unicode编码的字符串，encode为相应系统的str编码并输出（windows下为gbk,unix下为utf-8）,因此不用担心print unicode编码字符串会报错。
 
 ### 源代码编码
 源代码编码指的是python程序本身的编码，默认为ascii。
