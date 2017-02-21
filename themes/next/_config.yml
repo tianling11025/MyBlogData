@@ -127,8 +127,6 @@ font:
 social:
   GitHub: http://github.com/tengzhangchao
   知乎: https://www.zhihu.com/people/nmask
-  补天: https://butian.360.cn/vul/profile/uid/3069874
-
 
 
 # Social Links Icons
@@ -184,13 +182,15 @@ sidebar:
 
 # Blogrolls
 links_title: 友情链接
-# links_layout: block
-links_layout: inline
-links:
-  Yzf: http://yzf.life
-  Hackyzh: http://hackyzh.me
-  草莓: https://8caomei.github.io/
-  Jusense: https://jusene.github.io
+links_layout: block
+# links_layout: inline
+links: 
+  Yzf（Web渗透）: http://yzf.life
+  Hackyzh（二进制，漏洞挖掘）: http://hackyzh.me
+  草莓（逆向，软件破解）: https://8caomei.github.io/
+  Jusense（安全运维）: https://jusene.github.io
+  小书屋（安全书籍）: http://www.xiaoshuwu.net/
+  lxghost（安全情报）: http://www.yige.dog/
 
 
 
