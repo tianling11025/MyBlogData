@@ -165,9 +165,9 @@ proxyPort = 1081
 启动polipo服务 sudo service polipo start
 
 使用：
-* app里面配置http_proxy=http://127.0.0.1:8787
-* bash里面可以编辑$HOME/.bashrc，添加export http_proxy=http://127.0.0.1:8787　导出环境变量。当前bash要执行source $HOME/.bashrc来使配置文件生效。
-* git配置git config --global http.proxy 127.0.0.1:8787
+* app里面配置http_proxy=http://127.0.0.1:1081
+* bash里面可以编辑$HOME/.bashrc，添加export http_proxy=http://127.0.0.1:1081　导出环境变量。当前bash要执行source $HOME/.bashrc来使配置文件生效。
+* git配置git config --global http.proxy 127.0.0.1:1081
 
 详情参考：[http://blog.csdn.net/zcq8989/article/details/50545078](http://blog.csdn.net/zcq8989/article/details/50545078)
 
