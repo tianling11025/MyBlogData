@@ -68,4 +68,6 @@ http://www.zzxzxyey.com/
 每次get后，保存current_url的值，待下一次请求后与此值相比较，如果一样，则说明状态没有被改变。
 （当然，有些特殊情况除外，比如每次get的网站都是同一个，或者批量get的网站中有相同地址的。）
 
+如遇到Phantomjs性能优化问题，请移步[Phantomjs性能优化](http://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)
+
 <center>*技术得探索就是不断提出假设，然后不断去推翻它*</center>
