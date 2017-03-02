@@ -30,10 +30,10 @@ canonical: true
 menu:
   home: /
   collect_url: /collect_url/
-  technical: /categories/技术交流/
-  tools: /categories/安全工具/
-  biancheng: /categories/编程之道/
-  archives: /archives
+  # technical: /categories/技术交流/
+  # tools: /categories/安全工具/
+  # biancheng: /categories/编程之道/
+  # archives: /archives
   about: /about
   categories: /categories
   tags: /tags
@@ -63,9 +63,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Muse
-# scheme: Mist
-scheme: Pisces
+# scheme: Muse
+scheme: Mist
+# scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -175,8 +175,8 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggler.
-  display: hide
-  #display: always
+  display: post
+  # display: always
   #display: hide
   #display: remove
 
@@ -414,3 +414,5 @@ version: 5.0.1
 
 since: 2016  ##建站时间
 # baidu_analytics: d22cd975ccc2d560e0a480fec5629325  #百度统计
+
+google_site_verification: p9ZQcLlzhS3CvgOzUqxYASnD-7EbtZe4qW16dXC2Bjc

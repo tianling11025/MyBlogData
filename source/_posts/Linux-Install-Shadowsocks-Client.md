@@ -5,8 +5,9 @@ comments: true
 tags: shadowsocks
 categories: 技术交流
 ---
+![](/upload_image/image/3.jpg)
 　　事情的起因是服务器网络被某网站屏蔽，需要使用http代理去访问。由于没有稳定好用的http代理地址（网上免费的信不过，也不稳定），然而手头上还有空余的服务器（云上），于是就想着在云服务器上搭建shadowsocks服务端，本地服务器上搭建客户端用来连接。思路有了，那就动手干吧，搭建shadowsocks服务并不难，然而原本应该只需半小时就能搞定的活，却足足花了2个多小时（socks转http代理问题），因此在此小计一番，以儆效尤。
-
+<!--more -->
 ### Install shadowsocks Server
 搭建shadowsocks服务端，分别介绍windows与linux下搭建方法。
 #### Windows
