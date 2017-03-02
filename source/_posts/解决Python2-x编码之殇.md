@@ -5,7 +5,9 @@ comments: true
 tags: python编码问题
 categories: 编程之道
 ---
+![](/upload_image/image/9.jpg)
 　　Python编码问题一直困扰了我许久，之前有过一些总结，但并不系统，比较凌乱。当然python2.x编码问题本身，便是剪不断理还乱。本篇将系统介绍python2.x编程中会遇到的一些编码问题，并给出解决方案。基于对编码问题的摸索了解，我也尝试写了一个编码转换模块[Transcode](https://github.com/tengzhangchao/Transcode)，应该能解决绝大部分新手的疑难杂症。当然，python大神可以绕道而行，至于使用3.x的朋友，以后将会成文介绍。
+<!--more -->
 　　python编程中会经常遇到操作系统编码、文件编码、控制台输入输出编码、网页编码、源代码编码、python编码，本文将会逐一介绍。首先我们来看看一些常见的编码情况：
 ```bash
 print sys.getdefaultencoding()    #系统默认编码

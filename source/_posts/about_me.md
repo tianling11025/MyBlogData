@@ -3,6 +3,7 @@ title: 关于作者
 date: 2016-09-01 10:36:52
 comments: true
 ---
+![](/upload_image/image/1.jpg)
 #### Email
 tzc@maskghost.com
 #### 交流
