@@ -5,8 +5,8 @@ comments: true
 tags: Phantomjs
 categories: 编程之道
 ---
-![](/upload_image/image/1.jpg)
-　　最近在跟同事使用phantomjs编写爬虫时，遇到了很多有意思的坑，我们在分析了一番后得出了一些结论以及解决方案，此分享一下。
+<blockquote class="blockquote-center">技术的探索就是不断提出假设，然后不断去推翻它</blockquote>
+最近在跟同事使用phantomjs编写爬虫时，遇到了很多有意思的坑，我们在分析了一番后得出了一些结论以及解决方案，此分享一下。
 	<!--more -->
 　　事情的起因，是因为我们要利用phantomjs访问一批网站获取源码以及url，然后当我们查看输出结果时却发现请求的url与访问后获取的url并不对应，比如我用phantomjs访问baidu，返回的结果却显示当前url是bing。由此引发了我们一系列的猜想，由于这方面互联网上的资源比较少，因此也只能自己猜测并动手验证了。
 　　对于结果值不对应问题，我暂时定义为，phantomjs状态被污染或者覆盖。简单来说，我们先去访问a网站，获取结果后，我们又访问了b网站，然后获取b网站的结果，然而我们发现b网站的结果却是a网站。那么我们首先认为，phantomjs再处理b网站时，本身的状态没有被更新，导致获取b网站的结果仍然为a网站。
@@ -71,6 +71,3 @@ http://www.zzxzxyey.com/
 （当然，有些特殊情况除外，比如每次get的网站都是同一个，或者批量get的网站中有相同地址的。）
 
 如遇到Phantomjs性能优化问题，请移步[Phantomjs性能优化](http://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)
-
-
-<center>*技术得探索就是不断提出假设，然后不断去推翻它*</center>

@@ -5,8 +5,8 @@ comments: true
 tags: python多线程
 categories: 编程之道
 ---
-![](/upload_image/image/5.jpg)
-　　当初在刚学习python多线程时，上网搜索资料几乎都是一片倒的反应python没有真正意义上的多线程，python多线程就是鸡肋。当时不明所以，只是了解到python带有GIL解释器锁的概念，同一时刻只能有一个线程在运行，遇到IO操作才会释放切换。那么，python多线程是否真的很鸡肋呢？要解决这个疑惑，我想必须亲自动手测试。
+<blockquote class="blockquote-center">术业有专攻，如是而已</blockquote>
+当初在刚学习python多线程时，上网搜索资料几乎都是一片倒的反应python没有真正意义上的多线程，python多线程就是鸡肋。当时不明所以，只是了解到python带有GIL解释器锁的概念，同一时刻只能有一个线程在运行，遇到IO操作才会释放切换。那么，python多线程是否真的很鸡肋呢？要解决这个疑惑，我想必须亲自动手测试。
 <!--more -->
 　　经过对比python与java的多线程测试，我发现python多线程的效率确实不如java，但远还没有达到鸡肋的程度，那么跟其他机制相比较呢？
 ### 观点：用多进程替代多线程需求
@@ -270,6 +270,3 @@ for t in threads:
 
 
 申明：本文谈不上原创，其中借鉴了网上很多大牛的文章，本人只是在此测试论述Python多线程相关问题，并简单介绍Python多线程的基本用法，为新手朋友解惑。
-
-
-<center>*术业有专攻，如是而已*</center>

@@ -5,7 +5,8 @@ comments: true
 tags: kali
 categories: 技术交流
 ---
-　　据说OPPO拍照神器最近很火，于是便凑热闹买了一款（R9s），外形不错，性能说得过去。尤其是自拍功能爱不释手（......），于是手头原本的小米便闲置了出来。作为一名崇尚节俭持家的技术男，当然是要废物利用一番，于是便有了以下的一番折腾。
+<blockquote class="blockquote-center">有时候折腾仅仅只是为了折腾，仅此而已！</blockquote>
+据说OPPO拍照神器最近很火，于是便凑热闹买了一款（R9s），外形不错，性能说得过去。尤其是自拍功能爱不释手（......），于是手头原本的小米便闲置了出来。作为一名崇尚节俭持家的技术男，当然是要废物利用一番，于是便有了以下的一番折腾。
 　　我的目的是打造一款渗透测试专用手机，最先想到的方案是在手机上安装kali-linx系统，因为该系统集成了很多渗透测试工具，解决了很多依赖问题，省去不少麻烦。那么问题来了，怎么在手机上安装kali-linux系统呢？在查找了一些资料之后，我理了理思路：
 （1）手机需要root
 （2）手机上安装linux-deploy
@@ -71,6 +72,3 @@ apt-get install metasploit-framework
 
 ### 软件工具下载
 链接: [https://pan.baidu.com/s/1miqcGjQ](https://pan.baidu.com/s/1miqcGjQ)  密码: ch5f
-
-
-<center>*有时候折腾仅仅只是为了折腾，仅此而已！*</center>

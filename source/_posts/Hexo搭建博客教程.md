@@ -5,7 +5,8 @@ comments: true
 tags: hexo
 categories: 技术交流
 ---
-<blockquote class="blockquote-center">所谓博客，都是孤芳自赏</blockquote>
+<blockquote class="blockquote-center">所谓博客，都是孤芳自赏
+</blockquote>
 现在越来越多的人喜欢利用Github搭建静态网站，原因不外乎简单省钱。本人也利用hexo+github搭建了本博客，用于分享一些心得。在此过程中，折腾博客的各种配置以及功能占具了我一部分时间，在此详细记录下我是如何利用hexo+github搭建静态博客以及一些配置相关问题，以免过后遗忘，且当备份之用。
 <!-- more -->
 ### 准备工作
