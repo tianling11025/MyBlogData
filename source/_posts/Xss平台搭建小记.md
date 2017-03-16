@@ -123,6 +123,11 @@ http://xxx.com/y42f59?1489555427
 
 参考：[http://www.bodkin.ren/?p=133](http://www.bodkin.ren/?p=133)
 
+### 邮件短信设置
+
+* 修改文件\source\function.php 257行,把里面的邮箱账号密码换一下，host改为smtp.xx.com，如：smtp.qq.com
+* 飞信短信提醒功能，修改\source\api.php 72行手机号，可能只支持移动手机号。
+
 ### 老版本其他问题
 
 *新的源码不需要修改以下参数，老版本可能需要修改*
