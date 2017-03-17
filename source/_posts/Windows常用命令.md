@@ -3,7 +3,7 @@ title: Windows常用命令
 date: 2017-03-08 20:21:00
 comments: true
 tags: windows
-categories: 技术交流
+categories: 技术研究
 ---
 <blockquote class="blockquote-center">除苦练内功之外，别无他法。
 </blockquote>

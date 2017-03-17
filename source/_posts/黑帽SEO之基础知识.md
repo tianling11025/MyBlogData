@@ -3,7 +3,7 @@ title: 黑帽SEO之基础知识
 date: 2016-10-09 12:11:12
 comments: true
 tags: 黑帽SEO
-categories: 技术交流
+categories: 黑产研究
 ---
 
 　 SEO全称为搜索引擎优化，是指通过站内优化、站外优化等方式，提升搜索引擎收录排名。既然有SEO技术，便会有相应的从业人员，他们被称为白帽SEO，专指通过公正SEO手法，帮助提升站点排名的专业人员。

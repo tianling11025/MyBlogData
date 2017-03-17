@@ -3,7 +3,7 @@ title: RSA加密算法解析
 date: 2016-09-06
 comments: true
 tags: 加密算法
-categories: 技术交流
+categories: 技术研究
 ---
 
 　　几个月前参加了一次CTF比赛，其中遇到了RSA加密解密题，当时也是一头雾水，赛后便查找资料整理了一番，在此总结分享。

@@ -3,7 +3,7 @@ title: Fork Bomb
 date: 2017-02-04 10:36:52
 comments: true
 tags: 系统安全
-categories: 技术交流
+categories: 系统安全
 ---
 　　Fork炸弹（fork bomb）在计算机领域中是一种利用系统调用fork（或其他等效的方式）进行的拒绝服务攻击。fork炸弹以极快的速度创建大量进程（进程数呈以2为底数的指数增长趋势），并以此消耗系统分配予进程的可用空间使进程表饱和，而系统在进程表饱和后就无法运行新程序，除非进程表中的某一进程终止，它可以利用在windows/linux等系统。
 

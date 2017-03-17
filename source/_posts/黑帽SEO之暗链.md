@@ -3,7 +3,7 @@ title: 黑帽SEO之暗链
 date: 2016-10-12 12:57:30
 comments: true
 tags: 黑帽SEO
-categories: 技术交流
+categories: 黑产研究
 ---
 
 　　暗链也称为*黑链*，即隐蔽链接 hidden links，是黑帽SEO的作弊手法之一。在早期的SEO优化中，黑链是最有效最迅速的方法之一；但是现在百度算法已经对iframe和display:none 等直接进行了打击，如果你对代码没有任何处理的话，那么你所做的外链将全部降权。因此，目前黑帽SEO技术中，暗链已经用得不多，但还是有必要了解下这个经典的作弊手法。

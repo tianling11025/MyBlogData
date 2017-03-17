@@ -3,7 +3,7 @@ title: Struts2_045漏洞
 date: 2017-03-07 13:57:32
 comments: true
 tags: struts2
-categories: 技术交流
+categories: web安全
 ---
 <blockquote class="blockquote-center">Struts2是个好东西</blockquote>
 免责申明：*文章中的工具等仅供个人测试研究，请在下载后24小时内删除，不得用于商业或非法用途，否则后果自负*

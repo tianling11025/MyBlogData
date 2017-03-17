@@ -3,7 +3,7 @@ title: Xss平台搭建小记
 date: 2017-03-15 14:18:06
 comments: true
 tags: xss
-categories: 技术交流
+categories: web安全
 ---
 <blockquote class="blockquote-center">每天把牢骚拿出来晒晒太阳，心情就不会缺钙</blockquote>
 

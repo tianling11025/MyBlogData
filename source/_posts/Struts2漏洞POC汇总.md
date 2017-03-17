@@ -3,7 +3,7 @@ title: Struts2漏洞POC汇总
 date: 2017-03-13 10:43:59
 comments: true
 tags: struts2
-categories: 技术交流
+categories: web安全
 ---
 <blockquote class="blockquote-center">世界上一成不变的东西，只有“任何事物都是在不断变化的”这条真理。
  —— 斯里兰卡</blockquote>
