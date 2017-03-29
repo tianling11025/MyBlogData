@@ -22,6 +22,7 @@ last -x reboot   查看重启的记录
 last -x shutdown 查看关机的记录
 last -d          查看登陆的记录
 last --help      命令帮助信息
+last -f wtmp     用last命令查看wtmp文件（直接打开无法查看）
 
 #### lastb
 这个命令用于查看登录失败的情况，本质就是将/var/log/btmp文件格式化输出。
@@ -50,6 +51,12 @@ history 查看所有历史记录
 history -10 查看最近10条记录
 history | grep "wget"  查看wget相关信息的记录
 history --help         命令帮助信息
+
+history显示时间戳：
+```bash
+export HISTTIMEFORMAT="%F %T `whoami` "
+history | more
+```
 
 ### 检查用户
 Linux不同的用户，有不同的操作权限，但是所有用户都会在/etc/passwd、/etc/shadow、/etc/group文件中记录。
@@ -123,8 +130,8 @@ chkconfig –list/systemctl list-units –type=service　　检查自启
 ```
 查看著名的木门后门程序：
 ```bash
-ls /etc/rc.d
-ls /etc/rc3.d
+ls /etc/rc.d   #系统开机后，此目录下的文件会被启动
+ls /etc/rc3.d  
 find / -name “.rhosts” –print
 find / -name “.forward” –print
 ```
@@ -194,7 +201,7 @@ umount /mnt  退出U盘
 参考链接：http://www.jb51.net/hack/421908.html
 
 转载请说明出处:
-[Linux服务器入侵检测基础](http://thief.one/2017/03/24/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80/)
+[Linux服务器入侵检测基础 | nMask'Blog](http://thief.one/2017/03/24/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80/)
 
 本文地址：
 http://thief.one/2017/03/24/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80/
