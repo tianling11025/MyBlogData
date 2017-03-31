@@ -71,3 +71,5 @@ http://www.zzxzxyey.com/
 （当然，有些特殊情况除外，比如每次get的网站都是同一个，或者批量get的网站中有相同地址的。）
 
 如遇到Phantomjs性能优化问题，请移步[Phantomjs性能优化](http://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)
+
+更好的Phantomjs使用方案，请移步：[Phantomjs正确打开方式](http://thief.one/2017/03/31/Phantomjs正确打开方式/)

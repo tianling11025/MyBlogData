@@ -147,6 +147,41 @@ git clone https://github.com/iissnan/hexo-theme-next.git（主题的地址）
 
 关于hexo-next主题下的一些个性化配置，参考：[Next主题配置](http://theme-next.iissnan.com/)
 
+### 主题美化
+
+#### 文章中添加居中模块
+文章Markdown中填写如下：
+````bash
+<blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
+```
+#### 鼠标点击小红心的设置
+将 [love.js](https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js) 文件添加到 \themes\next\source\js\src 文件目录下。
+找到 \themes\next\layout\_layout.swing 文件， 在文件的后面，</body> 标签之前 添加以下代码：
+```bash
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+```
+#### 背景的设置
+将 [particle.js](https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/particle.js) 文件添加到 \themes\next\source\js\src 文件目录下。
+找到 \themes\next\layout\_layout.swing 文件， 在文件的后面，</body>标签之前 添加以下代码：
+```bash
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+```
+#### 修改文章内链接文本样式
+将链接文本设置为蓝色，鼠标划过时文字颜色加深，并显示下划线。
+找到文件 themes\next\source\css\_custom\custom.styl ，添加如下 css 样式：
+```bash
+.post-body p a {
+  color: #0593d3;
+  border-bottom: none;
+  &:hover {
+    color: #0477ab;
+    text-decoration: underline;
+  }
+}
+```
+参考：https://neveryu.github.io/2016/09/30/hexo-next-two/
 
 ### 报错解决
 
@@ -159,6 +194,17 @@ git clone https://github.com/iissnan/hexo-theme-next.git（主题的地址）
 将该目录只读属性取消。
 #### （四）genrnate 报错
 检查_config.yml配置中，键值对冒号后面是否已经预留了一个半角空格。
+#### （五）ERROR Plugin load failed: hexo-generator-feed
+```bash
+npm install hexo-generator-feed
+npm install hexo-generator-feed --save
+```
+#### （六）fatal: The remote end hung up unexpectedly
+```bash
+$ git config https.postBuffer 524288000
+$ git config http.postBuffer 524288000
+$ git config ssh.postBuffer 524288000
+```
 
 ### 异地同步博客内容
 　　现在电脑已经很普及了，因为一般来说我们都是公司一台电脑，家里一台电脑，那么如何将两台电脑上博客的内容同步内，即两台电脑上都可以编辑更新博客？
