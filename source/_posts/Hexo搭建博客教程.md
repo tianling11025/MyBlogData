@@ -205,6 +205,10 @@ $ git config https.postBuffer 524288000
 $ git config http.postBuffer 524288000
 $ git config ssh.postBuffer 524288000
 ```
+####（七）hero d推送的内容有问题
+　　首先检查下.deploy_git文件夹下的.git文件是否存在，此.git文件指定了hexo d时推送public文件夹，而不是所有的内容。如果此.git文件不存在，则会出现推送内容错误。
+　　用npm install hexo-deployer-git --save生成的.deploy_git不包含.git文件，因此正确的做法是.deploy_git文件夹也需要备份，然后再用npm install hexo-deployer-git --save更新一下其内容即可。
+
 
 ### 异地同步博客内容
 　　现在电脑已经很普及了，因为一般来说我们都是公司一台电脑，家里一台电脑，那么如何将两台电脑上博客的内容同步内，即两台电脑上都可以编辑更新博客？
@@ -218,6 +222,7 @@ $ git config ssh.postBuffer 524288000
 * _config_yml
 * db.json
 * package.json
+* .deploy_git
 
 　　以上为利用hexo生成的博客全部内容，那么当我们执行hexo d时，正真被推送到github上的又有哪些内容呢？
 　　我们可以看下github上的tengzhangchao.github.io项目，发现里面只有Public目录下的内容。也就是说，我们博客上呈现的内容，其实就是public下的文件内容。那么这个Pulic目录是怎么生成的呢？
@@ -231,6 +236,7 @@ $ git config ssh.postBuffer 524288000
 * _config.yml
 * db.json
 * package.json
+* .deploy_git
 
 　　同步的方式有很多种，可以每次更新后都备份到一个地址。我采用github去备份，也就是新建一个项目用来存放以上文件，每次更新后推送到github上，用作备份同步。
 　　同步完必须的文件后，怎么再其他电脑上也可以更新博客呢？
@@ -240,16 +246,17 @@ $ git config ssh.postBuffer 524288000
 * 下载安装git（官网下载安装）
 * 下载安装hexo。方法：打开cmd 运行*npm install -g hexo*（要翻墙） 
 * 新建一个文件夹，如MyBlog
-* 进入该文件夹内，右击运行git，输入：*hexo init*（生成hexo模板，可能要翻墙）
+* 进入该文件夹内，右击运行git，输入：*hexo init*（生成hexo模板，可能要翻墙)
 
 　　我们重复了一开始搭建博客的步骤，重新生成了一个新的模板，这个模板中包含了hexo生成的一些文件。
 
-* 将我们备份好的文件，复制到该目录下，存在一样的目录与文件，覆盖即可。
+* git clone 我们备份的项目，生成一个文件夹，如：MyBlogData
+* 将MyBlog里面的node_modules、scaffolds文件夹复制到MyBlogData里面。
 
-　　做完这些，从表面上看，两台电脑上MyBlog目录下的文件应该都是一样的了。那么我们运行hexo g
-hexo d试试，发现会报错。
+　　做完这些，从表面上看，两台电脑上MyBlogData目录下的文件应该都是一样的了。那么我们运行hexo g
+hexo d试试，如果会报错，则往下看。
 
-* 这是因为deploy_git没有同步，运行:*npm install hexo-deployer-git --save*后再次推送即可
+* 这是因为.deploy_git没有同步，在MyBlogData目录内运行:*npm install hexo-deployer-git --save*后再次推送即可
 
 　　总结流程：当我们每次更新MyBlog内容后，先利用hexo将public推送到github，然后再将其余必须同步的文件利用git推送到github。
 
