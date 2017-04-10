@@ -1,8 +1,10 @@
 ---
-title: 黑帽SEO之页面跳转
+title: 【黑帽SEO系列】页面跳转
 date: 2016-10-10 10:48:33
 comments: true
-tags: 黑帽SEO
+tags: 
+- 黑帽SEO
+- 页面跳转
 categories: 黑产研究
 ---
 
@@ -64,6 +66,12 @@ window.location.href="http://thief.one";
 参考文章：[http://www.iigrowing.cn/](http://www.iigrowing.cn/ye-mian-zi-dong-tiao-zhuan-yu-http302-html-refresh-yi-ji-js-tiao-zhuan-zhi-jian-de-guan-xi.html)  
 欢迎留言交流补充!
 
+### 传送门
+
+>[【黑帽SEO系列】基础知识](http://thief.one/2016/10/09/%E9%BB%91%E5%B8%BDSEO%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/)
+[【黑帽SEO系列】暗链](http://thief.one/2016/10/12/%E9%BB%91%E5%B8%BDSEO%E4%B9%8B%E6%9A%97%E9%93%BE/)
+[【黑帽SEO系列】网页劫持](http://thief.one/2016/10/12/%E9%BB%91%E5%B8%BDSEO%E4%B9%8B%E7%BD%91%E9%A1%B5%E5%8A%AB%E6%8C%81/)
+[【黑帽SEO系列】页面跳转](http://thief.one/2016/10/10/%E9%BB%91%E5%B8%BDSEO%E4%B9%8B%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC/)
 
 
 

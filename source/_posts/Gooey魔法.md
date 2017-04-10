@@ -1,7 +1,8 @@
 ---
 title: Gooey魔法
 date: 2017-02-15 18:47:08
-tags: Gooey
+tags: 
+- Gooey
 categories: 编程之道
 ---
 　　Gooey是python的一个扩展模块，能够使用一条命令，将命令行程序变成一个 GUI 程序。它能够解析argparse模块的命令行参数，将之变成wxpython的GUI控件。当然，Gooey本身也带有命令行解析的函数---GooeyParser。下面就简单介绍Gooey的用法，以及优缺点。

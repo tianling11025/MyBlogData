@@ -2,7 +2,8 @@
 title: 解决Python2.x编码之殇
 date: 2017-02-16 12:55:57
 comments: true
-tags: python编码问题
+tags: 
+- python编码
 categories: 编程之道
 ---
 <blockquote class="blockquote-center">技术的探索，就好像编织故事一般，其乐趣在于偶尔能够讲述给别人听，并获得一些赞同！</blockquote>

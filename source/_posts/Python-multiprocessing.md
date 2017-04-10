@@ -1,8 +1,11 @@
 ---
-title: Python Multiprocessing
+title: 【Multiprocessing系列】Multiprocessing基础
 date: 2016-11-23 18:26:19
 comments: true
-tags: Multiprocessing
+tags: 
+- python
+- Multiprocessing
+- 多进程
 categories: 编程之道
 ---
 
@@ -123,11 +126,11 @@ Multiprocessing.dummy用法与Multiprocessing用法基本相同，只不过是�
 
 具体介绍请参考：[获取子进程返回值问题](http://thief.one/2016/11/24/Multiprocessing子进程返回值)
 
-<hr>
 
-参考网络文章：
+### 传送门
 
-[http://www.cnblogs.com/vamei/archive/2012/10/12/2721484.html](http://www.cnblogs.com/vamei/archive/2012/10/12/2721484.html)
-[http://www.cnblogs.com/kaituorensheng/p/4465768.html](http://www.cnblogs.com/kaituorensheng/p/4465768.html)
-......
-太多了，列举不完，排名不分先后。
+>[【Multiprocessing系列】共享资源](http://thief.one/2016/11/24/Multiprocessing%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90/)
+[【Multiprocessing系列】子进程返回值](http://thief.one/2016/11/24/Multiprocessing%E5%AD%90%E8%BF%9B%E7%A8%8B%E8%BF%94%E5%9B%9E%E5%80%BC/)
+[【Multiprocessing系列】Pool](http://thief.one/2016/11/24/Multiprocessing-Pool/)
+[【Multiprocessing系列】Process](http://thief.one/2016/11/24/Multiprocessing-Process/)
+[【Multiprocessing系列】Multiprocessing基础](http://thief.one/2016/11/23/Python-multiprocessing/)

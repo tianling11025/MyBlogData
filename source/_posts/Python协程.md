@@ -2,7 +2,9 @@
 title: Python协程
 date: 2017-02-20 11:28:36
 comments: true
-tags: python协程
+tags: 
+- python
+- 协程
 categories: 编程之道
 ---
 <blockquote class="blockquote-center">
@@ -174,6 +176,52 @@ loop.close()
 * 爬虫模块+gevent（比较推荐这个）
 * aiohttp （这个貌似资料不多，目前我也不太会用）
 * asyncio内置爬虫功能 （这个也比较难用）
+
+### 协程池
+作用：控制协程数量
+```bash
+from bs4 import BeautifulSoup
+
+import requests
+
+import gevent
+
+from gevent import monkey, pool
+
+monkey.patch_all()
+
+jobs = []
+
+links = []
+
+p = pool.Pool(10)
+
+urls = [
+
+    'http://www.google.com',
+
+    # ... another 100 urls
+
+]
+
+def get_links(url):
+
+    r = requests.get(url)
+
+    if r.status_code == 200:
+
+        soup = BeautifulSoup(r.text)
+
+        links + soup.find_all('a')
+
+
+for url in urls:
+
+    jobs.append(p.spawn(get_links, url))
+
+gevent.joinall(jobs)
+```
+
 
 *本文没有太多的干货，都是一些自学时的笔记，分享给新手朋友，仅供参考*
 

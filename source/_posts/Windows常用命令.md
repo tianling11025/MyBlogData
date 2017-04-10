@@ -2,7 +2,8 @@
 title: Windows常用命令
 date: 2017-03-08 20:21:00
 comments: true
-tags: windows
+tags: 
+- windows
 categories: 技术研究
 ---
 <blockquote class="blockquote-center">除苦练内功之外，别无他法。
@@ -11,6 +12,17 @@ categories: 技术研究
 分享一些自己常用的windows命令，本文会持续更新，全当笔记备份。本文大部分内容来自互联网整理汇总，小部分来自个人经验所总结。
 <!--more -->
 ### CMD常用命令
+
+隐藏木马：
+```bash
+CreateObject("WScript.Shell").RegWrite "HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun", "calc.exe","REG_SZ"
+```
+注册表添加这个值后，当运行cmd时，先运行你的计算器，命令行下cmd /k参数的原理。
+
+列出ie代理设置：
+```bash
+reg query "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+```
 
 下载远程文件：
 ```bash

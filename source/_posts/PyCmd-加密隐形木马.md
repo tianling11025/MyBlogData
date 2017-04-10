@@ -2,7 +2,9 @@
 title: PyCmd 加密隐形木马
 date: 2016-09-18 16:35:58
 comments: true
-tags: 木马后门
+tags: 
+- 木马后门
+- pycmd
 categories: 安全工具
 ---
 

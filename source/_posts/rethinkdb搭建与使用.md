@@ -2,8 +2,10 @@
 title: Rethinkdb搭建与使用
 date: 2017-02-07 15:31:06
 comments: true
-tags: rethinkdb
-categories: 技术研究
+tags: 
+- rethinkdb
+- 数据库
+categories: 编程之道
 ---
 　　首先惊喜rethinkdb开源了，为开源精神点赞（无论背后是哪种原因）......既然如此，就来介绍一下Nosql界的黑科技--rethinkdb吧。我与rethibkdb相识于16年夏，因为一个项目的需要，当时徘徊于mongodb与rethinkdb之间，但最终还是选择了rethinkdb，两者之间的好坏暂且不论，我也只是用其一点皮毛，这里结合自身使用以及官方介绍简单记录一番。
 　　rethinkdb属于Nosql数据库，它具有可视化管理，支持多平台等优点，如果我们需要实时的数据时，它是最为合适的。当然在使用过程中，我也发现了一点它的一点缺陷，不支持多线程储存（很有可能是因为我没有用好，当时时间紧迫，也没来得及去解决，如有解决方案，期望告知一二）。
@@ -91,8 +93,27 @@ class dbOperation():
 r.db("").table("").count()
 r.db("").table("").filter({"":""})
 r.table('movies').filter({rank: 1})
+r.db("Domain_fenlei").table("hangye_1").filter(r.row("hangye").ne("No Type"))    hangye不等于No Type
+
+eq等于
+ne neq不等于
+gt >
+lt <
+le <=
+ge >=
+not 非
+mod 求模
+
 r.table('movies').without('id').distinct().count()   删除重复项
 r.table('moviesUnique').orderBy('rank').limit(10)  显示前十大电影
 r.table('moviesUnique').orderBy(r.desc('rank')).limit(10)
+
+filter(r.row("last_link").ne(r.row("true_link")))  #last_link不等于true_link
+
+r.db("ALJC").table("MALINK_0301").withFields("Date")  只显示Date字段
+r.db("IP").table("Domain_Location").without("Date")  去除Date字段
+
+r.db("IP").table("Domain_Location").hasFields('city') 显示存在city字段的记录
+r.db("IP").table("Domain_Location").filter(function(user){return user.hasFields("city").not()}) 显示不存在city字段的记录
 ```
 详情请参考：[https://rethinkdb.com/docs/reql-data-exploration/](https://rethinkdb.com/docs/reql-data-exploration/)

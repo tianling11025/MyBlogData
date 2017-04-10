@@ -2,7 +2,9 @@
 title: Linux服务器入侵检测基础
 date: 2017-03-24 11:26:24
 comments: true
-tags: Linux入侵检测
+tags: 
+- linux
+- 入侵检测
 categories: 系统安全
 ---
 <blockquote class="blockquote-center">人是生而自由的，但却无往不在枷锁之中，自以为是其他一切主人的人，反而比其他一切更是奴隶</blockquote>

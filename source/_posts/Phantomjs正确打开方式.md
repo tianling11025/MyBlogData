@@ -1,9 +1,10 @@
 ---
-title: Phantomjs正确打开方式
+title: 【phantomjs系列】Phantomjs正确打开方式
 date: 2017-03-31 11:30:58
 comments: true
-tags: Phantomjs
-categories: 编程之道
+tags: 
+- Phantomjs
+categories: 爬虫技术
 ---
 <blockquote class="blockquote-center">你是如何走出人生的阴霾的？
 多走几步</blockquote>
@@ -25,43 +26,66 @@ categories: 编程之道
 #### Phantomjs Webservice
 新建test.js，写入如下代码：
 ```bash
+var system=require('system');  //get args
+var args=system.args;
+if (args.length ===2) {
+var port=Number(args[1]);
+}else{var port=8080;}
+
 var webserver = require('webserver');
-var server = webserver.create();
-var service = server.listen(8080, function(request, response) {
+var server = webserver.create()
+var service = server.listen(port, function(request, response) {
+  try{
+    var postRaw=request.postRaw;
+    var aaa=new Array();
+    aaa=postRaw.split("=");
+    var url=aaa[0];
+    var md5_url=aaa[1];
+    url=decodeURIComponent(url);
+    console.log(url); //输出传入的url
 
-  var postRaw=request.postRaw;
-  var aaa=new Array();
-  aaa=postRaw.split("=");
-  var url="http://"+aaa[0];
-  var md5_url=aaa[1];
-  console.log(url); //输出传入的url
+    //获取源码
+    // var webPage = require('webpage');
+    // var page = webPage.create();
+    // page.open(url, function (status) {
+    //   var url = page.url;
+    //   console.log('url: ' + url);  //输入获取到的目标网站title
+    // });
 
-  //获取源码
-  var webPage = require('webpage');
-  var page = webPage.create();
-  page.open(url, function (status) {
-    var url = page.url;
-    console.log('url: ' + url);  //输入获取到的目标网站title
+    //页面截图
+    var webPage = require('webpage');
+    var page = webPage.create();
+    page.viewportSize = { width: 1024, height: 768 };
+    // page.settings.resourceTimeout = 5000;//timeout
+    page.open(url, function start(status) {
+      if(status=='success'){
+       /* window.setTimeout(function(){*/
+          page.render('./image/'+md5_url+'.jpg', {format: 'jpg', quality: '100'});
+        // },1000)
+      }
+      else{
+        md5_url="error"; //没有改变全局变量的值
+        // console.log("1"+md5_url);
+      }
+      // console.log("2"+md5_url);
+      //response返回信息
+      response.status=200;
+      response.write(md5_url);
+      page.close();
+      response.close();
   });
-
-  // //页面截图
-  // var webPage = require('webpage');
-  // var page = webPage.create();
-  // page.viewportSize = { width: 1920, height: 1080 };
-  // page.open(url, function start(status) {
-  //   page.render(md5_url+'.jpg', {format: 'jpg', quality: '100'});
-  // });
-
-  //response返回信息
-  response.status=200;
-  response.write(md5_url+'.jpg');
-  response.close();
+  }
+  catch(e)
+  {
+    md5_url="error";
+    console.log('error'+e.message+'happen'+e.lineNumber+'line');
+  }
 });
 ```
 作用：处理http请求，获取url，进行截图或者获取源码操作。
 使用：
 ```bash
-phantomjs.exe test.js
+phantomjs.exe test.js 8080
 ```
 会在本地开启web服务，端口为8080。
 
@@ -71,26 +95,37 @@ phantomjs.exe test.js
 #! -*- coding:utf-8 -*-
 
 import requests
-import md5
-from multiprocessing.dummy import Process
+import hashlib
+import os
+import base64
+import sys
 
-domain_list=["thief.one"]*10
+class http_request:
+  port=8080
 
-url="http://localhost:8080"
-
-def http_request(domain):
-    m1 = md5.new()
-    m1.update(domain)
-    md5_domain=m1.hexdigest()
-
+  def __init__(self):
+    pass
+  def run(self,domain):
+    url="http://localhost:"+str(http_request.port)
+    base_domain=base64.b64encode(domain)
+    md5_domain=hashlib.md5(base_domain).hexdigest()
     payload={domain:md5_domain}
 
-    requests.post(url,data=payload)
+    if os.path.exists('./image/'+md5_domain+'.jpg')==False:  #如果不存在截图，则进程截图操作
+      try:
+        f=requests.post(url,data=payload)
+      except:
+        sys.exit()
+      image_name=f.content
+      return image_name
+    else:
+      return "exist"
 
 if __name__=="__main__":
-    for domain in domain_list:
-        t=Process(target=http_request,args=(domain,))
-        t.start()
+  cur=http_request()
+  domain_list=[""]
+  for domain in domain_list:
+    print cur.run(domain)
 
 ```
 作用：异步并发下发任务。
@@ -99,10 +134,31 @@ if __name__=="__main__":
 运行python以后，异步下发10个任务，Phantomjs服务器端接收到url并开始处理，并发处理10个任务并输入结果。
 ![](/upload_image/20170331/1.png)
 
+#### 异常处理
+
+现象：截图为黑屏
+原因：网页还没加载完，就开始截图了
+解决：在代码中open以后判断status值，判断网页是否加载完毕。
+
+现象：程序出错--windows报错
+解决：更换最新版本的phantomjs
+
+现象：内存占用过大，导致报错停止phantomjs进程
+原因：phantomjs没有释放内容
+解决：代码中open以后，要open.close();
+
+现象：没有截图成功
+原因：用了page.close，因为onloadfinished是非阻塞的，因此要将page.close放在open代码层内部。
+
 
 >转载请说明出处:[Phantomjs正确打开方式 | nMask'Blog](http://thief.one/2017/03/31/Phantomjs正确打开方式/)
 本文地址：http://thief.one/2017/03/31/Phantomjs正确打开方式/
 
+### 传送门
 
+>[【phantomjs系列】phantomjs正确打开方式](http://thief.one/2017/03/31/Phantomjs%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/)
+[【phantomjs系列】phantomjs api介绍](http://thief.one/2017/03/13/Phantomjs-Api%E4%BB%8B%E7%BB%8D/)
+[【phantomjs系列】selenium+phantomjs爬过的那些坑](http://thief.one/2017/03/01/Phantomjs%E7%88%AC%E8%BF%87%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/)
+[【phantomjs系列】selenium+phantomjs性能优化](http://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)
 
 

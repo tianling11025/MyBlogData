@@ -2,7 +2,9 @@
 title: SearchWebPath
 date: 2017-03-10 12:33:21
 comments: true
-tags: Web路径问题
+tags: 
+- Web路径问题
+- searchwebpath
 categories: 安全工具
 ---
 <blockquote class="blockquote-center">真的猛士，敢于直面惨淡的人生，敢于正视淋漓的鲜血。

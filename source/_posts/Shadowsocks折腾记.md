@@ -2,7 +2,8 @@
 title: Shadowsocks折腾记
 date: 2017-02-22 21:03:25
 comments: true
-tags: shadowsocks
+tags: 
+- shadowsocks
 categories: 技术研究
 ---
 <blockquote class="blockquote-center">技术本身也是由一个个细节拼凑而成</blockquote>

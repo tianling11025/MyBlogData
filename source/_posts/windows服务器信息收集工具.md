@@ -2,7 +2,9 @@
 title: windows服务器信息收集工具
 date: 2016-09-04 18:54:33
 comments: true
-tags: 信息收集工具
+tags: 
+- windows
+- 信息收集工具
 categories: 安全工具
 ---
 

@@ -2,7 +2,9 @@
 title: Struts2-046漏洞
 date: 2017-03-21 10:41:05
 comments: true
-tags: struts2
+tags: 
+- struts2漏洞
+- struts2 Poc
 categories: web安全
 ---
 <blockquote class="blockquote-center">屋漏偏逢连夜雨，船迟又遇打头风</blockquote>

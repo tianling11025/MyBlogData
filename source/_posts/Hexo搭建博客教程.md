@@ -2,7 +2,9 @@
 title: Hexo搭建博客教程
 date: 2017-03-03 14:47:03
 comments: true
-tags: hexo
+tags: 
+- hexo
+- 博客搭建
 categories: 技术研究
 ---
 <blockquote class="blockquote-center">所谓博客，都是孤芳自赏

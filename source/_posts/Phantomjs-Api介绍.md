@@ -1,9 +1,10 @@
 ---
-title: Phantomjs Api介绍
+title: 【phantomjs系列】Phantomjs Api介绍
 date: 2017-03-13 19:56:20
 comments: true
-tags: Phantomjs
-categories: 编程之道
+tags: 
+- Phantomjs
+categories: 爬虫技术
 ---
 
 <blockquote class="blockquote-center">晋书云：“生犀不敢烧，燃之有异香，沾衣带，人能与鬼通”</blockquote>
@@ -264,3 +265,10 @@ page.open("http://www.google.com", function start(status) {
 ```
 
 更多例子请参考：[examples](http://phantomjs.org/examples/index.html)
+
+### 传送门
+
+>[【phantomjs系列】phantomjs正确打开方式](http://thief.one/2017/03/31/Phantomjs%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/)
+[【phantomjs系列】phantomjs api介绍](http://thief.one/2017/03/13/Phantomjs-Api%E4%BB%8B%E7%BB%8D/)
+[【phantomjs系列】selenium+phantomjs爬过的那些坑](http://thief.one/2017/03/01/Phantomjs%E7%88%AC%E8%BF%87%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/)
+[【phantomjs系列】selenium+phantomjs性能优化](http://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)

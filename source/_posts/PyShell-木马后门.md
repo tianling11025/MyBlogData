@@ -2,7 +2,9 @@
 title: PyShell 木马后门
 date: 2016-09-05
 comments: true
-tags: 木马后门
+tags: 
+- 木马后门
+- pyshell
 categories: 安全工具
 ---
 

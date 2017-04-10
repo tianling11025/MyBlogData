@@ -2,7 +2,8 @@
 title: Linux常用命令
 date: 2017-03-08 20:21:20
 comments: true
-tags: linux
+tags: 
+- linux
 categories: 技术研究
 ---
 <blockquote class="blockquote-center">即使跌倒了，你要懂得抓一把沙子在手里。

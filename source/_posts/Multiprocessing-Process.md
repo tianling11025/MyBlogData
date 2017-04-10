@@ -1,8 +1,11 @@
 ---
-title: Multiprocessing.Process
+title: 【Multiprocessing系列】Process
 date: 2016-11-24 09:11:50
 comments: true
-tags: Multiprocessing
+tags: 
+- python
+- Multiprocessing
+- 多进程
 categories: 编程之道
 ---
 
@@ -93,5 +96,10 @@ if __name__ == '__main__':
     	p.join()
 ```
 
-<hr>
-更多多进程用法，请移驾:	[Python Multiprocessing](http://thief.one/2016/11/23/Python-multiprocessing/)
+### 传送门
+
+>[【Multiprocessing系列】共享资源](http://thief.one/2016/11/24/Multiprocessing%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90/)
+[【Multiprocessing系列】子进程返回值](http://thief.one/2016/11/24/Multiprocessing%E5%AD%90%E8%BF%9B%E7%A8%8B%E8%BF%94%E5%9B%9E%E5%80%BC/)
+[【Multiprocessing系列】Pool](http://thief.one/2016/11/24/Multiprocessing-Pool/)
+[【Multiprocessing系列】Process](http://thief.one/2016/11/24/Multiprocessing-Process/)
+[【Multiprocessing系列】Multiprocessing基础](http://thief.one/2016/11/23/Python-multiprocessing/)

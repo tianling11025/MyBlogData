@@ -184,19 +184,20 @@ sidebar:
 
 # Blogrolls
 links_title: 友情链接
-links_layout: block
-# links_layout: inline
+# links_layout: block
+links_layout: inline
 links: 
-  Yzf（Web渗透）: http://limbo.gift
-  Hackyzh（二进制，漏洞挖掘）: http://hackyzh.me
-  草莓（逆向，软件破解）: http://www.kongdewei.cn/
-  Jusense（安全运维）: http://jusene.me/
-  小书屋（安全书籍）: http://www.xiaoshuwu.net/
-  lxghost（安全情报）: http://www.yige.dog/
-  Mr.kua（信息安全）: https://eth.space/
-  Coco413: http://coco413.com
-
-
+  Yzf(Web渗透): http://limbo.gift
+  Hackyzh(二进制): http://hackyzh.me
+  草莓(软件破解): http://www.kongdewei.cn/
+  Jusense(安全运维): http://jusene.me/
+  小书屋(安全书籍): http://www.xiaoshuwu.net/
+  lxghost(安全情报): http://www.yige.dog/
+  血梦博客(网络安全): http://www.hacksec.cn
+  Mr.kua(信息安全): https://eth.space/
+  Coco413(信息安全): http://coco413.com
+  warmeng(web安全): http://www.warmeng.com
+  chenjian(python开发): https://o-my-chenjian.com/
   
 
 

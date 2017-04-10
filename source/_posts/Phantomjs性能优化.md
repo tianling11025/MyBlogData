@@ -1,9 +1,10 @@
 ---
-title: Selenium+Phantomjs性能优化
+title: 【phantomjs系列】Selenium+Phantomjs性能优化
 date: 2017-03-01 14:39:01
 comments: true
-tags: Phantomjs
-categories: 编程之道
+tags: 
+- Phantomjs
+categories: 爬虫技术
 ---
 <blockquote class="blockquote-center">人生之路需要坚持，技术之道亦然</blockquote>
 写过爬虫的朋友应该都用过一个无头浏览器--phantomjs，使用它的原因很简单明了：能够高度模拟浏览器访问（对抗反爬虫），无头浏览（可以节省性能）。Phantomjs应用最广泛的应该还是用来执行js代码，比如写一个js脚本，利用phantomjs去执行，可以写一个页面截图、网页性能测试等等功能的。
@@ -287,3 +288,11 @@ if __name__=="__main__":
 ### 替代方案
 以上的优化方案并不能从根本上解决phantomjs性能问题，更好的替代方案请移步：
 [Phantomjs正确打开方式](http://thief.one/2017/03/31/Phantomjs正确打开方式/)
+
+
+### 传送门
+
+>[【phantomjs系列】phantomjs正确打开方式](http://thief.one/2017/03/31/Phantomjs%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/)
+[【phantomjs系列】phantomjs api介绍](http://thief.one/2017/03/13/Phantomjs-Api%E4%BB%8B%E7%BB%8D/)
+[【phantomjs系列】selenium+phantomjs爬过的那些坑](http://thief.one/2017/03/01/Phantomjs%E7%88%AC%E8%BF%87%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/)
+[【phantomjs系列】selenium+phantomjs性能优化](http://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)

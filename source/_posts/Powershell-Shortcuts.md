@@ -2,7 +2,8 @@
 title: Powershell Shortcuts
 date: 2017-03-27 11:50:52
 comments: true
-tags: Powershell
+tags: 
+- Powershell
 categories: 系统安全
 ---
 <blockquote class="blockquote-center">我们坚持一件事情，并不是因为这样做了会有效果，而是坚信，这样做是对的——哈维尔</blockquote>
@@ -38,8 +39,21 @@ win+R：regedit
 #### 最终效果
 选择一个文件，右键可以看到open_powershell，选择后便会在此目录下打开一个powershell。
 
-
-
+### 批处理
+powershell
+```bash
+reg add HKEY_CLASSES_ROOT\Directory\shell\powershell\command /t REG_EXPAND_SZ /d "C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe"
+reg add HKEY_CLASSES_ROOT\Folder\shell\powershell\command /t REG_EXPAND_SZ /d "C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe"
+reg add HKEY_CLASSES_ROOT\*\shell\powershell\command /t REG_EXPAND_SZ /d "C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe"
+```
+cmd
+```bash
+@echo off
+reg add "HKCR\*\shell\ms-dos" /ve /d 打开DOS命令 /f
+reg add "HKCR\*\shell\ms-dos\command" /ve /d "cmd.exe /k cd %%1" /f
+reg add "HKCR\Folder\shell\ms-dos" /ve /d 打开DOS命令 /f
+reg add "HKCR\Folder\shell\ms-dos\command" /ve /d "cmd.exe /k cd %%1" /f
+```
 
 转载请说明出处:
 [Powershell Shortcuts | nMask'Blog](http://thief.one/2017/03/27/Powershell-Shortcuts/)

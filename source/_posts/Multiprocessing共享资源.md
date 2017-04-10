@@ -1,8 +1,11 @@
 ---
-title: Multiprocessing共享资源
+title: 【Multiprocessing系列】共享资源
 date: 2016-11-24 10:53:41
 comments: true
-tags: Multiprocessing
+tags: 
+- python
+- Multiprocessing
+- 多进程
 categories: 编程之道
 ---
 　　在使用多进程的过程中，最好不要使用共享资源，如果非得使用，则请往下看。Multiprocessing类中共享资源可以使用3种方式，分别是Queue，Array，Manager。这三个都是Multiprocessing自带的组件，使用起来也非常方便。注意：普通的全局变量是不能被子进程所共享的，只有通过Multiprocessing组件构造的数据结构可以被共享。
@@ -105,6 +108,10 @@ if __name__=="__main__":
 说明：与linux版本代码相比，windows下代码将lists的引用放在了main()之后，因为windows下只能在main函数下引用多进程。而在实例化子进程时，必须把Manager对象传递给子进程，否则lists无法被共享，而这个过程会消耗巨大资源，因此性能很差。
 缺点：速度很慢，因此在windows下想要提前结束所有进程，可以使用获取返回值的方式，参考[Multiprocessing子进程返回值](http://thief.one/2016/11/24/Multiprocessing子进程返回值)
 
+### 传送门
 
-<hr>
-更多多进程用法，请移驾:	[Python Multiprocessing](http://thief.one/2016/11/23/Python-multiprocessing/)
+>[【Multiprocessing系列】共享资源](http://thief.one/2016/11/24/Multiprocessing%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90/)
+[【Multiprocessing系列】子进程返回值](http://thief.one/2016/11/24/Multiprocessing%E5%AD%90%E8%BF%9B%E7%A8%8B%E8%BF%94%E5%9B%9E%E5%80%BC/)
+[【Multiprocessing系列】Pool](http://thief.one/2016/11/24/Multiprocessing-Pool/)
+[【Multiprocessing系列】Process](http://thief.one/2016/11/24/Multiprocessing-Process/)
+[【Multiprocessing系列】Multiprocessing基础](http://thief.one/2016/11/23/Python-multiprocessing/)

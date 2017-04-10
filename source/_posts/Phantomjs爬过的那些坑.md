@@ -1,9 +1,10 @@
 ---
-title: Selenium+Phantomjs爬过的那些坑
+title: 【phantomjs系列】Selenium+Phantomjs爬过的那些坑
 date: 2017-03-01 16:37:38
 comments: true
-tags: Phantomjs
-categories: 编程之道
+tags: 
+- Phantomjs
+categories: 爬虫技术
 ---
 <blockquote class="blockquote-center">技术的探索就是不断提出假设，然后不断去推翻它</blockquote>
 最近在跟同事使用phantomjs编写爬虫时，遇到了很多有意思的坑，我们在分析了一番后得出了一些结论以及解决方案，此分享一下。
@@ -70,6 +71,12 @@ http://www.zzxzxyey.com/
 每次get后，保存current_url的值，待下一次请求后与此值相比较，如果一样，则说明状态没有被改变。
 （当然，有些特殊情况除外，比如每次get的网站都是同一个，或者批量get的网站中有相同地址的。）
 
-如遇到Phantomjs性能优化问题，请移步[Phantomjs性能优化](http://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)
+#### 超神法
+每次get一个目标url以后，再去访问下get(“about:blank”)，重置下状态。
 
-更好的Phantomjs使用方案，请移步：[Phantomjs正确打开方式](http://thief.one/2017/03/31/Phantomjs正确打开方式/)
+### 传送门
+
+>[【phantomjs系列】phantomjs正确打开方式](http://thief.one/2017/03/31/Phantomjs%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/)
+[【phantomjs系列】phantomjs api介绍](http://thief.one/2017/03/13/Phantomjs-Api%E4%BB%8B%E7%BB%8D/)
+[【phantomjs系列】selenium+phantomjs爬过的那些坑](http://thief.one/2017/03/01/Phantomjs%E7%88%AC%E8%BF%87%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/)
+[【phantomjs系列】selenium+phantomjs性能优化](http://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)

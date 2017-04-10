@@ -2,7 +2,9 @@
 title: Python多线程鸡年不鸡肋
 date: 2017-02-17 13:22:14
 comments: true
-tags: python多线程
+tags: 
+- python
+- 多线程
 categories: 编程之道
 ---
 <blockquote class="blockquote-center">术业有专攻，如是而已</blockquote>
@@ -265,6 +267,26 @@ for t in threads:
 ```
 以上两种方式皆可以，本人更喜欢用下面那种方式。
 
+### 线程池
+```bash
+import threadpool
+def ThreadFun(arg1,arg2):
+    pass
+def main():
+    device_list=[object1,object2,object3......,objectn]#需要处理的设备个数
+    task_pool=threadpool.ThreadPool(8)#8是线程池中线程的个数
+    request_list=[]#存放任务列表
+    #首先构造任务列表
+    for device in device_list:
+        request_list.append(threadpool.makeRequests(ThreadFun,[((device, ), {})]))
+    #将每个任务放到线程池中，等待线程池中线程各自读取任务，然后进行处理，使用了map函数，不了解的可以去了解一下。
+    map(task_pool.putRequest,request_list)
+    #等待所有任务处理完成，则返回，如果没有处理完，则一直阻塞
+    task_pool.poll()
+if __name__=="__main__":
+    main()
+
+```
 
 *多进程问题，可以赶赴[Python多进程](http://thief.one/2016/11/23/Python-multiprocessing/)现场，其他关于多线程问题，可以下方留言讨论*
 
