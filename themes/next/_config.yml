@@ -29,10 +29,7 @@ canonical: true
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  collect_url: /SecWeb/
-  # technical: /categories/技术交流/
-  # tools: /categories/安全工具/
-  # biancheng: /categories/编程之道/
+  collect_url: /SecWeb
   # about: /about
   message: /message
   archives: /archives
