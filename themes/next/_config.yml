@@ -256,8 +256,8 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-# duoshuo_shortname: thief
-# duoshuo_hotartical: False
+duoshuo_shortname: thief
+duoshuo_hotartical: False
 
 # Disqus
 #disqus_shortname:
@@ -290,11 +290,11 @@ mathjax:
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
-# duoshuo_info:
-#   ua_enable: true
-#   admin_enable: true
-#   user_id: 6326656503453320000
-  # admin_nickname: one thief
+duoshuo_info:
+  ua_enable: true
+  admin_enable: true
+  user_id: 6326656503453320000
+  admin_nickname: one thief
 
 
 # Facebook SDK Support.
