@@ -7,7 +7,7 @@ comments: true
 
 ### 安全导航
 
->[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/index.htm)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)
+>[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/index.htm)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　[SecNavi导航](http://coco413.com/SecNavi/)
 
 ### 安全技术论坛
 >[FreeBuf](http://www.freebuf.com/)　　[阿里先知](https://xianzhi.aliyun.com/forum/)　　[Wiki](http://wiki.ioin.in/)　　[安全客](http://bobao.360.cn/)　　[Tools安全](https://www.t00ls.net/)　　[70Sec](https://www.70sec.com/)　　[看雪论坛](http://www.pediy.com/)　　[PKAV](http://www.pkav.net/)　　[四叶草](http://lab.seclover.com/)　　[吾爱破解](http://www.52pojie.cn/)　　[独特论坛](http://www.52pojie.cn/)　　[Kali中文网](http://www.kali.org.cn/)　　[Metasploit](http://www.metasploit.cn/)　　[黑帽中文网](http://bbs.chinablackhat.com/)　　[91ri](http://www.91ri.org/)　　[中国云安](http://www.yunsec.net/)　　[黑吧安全网](http://www.myhack58.com/)　　[黑基网](http://www.hackbase.com/)　　[红黑联盟](http://www.2cto.com/)　　[Hack80](http://www.hack80.com/)　　[安全焦点网](http://www.chncto.com/)　　[远景论坛](http://bbs.pcbeta.com/)　　[巴比特](http://8btc.com/)　　[SecWiki](https://www.sec-wiki.com/)　　[黑苹果论坛](https://imac.hk/)　　[E安全](https://www.easyaq.com/)　　[安全盒子](http://www.secbox.cn/)　　[安全脉搏](https://www.secpulse.com/?navisec)　　[安全社区](http://www.secquan.org)　　[爱尖刀](http://www.ijiandao.com/)　
@@ -26,16 +26,16 @@ comments: true
 >[cmd5](http://www.cmd5.com/)　　[somd5](http://www.somd5.com/)　　[xmd5](http://xmd5.com/)　　[hash查询](http://cracker.offensive-security.com/index.php)　　a href="http://tool.chacuo.net/cryptdes">DES/AES加密解密　　[PHP解密](http://dezend.qiling.org/member/register.html)　　[一点寒CMS识别](http://whatweb.yidianhan.com/)　　[BugScanner CMS指纹识别](http://whatweb.bugscaner.com/look/)　　[在线编码转换](http://www.jb51.net/tools/zhuanhuan.htm)　　[Base64解码](http://www1.tc711.com/tool/BASE64.htm)　　[beJson](http://www.bejson.com/)　
 
 #### 程序员相关
->[程序员工具](http://tool.lu/)
+>[程序员工具](http://tool.lu/)　　[Linux命令大全](http://man.linuxde.net/)
 
 #### 在线扫描
->[Webscan(旁站、C段)](http://www.webscan.cc/)　　[旁站查询](http://www.yougetsignal.com/tools/web-sites-on-web-server/)　　[网站CDN查询](http://www.cdnplanet.com/tools/cdnfinder/)　　[ClouFlare](http://www.crimeflare.com/cfs.html#box)　　[VirScan(病毒检测)](http://www.virscan.org/)　　[正则测试](http://regexr.com/)　　[Unix时间转换](http://www.epochconverter.com/)　　[邮件伪造](http://tool.chacuo.net/mailanonymous/)　　[一次性邮件](https://10minutemail.org/)　　[基站定位](https://www.opengps.cn/)　　[百度图片识别](http://image.baidu.com/?fr=shitu)　　[百度高级搜索](https://www.baidu.com/gaoji/advanced.html)
+>[Webscan(旁站、C段)](http://www.webscan.cc/)　　[旁站查询](http://www.yougetsignal.com/tools/web-sites-on-web-server/)　　[网站CDN查询](http://www.cdnplanet.com/tools/cdnfinder/)　　[ClouFlare](http://www.crimeflare.com/cfs.html#box)　　[VirScan(病毒检测)](http://www.virscan.org/)　　[正则测试](http://regexr.com/)　　[Unix时间转换](http://www.epochconverter.com/)　　[邮件伪造](http://tool.chacuo.net/mailanonymous/)　　[一次性邮件](https://10minutemail.org/)　　[基站定位](https://www.opengps.cn/)　　[百度图片识别](http://image.baidu.com/?fr=shitu)　　[百度高级搜索](https://www.baidu.com/gaoji/advanced.html)　　[文件md5检验](http://www.cnfree.org/tools/hash.php)
 
 #### 企业信息查询
->[天眼查](http://www.tianyancha.com/)　
+>[天眼查](http://www.tianyancha.com/)　　[专利申请查询](http://www.soopat.com/)
 
 ### 安全搜索引擎
->[钟馗之眼](https://www.zoomeye.org/)　　[censys](https://www.censys.io/)　　[shodan](https://www.shodan.io/)　　[NOSEC大数据安全协作平台](https://nosec.org)　　[全球DNS搜索引擎](https://www.dnsdb.io/zh-cn)　
+>[钟馗之眼](https://www.zoomeye.org/)　　[censys](https://www.censys.io/)　　[shodan](https://www.shodan.io/)　　[NOSEC大数据安全协作平台](https://nosec.org)　　[全球DNS搜索引擎](https://www.dnsdb.io/zh-cn)　　[FOFA](https://fofa.so/)　　[谛听](http://www.ditecting.com/)　　[傻蛋](https://www.oshadan.com/)
 
 ### 域名注册商
 >[dynadot域名注册查询](https://www.dynadot.com/)　　[GoDaddy](https://sg.godaddy.com/)　　[阿里云万网](https://wanwang.aliyun.com)
@@ -44,7 +44,7 @@ comments: true
 >[stackoverflow](http://stackoverflow.com/)　　[伯乐在线](http://www.jobbole.com/)　　[深度开源](http://www.open-open.com/)　　[segmentfault](https://segmentfault.com/)　　[精易论坛](http://bbs.125.la/)　　[开源中国oschina](https://www.oschina.net/)　　[CSDN](http://blog.csdn.net/)　　[chinaUnix](http://bbs.chinaunix.net/)　　[推酷](http://www.tuicool.com/)　　[爱开源](http://www.aikaiyuan.com/)
 
 ### 圈内Blog
->[Seay](http://www.cnseay.com/)　　[长亭科技](http://paper.seebug.org/)　　[lostwolf’s Blog](http://wolvez.club/)　　[暗月博客](http://www.moonsec.com/)　　[小马’s Blog](http://www.i0day.com)　　[小残’s Blog](https://www.exehack.net/)　　[廖雪峰](http://www.liaoxuefeng.com/)　　[李劼杰](http://www.lijiejie.com/)　　[san-yun](http://san-yun.iteye.com/)　　[一只猿](http://www.92ez.com/)　　[WHEREISK0SHL](http://whereisk0shl.top/)　　[余弦](http://evilcos.me/)　　[小书屋](http://www.xiaoshuwu.net/)　　[yigegou](http://www.yige.dog/)　　[虾米](http://gdd.gd/)　　[URLTeam](https://www.urlteam.org/)　　[shareditor](http://www.shareditor.com/)　　[stardustsky](http://www.stardustsky.net/)
+>[Seay](http://www.cnseay.com/)　　[长亭科技](http://paper.seebug.org/)　　[lostwolf’s Blog](http://wolvez.club/)　　[暗月博客](http://www.moonsec.com/)　　[小马’s Blog](http://www.i0day.com)　　[小残’s Blog](https://www.exehack.net/)　　[廖雪峰](http://www.liaoxuefeng.com/)　　[李劼杰](http://www.lijiejie.com/)　　[san-yun](http://san-yun.iteye.com/)　　[一只猿](http://www.92ez.com/)　　[WHEREISK0SHL](http://whereisk0shl.top/)　　[余弦](http://evilcos.me/)　　[小书屋](http://www.xiaoshuwu.net/)　　[yigegou](http://www.yige.dog/)　　[虾米](http://gdd.gd/)　　[URLTeam](https://www.urlteam.org/)　　[shareditor](http://www.shareditor.com/)　　[stardustsky](http://www.stardustsky.net/)　　[Mrxn'Blog](https://www.mrxn.net/)　　[BlBana'Blog](http://drops.blbana.cc/)
 
 ### Python社区
 >[python中文社区](http://www.pystyle.com/)　　[python豆瓣小组](https://www.douban.com/group/python/)　　[玩蛇网](http://www.iplaypy.com/)　　[pythontab](http://www.pythontab.com/)　　[pythonclub](http://www.pythonclub.org/)　　[pythonhackers](http://pythonhackers.com)　　[python-nmap](http://xael.org/pages/python-nmap-en.html)　　[python机器学习](http://www.jianshu.com/p/08ca72a0cf14)
@@ -59,18 +59,15 @@ comments: true
 >[70sec(翻墙)](http://s.70sec.com/)　　[pwned](https://haveibeenpwned.com/)
 
 ### 网络资源
->[MaxMind(ip数据库下载平台)](https://dev.maxmind.com/)　　[Metasploit pkg下载](http://osx.metasploit.com/)　　[python资源(lostwolf)](http://wolvez.club/books/)　　[花瓣（图片素材）](http://huaban.com/)　　
-
-### 技术文档
->[Selenium](http://selenium-python-zh.readthedocs.io/en/latest/index.html)　　[Rethinkdb](https://rethinkdb.com/)　　[phantomjs](http://phantomjs.org/)　　[electron中文文档](https://www.gitbook.com/book/weishuai/electron-/details)　
+>[MaxMind(ip数据库下载平台)](https://dev.maxmind.com/)　　[Metasploit pkg下载](http://osx.metasploit.com/)　　[python资源(lostwolf)](http://wolvez.club/books/)　　[花瓣（图片素材）](http://huaban.com/)　　[hexo-theme](https://hexo.io/themes/)　
 
 ### APi商城
 >[百度APIStore](http://apistore.baidu.com/)　　[聚合数据](https://www.juhe.cn/)　　[淘宝开放平台](http://open.taobao.com/)　　[必应APi](https://datamarket.azure.com/dataset/5BA839F1-12CE-4CCE-BF57-A49D98D29A44)　　[微信公众号](https://qy.weixin.qq.com/)　　[SendCloud](http://sendcloud.sohu.com)　　[腾讯OCR识别](http://mta.qq.com/mta/ctr_index/ocr)　　[阿里绿网](https://www.aliyun.com/yundun/cs?spm=5176.bbsr242678.0.0.3WzFpE)　　[HaoService数据平台](http://www.haoservice.com/)　　[e览网](http://urls.elanw.com/)　　[91cha](http://www.91cha.com/)　　[javascript Api](https://developer.mozilla.org/zh-CN/docs/Web/API)　
 
 ### 国内镜像
->[taobao npm镜像](https://npm.taobao.org/)
+>[taobao npm镜像](https://npm.taobao.org/)　　[网易开源镜像站](http://mirrors.163.com/)　　[搜狐开源镜像站](http://mirrors.sohu.com/)　　[北京交通大学](http://mirror.bjtu.edu.cn/cn/)　　[兰州大学](http://mirror.lzu.edu.cn/)　　[厦门大学](http://mirrors.xmu.edu.cn/)　　[上海交通大学](http://ftp.sjtu.edu.cn/)　　[清华大学](http://mirrors.tuna.tsinghua.edu.cn/)　　[清华大学Ipcv4](http://mirrors.4.tuna.tsinghua.edu.cn/)　　[中国科学技术大学](http://mirrors.ustc.edu.cn/ )　　[西南大学](http://linux.swu.edu.cn/swudownload/)　　[泰安移动](http://mirrors.ta139.com/)　　[东北大学](http://mirror.neu.edu.cn/)　　[浙江大学](http://mirrors.zju.edu.cn/)　　[东软信息学院](http://mirrors.neusoft.edu.cn/)
 
-### 技术软件产品
->[shellter](https://www.shellterproject.com/)　　[网易蜂巢](https://c.163.com/)　　[Iftttt(软件整合)](https://ifttt.com/discover)　　[LeanCloud](https://leancloud.cn/)　　[daocloud](https://www.daocloud.io/)　　[ngrok(内网转发)](https://www.ngrok.cc/)　　[影梭(翻墙神器)](http://www.iyingsuo.com/help.html)　　[百度云加速](http://su.baidu.com/)　　[pytorch](http://pytorch.org/)　　[electron](https://electron.atom.io/)
+### 技术文档与产品
+>[shellter](https://www.shellterproject.com/)　　[网易蜂巢](https://c.163.com/)　　[Iftttt(软件整合)](https://ifttt.com/discover)　　[LeanCloud](https://leancloud.cn/)　　[daocloud](https://www.daocloud.io/)　　[ngrok(内网转发)](https://www.ngrok.cc/)　　[影梭(翻墙神器)](http://www.iyingsuo.com/help.html)　　[百度云加速](http://su.baidu.com/)　　[pytorch](http://pytorch.org/)　　[electron](https://electron.atom.io/)　　[Selenium](http://selenium-python-zh.readthedocs.io/en/latest/index.html)　　[Rethinkdb](https://rethinkdb.com/)　　[phantomjs](http://phantomjs.org/)　　[electron中文文档](https://www.gitbook.com/book/weishuai/electron-/details)　　[celery](http://docs.jinkan.org/docs/celery/index.html)　　[casperjs](http://casperjs.org/)　　[errbot聊天机器人](http://errbot.io/en/latest/)　　[typora-MarkDown工具](https://typora.io/)　　[Docker](https://www.docker.com/get-docker)　　[百度脑图](http://naotu.baidu.com/)
 
 
