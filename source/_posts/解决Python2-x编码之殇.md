@@ -1,5 +1,5 @@
 ---
-title: 解决Python2.x编码之殇
+title: Python编码之殇
 date: 2017-02-16 12:55:57
 comments: true
 tags: 
@@ -247,3 +247,11 @@ print b
 
 *　　为了能够让您重视，我不得不再次重申：解决python2.x编码问题的关键，在于要明白无论从哪里来的内容，在python内部流通时，都应该先转换为unicode。（python3.x在这方面做了改进，并取得了很好的效果）*
 
+
+### 传送门
+
+[Python编码之殇续集](http://thief.one/2017/04/14/1/)
+
+
+>转载请说明出处:[Python编码之殇|nMask'Blog](http://thief.one/2017/02/16/%E8%A7%A3%E5%86%B3Python2-x%E7%BC%96%E7%A0%81%E4%B9%8B%E6%AE%87/)
+本文地址：http://thief.one/2017/02/16/解决Python2-x编码之殇/

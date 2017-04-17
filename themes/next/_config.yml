@@ -29,6 +29,7 @@ canonical: true
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
+  count: /count
   collect_url: /SecWeb
   # about: /about
   message: /message
@@ -253,7 +254,7 @@ mathjax:
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: d22cd975ccc2d560e0a480fec5629325
 
 # Duoshuo ShortName
 duoshuo_shortname: thief
@@ -412,7 +413,6 @@ images: images
 version: 5.0.1
 
 since: 2016  ##建站时间
-# baidu_analytics: d22cd975ccc2d560e0a480fec5629325  #百度统计
 
 google_site_verification: p9ZQcLlzhS3CvgOzUqxYASnD-7EbtZe4qW16dXC2Bjc
 
