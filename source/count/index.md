@@ -10,15 +10,16 @@ comments: false
 <script>AV.initialize("z4gJQDYWtJaYDKAY3kuPtn2i-gzGzoHsz", "NPG4o0CWzLFqSTL94JmNAm7X");</script>
 
 <script type="text/javascript">
+  var num=20 //最终只返回20条结果
   var time=0
   var title=""
   var url=""
   var query = new AV.Query('Counter');//表名
   query.notEqualTo('id',0); //id不为0的结果
   query.descending('time'); //结果按阅读次数降序排序
-  query.limit(20);  //最终只返回10条结果
+  query.limit(num);  
   query.find().then(function (todo) {
-    for (var i=0;i<10;i++){ 
+    for (var i=0;i<num;i++){ 
       // console.log(todo[i]);
       var result=todo[i].attributes;
       time=result.time;  //阅读次数
