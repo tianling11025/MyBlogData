@@ -1,5 +1,5 @@
 ---
-title: Python编码之殇
+title: Python2编码之殇
 date: 2017-02-16 12:55:57
 comments: true
 tags: 
@@ -250,8 +250,9 @@ print b
 
 ### 传送门
 
-[Python编码之殇续集](http://thief.one/2017/04/14/1/)
+[Python2编码之殇续集](http://thief.one/2017/04/14/1/)
+[Python3编码之美](http://thief.one/2017/04/18/1/)
 
 
->转载请说明出处:[Python编码之殇|nMask'Blog](http://thief.one/2017/02/16/%E8%A7%A3%E5%86%B3Python2-x%E7%BC%96%E7%A0%81%E4%B9%8B%E6%AE%87/)
+>转载请说明出处:[Python2编码之殇|nMask'Blog](http://thief.one/2017/02/16/%E8%A7%A3%E5%86%B3Python2-x%E7%BC%96%E7%A0%81%E4%B9%8B%E6%AE%87/)
 本文地址：http://thief.one/2017/02/16/解决Python2-x编码之殇/
