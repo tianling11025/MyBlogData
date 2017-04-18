@@ -28,7 +28,7 @@ comments: false
       // console.log(title);
       // console.log(url);
       // console.log(time);
-      var content="<p>"+"<font color='#0477ab'>"+"【阅读次数:"+time+"】"+"<a href='"+"http://thief.one"+url+"'>"+title+"</font>"+"</a>"+"</p>";
+      var content="<p>"+"【阅读次数:"+time+"】"+"<a href='"+"http://thief.one"+url+"'>"+"<font color='#0477ab'>"+title+"</font>"+"</a>"+"</p>";
       // document.write("<a href='"+"http://thief.one/"+url+"'>"+title+"</a>"+"    Readtimes:"+time+"<br>");
       document.getElementById("heheda").innerHTML+=content
     }
