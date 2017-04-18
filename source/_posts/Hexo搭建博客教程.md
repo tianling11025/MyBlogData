@@ -185,6 +185,39 @@ git clone https://github.com/iissnan/hexo-theme-next.git（主题的地址）
 ```
 参考：https://neveryu.github.io/2016/09/30/hexo-next-two/
 
+#### 增加阅读排行统计页面
+首先我们可以使用leancloud来统计页面阅读数量，以及储存这些信息，然后通过leancloud提供的api编写js脚本来获取阅读数量信息，并展示在页面上。
+首先新建一个page页面，hexo new page "",然后编辑此.md文件，写下：
+```bash
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+
+<script>AV.initialize("", "");</script> //需要写上leancloud的key
+
+<script type="text/javascript">
+  var time=0
+  var title=""
+  var url=""
+  var query = new AV.Query('Counter');//表名
+  query.notEqualTo('id',0); //id不为0的结果
+  query.descending('time'); //结果按阅读次数降序排序
+  query.limit(20);  //最终只返回10条结果
+  query.find().then(function (todo) {
+    for (var i=0;i<10;i++){ 
+      var result=todo[i].attributes;
+      time=result.time;  //阅读次数
+      title=result.title; //文章标题
+      url=result.url;     //文章url
+      var content="<p>"+"<font color='#0477ab'>"+"【阅读次数:"+time+"】"+"<a href='"+"http://thief.one"+url+"'>"+title+"</font>"+"</a>"+"</p>";
+      // document.write("<a href='"+"http://thief.one/"+url+"'>"+title+"</a>"+"    Readtimes:"+time+"<br>");
+      document.getElementById("heheda").innerHTML+=content
+    }
+  }, function (error) {
+    console.log("error");
+  });
+</script>
+```
+最终的效果查看：http://thief.one/count
+
 ### 报错解决
 
 #### （一）Deployer not found: git

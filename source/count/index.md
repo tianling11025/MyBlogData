@@ -1,8 +1,9 @@
 ---
 comments: false
 ---
+<blockquote class="blockquote-center">琅琊榜首，江左梅郎</blockquote>
 
-<p id="heheda"><font size="4">阅读琅琊榜Top10：<br><br></font></p>
+<p id="heheda"><font size="4">阅读琅琊榜Top20：<br><br></font></p>
 
 <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
 
@@ -15,7 +16,7 @@ comments: false
   var query = new AV.Query('Counter');//表名
   query.notEqualTo('id',0); //id不为0的结果
   query.descending('time'); //结果按阅读次数降序排序
-  query.limit(10);  //最终只返回10条结果
+  query.limit(20);  //最终只返回10条结果
   query.find().then(function (todo) {
     for (var i=0;i<10;i++){ 
       // console.log(todo[i]);
@@ -26,7 +27,7 @@ comments: false
       // console.log(title);
       // console.log(url);
       // console.log(time);
-      var content="<p>"+"【阅读次数:"+time+"】"+"<a href='"+"http://thief.one"+url+"'>"+"<font color='#0477ab'>"+title+"</font>"+"</a>"+"</p>";
+      var content="<p>"+"<font color='#0477ab'>"+"【阅读次数:"+time+"】"+"<a href='"+"http://thief.one"+url+"'>"+title+"</font>"+"</a>"+"</p>";
       // document.write("<a href='"+"http://thief.one/"+url+"'>"+title+"</a>"+"    Readtimes:"+time+"<br>");
       document.getElementById("heheda").innerHTML+=content
     }
