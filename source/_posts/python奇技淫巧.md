@@ -1,0 +1,417 @@
+---
+title: python奇技淫巧
+date: 2017-04-19 10:41:52
+comments: true
+tags:
+- python
+- python奇技淫巧
+categories: 编程之道
+permalink: 01
+---
+<blockquote class="blockquote-center">叶落下了思念，风摇曳那些岁岁年年</blockquote>
+　　本文用作记录，在使用python过程中遇到的一些奇技淫巧，有些代码是本人所写，有些则是python内置函数，有些则取之互联网。在此记录，只为备份以及遗忘时方便查找。
+　　本文将会继续更新，内容仅限记录一些常用好用却又永远记不住的代码或者模块。
+<!--more -->
+
+### 控制台操作
+控制台不闪退
+```bash
+os.system('pause') 
+```
+获取控制台大小
+```bash
+rows, columns = os.popen('stty size', 'r').read().split()
+```
+#### 输入输出控制
+解决输入提示中文乱码问题
+```bash
+raw_input(unicode('请输入文字','utf-8').encode('gbk'))
+```
+格式化输出
+```bash
+print a.prettify()
+```
+接受多行输入
+```bash
+text=""
+while 1:
+    data=raw_input(">>")
+    if data.strip()=="stop":
+        break
+    text+="%s\n" % data
+print text
+---------------------------
+>>1
+>>2
+>>3
+>>stop
+1
+2
+3
+```
+同行输出
+```bash
+Print '%s' % a,
+Print '%s \r' % a
+```
+标准输入输出
+```bash
+sys.stdout.write("input") 标准输入
+sys.stdout.flush() 刷新缓冲区
+```
+print的功能与sys.stdout.write类似，因为2.x中print默认就是将输出指定到标准输出中（sys.stdout)。
+#### 颜色控制
+控制台颜色控制(适用于windows)
+```bash
+WConio.textcolor(WConio.YELLOW)
+print "yellow"
+WConio.textcolor(WConio.BLUE)
+print "blue"
+```
+输出颜色控制(全平台)
+```bash
+red = '\033[1;31m'
+green = '\033[1;32m'
+yellow = '\033[1;33m'
+white = '\033[1;37m'
+reset = '\033[0m’
+
+print red+"color is red"+reset
+print green+"color is green"+reset
+```
+#### 进度条控制
+方案一
+```bash
+from __future__ import division
+import sys,time
+j = '#'
+for i in range(1,61):
+    j += '#'
+    sys.stdout.write(str(int((i/60)*100))+'%  ||'+j+'->'+"\r")
+    sys.stdout.flush()
+    time.sleep(0.1)
+```
+方案二
+```bash
+import sys
+import time
+for i in range(1,61):
+    sys.stdout.write('#'+'->'+"\b\b")
+    sys.stdout.flush()
+    time.sleep(0.5)
+```
+方案三
+```bash
+from progressbar import *
+import time
+import os
+rows, columns = os.popen('stty size', 'r').read().split() #获取控制台size    
+console_width=int(columns)
+total = 10
+progress = ProgressBar()
+
+def test():
+    '''
+    进度条函数，记录进度
+    '''
+    for i in progress(range(total)):
+        test2()
+
+def test2():
+    '''
+    执行函数，输出结果
+    '''
+    content="nMask'Blog is http://thief.one"
+    sys.stdout.write("\r"+content+" "*(console_width-len(content)))
+    time.sleep(1)
+    sys.stdout.flush()
+
+test()
+
+```
+更多高级用法可以使用progressbar模块。
+### 系统操作
+#### 系统信息
+获取python安装路径
+```bash
+from distutils.sysconfig import get_python_lib
+print get_python_lib
+```
+获取当前时间
+```bash
+c=time.ctime()
+#自定义格式输出
+ISOTIMEFORMAT=’%Y-%m-%d %X’
+time.strftime( ISOTIMEFORMAT, time.localtime() )
+```
+查看系统环境变量
+```bash
+os.environ["PATH"] 
+```
+获取系统磁盘
+```bash
+os.popen("wmic VOLUME GET Name")
+```
+获取当前路径(包括当前py文件名)
+```bash
+os.path.realpath(__file__)
+```
+当前平台使用的行终止符
+```bash
+os.linesep
+```
+获取终端大小
+```bash
+rows, columns = os.popen('stty size', 'r').read().split()
+#python3以后存在可以使用os
+os.get_termial_size()
+```
+#### 退出程序
+
+* return：返回函数的值，并退出函数。
+* exit()：直接退出。
+* sys.exit(): 引发一个SystemExit异常，若没有捕获错误，则python程序直接退出；捕获异常后，可以做一些额外的清理工作。
+* sys.exit(0):为正常退出，其他（1-127）为不正常，可抛异常事情供捕获。（一般用于主线程中退出程序）
+* os._exit(0): 直接退出python程序，其后的代码也不会执行。（一般用于线程中退出程序）
+
+### 网络操作
+域名解析为ip
+```bash
+ip= socket.getaddrinfo(domain,'http')[0][4][0]
+```
+获取服务器版本信息
+```bash
+sUrl = 'http://www.163.com'
+sock = urllib2.urlopen(sUrl)
+sock.headers.values()
+```
+### 文件操作
+输出一个目录下所有文件名称
+```bash
+def search(paths):
+    if os.path.isdir(paths):  #如果是目录
+          files=os.listdir(paths)  #列出目录中所有的文件
+          for i in files:
+               i=os.path.join(paths,i)  #构造文件路径
+               search(i)           #递归
+          elif os.path.isfile(paths): #如果是文件
+               print paths   #输出文件名
+```
+文件查找
+```bash
+import glob
+print glob.glob(r"E:/*.txt")     #返回的是一个列表
+查找文件只用到三个匹配符：”*”, “?”, “[]“
+”*”匹配0个或多个字符；
+”?”匹配单个字符；
+”[]“匹配指定范围内的字符，如：[0-9]匹配数字。
+```
+查找指定名称的文件夹的路径
+```bash
+def search(paths,file_name,tag,lists):
+    if os.path.isdir(paths):  #如果是目录
+        if file_name==tag:    #如果目录名称为tag
+            lists.append(paths) #将该路径添加到列表中
+        else:                 #如果目录名称不为tag
+            try:
+                files_list=os.listdir(paths)  #列出目录中所有的文件
+                for file_name in files_list:
+                    path_new=os.path.join(paths,file_name)  #构造文件路径
+                    search(path_new,file_name,tag,lists)    #递归
+            except: #遇到特殊目录名时会报错
+                pass
+
+    elif os.path.isfile(paths): #如果是文件
+        pass
+
+    return lists
+```
+### 数据操作
+判断数据类型
+```bash
+isinstance("123",(int,long,float,complex)
+```
+#### 字符串(string)
+去掉小数点后面的数字
+```bash
+a=1.21311
+b=Int(math.floor(a))
+```
+字符串倒置
+```bash
+>>> a =  "codementor"
+>>> a[::-1]
+```
+字符串首字母变大写
+```bash
+info = 'ssfef'
+print info.capitalize()
+print info.title()
+```
+返回一个字符串居中，并使用空格填充至长度width的新字符串。
+```bash
+"center string".center(width) #width设置为控制台宽度，可控制输出的字符串居中。
+```
+列举所有字母
+```bash
+print string.ascii_uppercase 所有大写字母
+print string. ascii_lowercase 所有小写字母
+print string.ascii_letters 所有字母（包括大小写）
+```
+#### 列表(list)
+列表去重
+```bash
+ids = [1,4,3,3,4,2,3,4,5,6,1]
+ids = list(set(ids))
+```
+列表运算
+```bash
+a=[1,2,3]
+b=[3,4,5]
+set(a)&set(b) 与
+set(a)|set(b) 或
+set(a)-set(b) 非
+```
+单列表元素相加
+```bash
+a = ["Code", "mentor", "Python", "Developer"]
+>>> print " ".join(a)
+Code mentor Python Developer
+```
+多列表元素分别相加
+```bash
+list1 = ['a', 'b', 'c', 'd']
+list2 = ['p', 'q', 'r', 's']
+>>> for x, y in zip(list1,list2):  
+        print x, y
+ap
+bq
+cr
+ds
+```
+将嵌套列表转换成单一列表
+```bash
+a = [[1, 2], [3, 4], [5, 6]]
+>>> import itertools
+>>> list(itertools.chain.from_iterable(a))
+[1, 2, 3, 4, 5, 6]
+```
+列表内元素相加
+```bash
+a=[1,2,3]（数字）
+sum(a)
+```
+产生a-z的字符串列表
+```bash
+map(chr,range(97,123))
+```
+列表复制
+```bash
+a=[1,2,3]
+b=a
+当对b进行操作时，会影响a的内容，因为共用一个内存指针，b=a[:] 这样就是单独复制一份了。
+```
+#### 列表解析
+if+else配合列表解析
+```bash
+[i if i >5 else -i for i in range(10)]
+```
+#### 字典操作(dict)
+筛选出值重复的key
+```bash
+list1=self.dict_ip.items()             
+        ddict=defaultdict(list)
+        for k,v in list1:
+            ddict[v].append(k)
+        list2=[(i,ddict[i]) for i in ddict if len(ddict[i])>1]
+        dict_ns=dict(list2)
+```
+字典排序（py2）
+```bash
+file_dict={"a":1,"b":2,"c":3}
+file_dict_new=sorted(file_dict.iteritems(), key=operator.itemgetter(1),reverse=True) ##字典排序,reverse=True由高到低，itemgetter(1)表示按值排序，为0表示按key排序。
+```
+### 模块操作
+导入模块时，设置只允许导入的属性或者方法。
+```bash
+fb.py:
+-----------------------
+__all__=["a","b"]
+a="123"
+c="2345"
+def b():
+    print “123”
+-----------------------
+from fb import *
+可以导入__all__内定义的变量，a跟b()可以导入，c不行。如果不定义__all__则所有的都可以导入。
+```
+导入上级目录下的包
+```bash
+sys.path.append("..")
+from spider.spider_ import spider_
+```
+导入外部目录下的模块
+```bash
+需要在目标目录下创建__init__.py文件，内容随便。
+```
+增加模块属性
+```bash
+有时候源代码中，我们需要写上自己的名字以及版本介绍信息，可以用__name__的方式定义。
+a.py:
+#! -*- coding:utf-8 -*-
+__author__="nMask"
+```
+然后当我们导入a这个模块的时候，可以输出dir(a)看看
+```bash
+>>> import p
+>>> print dir(p)
+['__author__', '__builtins__', '__doc__', '__file__', '__name__', '__package__']
+>>> print p.__author__
+nmask
+```
+动态加载一个目录下的所有模块
+```bash
+目录：
+---test
+   ----a.py
+   ----b.py
+---c.py
+c.py导入test下面的所有模块：
+for path in ["test"]:
+    for i in list(set([os.path.splitext(i)[0] for i in os.listdir("./"+path)])):
+        if i!="__init__" and i!=".DS_Store": ##排除不必要的文件
+            import_string = "import path+"."+i+"
+            exec import_string #执行字符串中的内容
+```
+### 函数操作
+#### 装饰器函数
+输出当前时间装饰器
+```bash
+def current_time(aclass):
+    def wrapper():
+        print "[Info]NowTimeis:",time.ctime()
+        return aclass()
+    return wrapper
+```
+#### itertools迭代器
+```bash
+p=product(["a","b","c","d"],repeat=2)
+----
+[("a","a"),("b","b")......]
+```
+#### reduce函数
+函数本次执行的结果传递给下一次。
+```bash
+def test(a,b):
+    return a+b
+reduce(test,range(10))
+结果：从0+1+2......+9
+```
+
+### 时间墙
+
+@2017.04.19创建此文
+
+
+>转载请说明出处:[Python奇技淫巧|nMask'Blog](http://thief.one/2017/04/19/1/)
+本文地址：http://thief.one/2017/04/19/1/
