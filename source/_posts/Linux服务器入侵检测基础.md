@@ -13,6 +13,41 @@ categories: 系统安全
 <!--more -->
 　　在询问了相关异常信息，排除了管理员操作失误等原因后，那么便可以开始正式的上服务器进行入侵检测以及取证操作了。
 
+### 补充
+*2017年4月21号*
+#### pidof
+查看正在运行的名为<filename>的进程
+```bash
+pidof filename
+```
+#### fuser
+可以通过文件或者tcp udp协议看到进程
+```bash
+fuser -n tcp port
+```
+#### stat
+可以看文件修改时间，大小等信息
+```bash
+stat filename
+```
+
+#### lsmod
+看加载模块
+```bash
+lsmod
+```
+
+#### rpcinfo
+看rpc服务开放
+```bash
+rpcinfo -p
+```
+
+#### dmesg
+看网卡是否混杂模式(promiscuous mod)
+```bash
+dmesg|grep eth0
+```
 ### 审计命令
 
 #### last
