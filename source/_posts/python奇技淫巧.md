@@ -428,6 +428,7 @@ reduce(test,range(10))
 ### 时间墙
 
 @2017.04.19创建此文
+@2017.04.24增加eval/exec函数
 
 
 >转载请说明出处:[Python奇技淫巧|nMask'Blog](http://thief.one/2017/04/19/1/)
