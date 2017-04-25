@@ -384,6 +384,23 @@ for path in ["test"]:
             exec import_string #执行字符串中的内容
 ```
 ### 函数操作
+#### eval/exec
+```bash
+def test(content):
+    print content
+
+exec(“test(‘abc')”)
+```
+输出：abc
+说明：exec函数没有返回值
+```bash
+def test(content):
+    return content
+
+print eval(“test(‘abc')”)
+```
+输出：abc
+说明：eval函数有返回值
 #### 装饰器函数
 输出当前时间装饰器
 ```bash
