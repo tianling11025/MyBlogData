@@ -240,7 +240,8 @@ $ git config https.postBuffer 524288000
 $ git config http.postBuffer 524288000
 $ git config ssh.postBuffer 524288000
 ```
-####（七）hero d推送的内容有问题
+
+#### （七）hero d推送的内容有问题
 　　首先检查下.deploy_git文件夹下的.git文件是否存在，此.git文件指定了hexo d时推送public文件夹，而不是所有的内容。如果此.git文件不存在，则会出现推送内容错误。
 　　用npm install hexo-deployer-git --save生成的.deploy_git不包含.git文件，因此正确的做法是.deploy_git文件夹也需要备份，然后再用npm install hexo-deployer-git --save更新一下其内容即可。
 

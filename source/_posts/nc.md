@@ -131,6 +131,8 @@ nc -vv victim_ip port < path\file.cmd
 * ncat 安装nmap后默认安装ncat，用法于nc类似。
 * [Pyshell](http://thief.one/2016/09/05/PyShell-%E6%9C%A8%E9%A9%AC%E5%90%8E%E9%97%A8/) 致敬nc的一款后门shell工具。
 
+### 传送门
+[【渗透神器系列】Fiddler](http://thief.one/2017/04/27/1)
 
 
 参考文章：

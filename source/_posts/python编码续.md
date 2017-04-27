@@ -163,6 +163,39 @@ b=a.decode('string-escape')
 print b
 ```
 
+##### unicode-escape与utf-8的区别
+补充于2017年4月27日
+```bash
+>>>a="\u4e0a\u4f20\u6210\u529f"
+>>>b=a.decode('utf-8')
+>>>print type(b)
+<type 'unicode'>
+>>>b
+u'\\u4e0a\\u4f20\\u6210\\u529f'
+>>>print b
+\u4e0a\u4f20\u6210\u529f
+```
+当对变量a做decode('utf-8')时，除了对把变量a的类型从str变成了unicode,a变量的内容也做了utf-8解码，所以多了一些斜杠。
+```bash
+>>>a="\u4e0a\u4f20\u6210\u529f"
+>>>c=a.decode("unicode-escape")
+>>>print type(c)
+<type 'unicode'>
+>>>c
+u'\u4e0a\u4f20\u6210\u529f'
+>>>print c
+上传成功
+```
+而对变量a做decode('unicode-escape')时，貌似只有变量本身被decode成unicode了，其内容没有发生改变。
+
+　　我们知道print函数会将变量以及变量内容都encode成str，因此第二个例子能输出中文，而第一个例子输出的还是unicode类型的内容，只不过少了一些斜杠，因为它还需要再encode一次。
+当然本例子的转化，有更简单的方法，如下：
+```bash
+>>> d=u"\u4e0a\u4f20\u6210\u529f"  #定义变量d时，前面加个u，将其变成unicode
+>>> print d
+上传成功
+```
+
 开了一轮飞车，不知道大家有没有晕车，如果实在搞不清以上各种编码关系，没关系记住最后2个函数即可。
 
 ### 故事是这样结束的
