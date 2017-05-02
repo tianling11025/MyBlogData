@@ -137,6 +137,11 @@ test()
 from distutils.sysconfig import get_python_lib
 print get_python_lib
 ```
+获取当前python版本
+```bash
+sys.version_info
+sys.version
+```
 获取当前时间
 ```bash
 c=time.ctime()
@@ -186,6 +191,12 @@ sock = urllib2.urlopen(sUrl)
 sock.headers.values()
 ```
 ### 文件操作
+open函数,使用wb、rb代替w、r
+```bash
+with open("test.txt","wr") as w:
+    w.write("test")
+```
+这种写法可以兼容python2/3。
 输出一个目录下所有文件名称
 ```bash
 def search(paths):
@@ -264,6 +275,11 @@ print string.ascii_letters 所有字母（包括大小写）
 ids = [1,4,3,3,4,2,3,4,5,6,1]
 ids = list(set(ids))
 ```
+判断列表为空
+```bash
+a=[]
+if not a:
+```
 列表运算
 ```bash
 a=[1,2,3]
@@ -311,10 +327,27 @@ a=[1,2,3]
 b=a
 当对b进行操作时，会影响a的内容，因为共用一个内存指针，b=a[:] 这样就是单独复制一份了。
 ```
-#### 列表解析
+#### 列表推导
 if+else配合列表解析
 ```bash
 [i if i >5 else -i for i in range(10)]
+```
+多层嵌套列表
+```bash
+a=[[1,2],[3,4]]
+b=[for j in i for i in a]
+print b
+[1,2,3,4]
+```
+生成一个生成器，调用next方法，可以减少内存开支。
+```bash
+a=(i else i+1 for i in b if i==1)
+```
+#### 字典推导
+更换key与value位置
+```bash
+dict={"a":1,"b":2}
+b={value:key for key value in dict.items()}
 ```
 #### 字典操作(dict)
 筛选出值重复的key
@@ -330,6 +363,12 @@ list1=self.dict_ip.items()
 ```bash
 file_dict={"a":1,"b":2,"c":3}
 file_dict_new=sorted(file_dict.iteritems(), key=operator.itemgetter(1),reverse=True) ##字典排序,reverse=True由高到低，itemgetter(1)表示按值排序，为0表示按key排序。
+```
+字典值判断
+```bash
+b={"a":1}
+a=b.get("a","")  #如果不存在a，则返回””
+c=a if a else 0  #如果存在a，则返回a，不然返回0
 ```
 ### 模块操作
 导入模块时，设置只允许导入的属性或者方法。
@@ -424,7 +463,13 @@ def test(a,b):
 reduce(test,range(10))
 结果：从0+1+2......+9
 ```
-
+#### enumerate函数
+输入列表元素以及序列号
+```bash
+n=["a","b","c"]
+for i,m in enumerate(n):
+    print(i,m)
+```
 ### 时间墙
 
 @2017.04.19创建此文

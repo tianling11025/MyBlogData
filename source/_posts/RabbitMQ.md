@@ -45,6 +45,7 @@ python中来用连接操作rabbitmq服务的库有pika、txAMQP、py-amqplib，c
 
 ### Rabbitmq+pika
 pika是python中用来连接rabbitmq服务端的第三方库。
+pika文档：http://pika.readthedocs.io/en/latest/examples/blocking_consume.html
 
 #### 安装pika
 ```bash
@@ -110,6 +111,7 @@ def callback(ch, method, properties, body):
 ```bash
 channel.basic_consume(callback, queue='hello', no_ack=False)
 ```
+　　如果消息不确认，rabbitmq默认是没有超时时间的概念，即只要客户端连接不中断就会一直等待ack确认消息，那么此任务将会阻塞。针对这种情况，我们可以在程序中手动确认消息，即利用上面的代码。但如果程序在运行过程中出错，我们必须将此任务重新放回队列重新取出执行，则要用到channel.basic_nack(delivery_tag = method.delivery_tag)方法，可以实现将任务重新放回队列。
 #### 消息持久化存储
 　　虽然有了消息反馈机制，但是如果rabbitmq自身挂掉的话，那么任务还是会丢失。所以需要将任务持久化存储起来。
 ```bash
