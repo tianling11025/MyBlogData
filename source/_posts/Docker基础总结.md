@@ -65,7 +65,7 @@ Server:
 ```bash
 docker images -a  #-a可以查看所有的image
 ```
-![](/upload_image/20170504/4.png)
+![](/upload_image/20170504/5.png)
 其他镜像操作：
 ```bash
 docker search (image-name) 查询镜像 example：docker search ubuntu
