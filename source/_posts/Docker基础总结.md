@@ -12,10 +12,13 @@ permalink: 01
 　　Docker的优点这里不再细说，docker的用途非常广，我最近准备使用它搭建测试环境（漏洞测试环境、开发测试环境等），还可以用来部署分布式项目（可以极大程度得利用服务器资源），当然docker的用途还有很多，这里不再详述。
 <!--more -->
 ### docker 介绍
-* image:镜像
-* Container:容器
+* docker客户端与服务器（守护进程）
+* docker镜像（image)
+* registry
+* docker容器(container)
 
-　　docker容器是构建在镜像之上的，我们可以将image理解为定义好的类，而container便是实例，一个类可以实例化出很多实例，同样docker也可以在镜像上运行多个容器，每个容器可以是一样的，也可以是定制化的。
+　　docker容器是构建在镜像之上的，我们可以将image理解为定义好的类，而container便是实例，一个类可以实例化出很多实例，同样docker也可以在镜像上运行多个容器，每个容器可以是一样的，也可以是定制化的。docker客户端与服务器可以运行在同一台宿主机上，也可以不同。
+　　registry用于保存用户的镜像，它分为公有与私有。docker公司运营的公共registry叫做docker hub,用户可以在docker hub上注册账号，分享并保存自己的镜像。
 ### docker install
 docker可以运行在linux、mac、windows上。
 #### install docker for mac
@@ -24,7 +27,24 @@ docker可以运行在linux、mac、windows上。
 更换镜像源（填写国内的镜像源）：
 ![](/upload_image/20170504/1.png)
 #### install docker for linux
-可以上网查询，网上资料比较多，本人暂没有测试安装。
+安装dokcer:
+```bash
+sudo yum -y install docker-io
+```
+启动docker守护进程：
+```bash
+sudo service docker enable(start)
+sudo /etc/init.d/docker start
+```
+开机自启动：
+```bash
+sudo systemctl start(enable) docker
+```
+
+### 更换国内镜像
+推荐使用阿里云镜像，地址:http://dev.aliyun.com/search.html
+注册一个账号登录后，进入控制台加速器，会得到一个镜像地址，将该地址添加到/etc/default/docker文件，重启docker服务即可。
+
 ### docker 基础命令
 　　docker基础命令包含docker操作、镜像操作、容器操作以及其他相关操作，以下列举了一些常用的命令，更多请参考官方文档，或者使用--help命令查看。
 #### docker操作
