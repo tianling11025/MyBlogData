@@ -81,6 +81,7 @@ Server:
  OS/Arch:      linux/amd64
 ```
 #### 镜像操作
+本地镜像都保存在/var/lib/docker目录下。
 查看本地镜像列表:
 ```bash
 docker images -a  #-a可以查看所有的image
@@ -122,12 +123,44 @@ docker run -d -p 8000:80 --name test image-name
 docker ps -a（显示所有容器，包括已经stop的）
 ```
 ![](/upload_image/20170504/5.png)
-进入容器内部（shell）：
+
+查看容器具体信息：
 ```bash
-docker exec -ti centos /bin/bash
+docker inspect 容器id(容器名)
+```
+比ps -a命令更详细，包含网络信息、配置信息等内容，可以用-forma匹配出来，如：
+```bash
+sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' c18acd6a8a32 #查看容器ip地址
 ```
 
-容器操作：
+查看容器内进程：
+```bash
+docker top 容器id
+```
+
+进入容器内部：
+```bash
+sudo docker attach 容器id
+```
+或者可以使用：
+```bash
+docker exec -ti 容器name /bin/bash
+```
+exec命令可以在容器内部执行命令，以上代码表示在容器内新建一个shell。
+
+退出容器：
+```bash
+[rootq3e1]exit
+```
+重启容器：
+```bash
+docker run —restart=always
+```
+restart参数可以设置以下内容：
+* always 无论容器内退出什么代码程序，都会重启docker容器
+* on-failure 可以指定退出代码
+
+更多容器操作：
 ```bash
 docker attach container 进入容器交互式界面
 docker diff  container 列出容器内发生变化的文件与目录
@@ -143,6 +176,14 @@ docker commit ID new镜像名字（只能字母加数字） 将容器的状态�
 docker export container > test.tar  将容器打包成tar文件
 docker cp container:path hostpath  从容器内复制文件到指定的路径
 ```
+
+容器网络管理：（感谢@DarkEvil补充分享）
+* host模式，使用dockerrun时使用--net=host指定（docker使用的网络实际上和宿主机一样，在容器内看到的网卡ip是宿主机上的ip）
+* container模式，使用--net=container:container_id/container_name（多个容器使用共同的网络，看到的ip是一样的）
+* none模式，使用--net=none指定（这种模式下，不会配置任何网络）
+* bridge模式，使用--net=bridge指定
+* 默认模式，不用指定默认就是这种网络模式。（这种模式会为每个容器分配一个独立的Network Namespace。类似于vmware的nat网络模式。同一个宿主机上的所有容器会在同一个网段下，相互之间是可以通信的。）
+
 #### other操作
 ```bash
 docker import http://example.com/example.tar  远程导入文件
@@ -182,9 +223,12 @@ dockerfile语法类似于MakeDown，基础内容如下：
 进入到Dockerfile文件所在目录，运行：
 ```bash
 docker build -t centos_test:01 .
+或者
+docker build -t centos_test:01 git@github:......(远程git地址)
 ```
 此时，运行docker images -a查看，会发现多了一个image，名称为centos_test，tag为01
 ![](/upload_image/20170504/2.png)
+如果dockerfile写得有问题，在build时会报错，这时可以通过docker run 容器id 进入最后状态的容器去调试。
 #### 使用dockerfile镜像
 在此image上运行容器：
 ```bash
@@ -192,6 +236,33 @@ docker run -d -p 80:8080 centos_test:0.1
 ```
 此时，打开本机的127.0.0.1:80
 ![](/upload_image/20170504/3.png)
+
+### dockerfile规则
+每条指令都必须为大写字母，如FROM、RUN，且后面要跟一个内容，docker file会按从上往下的顺序执行这些内容。
+#### WORKDIR
+作用：设置工作目录，类似cd
+```bash
+WORKDIR /root/
+RUN apt-get install pip
+WORKDIR /root/test
+......
+```
+可以使用-w参数覆盖容器工作目录
+```bash
+docker run -w /root/nmasktools ......
+```
+#### ENV
+作用：设置容器内的环境变量
+可以用-e来覆盖。
+#### USER
+作用：指定以什么样的用户去运行容器
+```bash
+USER nmask（用户名或者id）
+```
+可以使用 docker -u 来覆盖。
+#### ADD、COPY
+add与copy都是用来向镜像中添加文件的，区别在于copy只能复制文件，而没有解压功能。
+
 
 *docker的内容非常多，以上只是一些最基础的用法，本文也将会持续更新*
 
