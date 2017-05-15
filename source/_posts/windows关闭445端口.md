@@ -8,7 +8,7 @@ categories: 系统安全
 permalink: 02
 ---
 <blockquote class="blockquote-center">一二三四五，上山打老虎</blockquote>
-　　由于大规模蠕虫来袭，目前最紧急的事情就是关闭windows445端口，在此分享下windows关闭445端口的几种方案，适用于window2003/xp/windows7/windows8/windows10系统。
+　　由于大规模蠕虫来袭，目前最紧急的事情就是关闭windows445端口，在此分享下windows关闭445端口的几种方案，适用于window2003/xp/windows7/windows8/windows10系统。如需打ms17-010系统补丁，请参考教程：[windows系统打MS17-010补丁](http://thief.one/2017/05/15/1)
 <!--more -->
 
 ### 修改注册表法
