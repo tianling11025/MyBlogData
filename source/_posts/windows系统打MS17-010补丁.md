@@ -13,7 +13,6 @@ permalink: 01
 <!--more -->
 
 ### 传送门
-
 需要关闭445端口的朋友可以参考教程:　[windows关闭445端口](http://thief.one/2017/05/13/2)
 
 ### 微软漏洞信息官网挂了？
@@ -48,6 +47,9 @@ systeminfo > systeminfo.txt
 * Windows Server 2016（KB4013198）
 
 安装完补丁后，请查看校验系统是否存在对应的KB号。
+
+### MS对应的KB号
+请移步项目：https://github.com/tengzhangchao/microsoftSpider
 
 
 >转载请说明出处：[windows系统打MS17-010补丁|nMask'Blog](http://thief.one/2017/05/15/1)
