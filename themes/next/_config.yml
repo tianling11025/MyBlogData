@@ -259,8 +259,8 @@ mathjax:
 baidu_analytics: d22cd975ccc2d560e0a480fec5629325
 
 # Duoshuo ShortName
-duoshuo_shortname: thief
-duoshuo_hotartical: False
+# duoshuo_shortname: thief
+# duoshuo_hotartical: False
 
 # Disqus
 #disqus_shortname:
@@ -293,11 +293,11 @@ duoshuo_hotartical: False
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo_info:
-  ua_enable: true
-  admin_enable: true
-  user_id: 6326656503453320000
-  admin_nickname: one thief
+# duoshuo_info:
+#   ua_enable: true
+#   admin_enable: true
+#   user_id: 6326656503453320000
+#   admin_nickname: one thief
 
 
 # Facebook SDK Support.
@@ -420,4 +420,4 @@ google_site_verification: p9ZQcLlzhS3CvgOzUqxYASnD-7EbtZe4qW16dXC2Bjc
 
 # gentie_productKey: ba10f045f45041a5ab2fb13e3535a041
 
-livere_uid: MTAyMC8yNzk2Ny80NTQ0
+livere_uid: MTAyMC8yNzk2Ny80NTQ0 

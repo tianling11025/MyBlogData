@@ -218,8 +218,46 @@ git clone https://github.com/iissnan/hexo-theme-next.git（主题的地址）
 ```
 最终的效果查看：http://thief.one/count
 
-### 报错解决
+#### 多说替换成来必力评论
+更新于@2017年5月18日
+多说已经宣布下线了，因此我找了个来必力评论系统来替换，以下是替换的教程，教程内容来自：https://blog.smoker.cc/web/add-comments-livere-for-hexo-theme-next.html
 
+首先在 _config.yml 文件中添加如下配置：
+```bash
+livere_uid: your uid
+```
+其中 livere_uid 即注册来必力获取到的 uid。
+在 layout/_scripts/third-party/comments/ 目录中添加 livere.swig，文件内容如下：
+```bash
+{% if not (theme.duoshuo and theme.duoshuo.shortname) and not theme.duoshuo_shortname and not theme.disqus_shortname and not theme.hypercomments_id and not theme.gentie_productKey %}
+  {% if theme.livere_uid %}
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  {% endif %}
+{% endif %}
+```
+优先使用其他评论插件，如果其他评论插件没有开启，且LiveRe评论插件配置开启了，则使用LiveRe。其中脚本代码为上一步管理页面中获取到的。在layout/_scripts/third-party/comments.swig文件中追加：
+```bash
+{% include './comments/livere.swig' %}
+```
+引入 LiveRe 评论插件。
+最后，在 layout/_partials/comments.swig 文件中条件最后追加LiveRe插件是否引用的判断逻辑：
+```bash
+{% elseif theme.livere_uid %}
+      <div id="lv-container" data-id="city" data-uid="{{ theme.livere_uid }}"></div>
+{% endif %}
+```
+最后打开博客瞧瞧吧！
+
+### 报错解决
 #### （一）Deployer not found: git
 当编辑__config.yml文件，将type: git设置完成后，运行hexo g 报错：*git not found*
 解决方案：可以在MyBlog目录下运行: *npm install hexo-deployer-git --save*。
