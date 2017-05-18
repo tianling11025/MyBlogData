@@ -222,6 +222,10 @@ git clone https://github.com/iissnan/hexo-theme-next.git（主题的地址）
 更新于@2017年5月18日
 多说已经宣布下线了，因此我找了个来必力评论系统来替换，以下是替换的教程，教程内容来自：https://blog.smoker.cc/web/add-comments-livere-for-hexo-theme-next.html
 
+来必力评价
+优点：界面美观
+缺点：不支持数据导入，加载慢
+
 首先在 _config.yml 文件中添加如下配置：
 ```bash
 livere_uid: your uid
@@ -257,6 +261,47 @@ livere_uid: your uid
 ```
 最后打开博客瞧瞧吧！
 
+#### 多说替换成网易云跟贴
+最好的方法就是更新next主题，因为最新版本的主题已经支持这几种评论。
+如果不想更新主题，则往下看：
+
+网易云跟贴评价：
+性能稳定，功能中规中矩，支持数据导入
+
+首先在 _config.yml 文件中添加如下配置：
+```bash
+gentie_productKey: #your-gentie-product-key
+```
+其中 gentie_productKey 即注册网易云跟贴获取到的key。
+在 layout/_scripts/third-party/comments/ 目录中添加 gentie.swig，文件内容如下：
+```bash
+{% if not (theme.duoshuo and theme.duoshuo.shortname) and not theme.duoshuo_shortname and not theme.disqus_shortname and not theme.hypercomments_id %}
+
+  {% if theme.gentie_productKey %}
+    {% set gentie_productKey = theme.gentie_productKey %}
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "{{gentie_productKey}}",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  {% endif %}
+
+{% endif %}
+```
+在layout/_scripts/third-party/comments.swig文件中追加：
+```bash
+{% include './comments/gentie.swig' %}
+```
+最后，在 layout/_partials/comments.swig 文件中条件最后追加网易云跟帖插件引用的判断逻辑：
+```bash
+{% elseif theme.gentie_productKey %}
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper">
+      </div>
+```
 ### 报错解决
 #### （一）Deployer not found: git
 当编辑__config.yml文件，将type: git设置完成后，运行hexo g 报错：*git not found*

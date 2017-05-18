@@ -21,6 +21,9 @@
   {% elseif theme.livere_uid %}
       <div id="lv-container" data-id="city" data-uid="{{ theme.livere_uid }}">
       </div>
+  {% elseif theme.gentie_productKey %}
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper">
+      </div>
   {% endif %}
   </div>
 {% endif %}
