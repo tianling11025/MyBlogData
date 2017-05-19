@@ -134,6 +134,8 @@ nc -vv victim_ip port < path\file.cmd
 ### 传送门
 [【渗透神器系列】Fiddler](http://thief.one/2017/04/27/1)
 [【渗透神器系列】nmap](http://thief.one/2017/05/02/1/)
+[【渗透神器系列】搜索引擎](http://thief.one/2017/05/19/1)
+[【渗透神器系列】WireShark](http://thief.one/2017/02/09/WireShark%E8%BF%87%E6%BB%A4%E8%A7%84%E5%88%99/)
 
 
 参考文章：

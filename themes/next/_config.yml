@@ -126,7 +126,7 @@ font:
 social:
   GitHub: http://github.com/tengzhangchao
   知乎: https://www.zhihu.com/people/nmask
-  微博: http://weibo.com/5706011772/profile?topnav=1&wvr=6&is_all=1#_loginLayer_1487821909657
+  土司: https://www.t00ls.net/members-profile-9849.html
 
 
 # Social Links Icons
@@ -197,7 +197,8 @@ links:
   warmeng(web安全): http://www.warmeng.com
   chenjian(python开发): https://o-my-chenjian.com/
   Im1gD'Blog(信息安全): http://im1gd.me/
-  phithon'Blog: https://www.leavesongs.com
+  phithon'Blog(离别歌): https://www.leavesongs.com/
+  虾米'Blog: http://gdd.gd/
   
 
 
@@ -420,6 +421,6 @@ google_site_verification: p9ZQcLlzhS3CvgOzUqxYASnD-7EbtZe4qW16dXC2Bjc
 
 # gentie_productKey: ba10f045f45041a5ab2fb13e3535a041
 
-gentie_productKey: 1f2ad56a530147fca1a6dd0e659c6cd1
+# gentie_productKey: 1f2ad56a530147fca1a6dd0e659c6cd1
 
-# livere_uid: MTAyMC8yNzk2Ny80NTQ0 
+livere_uid: MTAyMC8yNzk2Ny80NTQ0 
