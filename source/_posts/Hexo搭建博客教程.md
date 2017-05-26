@@ -379,6 +379,40 @@ hexo d试试，如果会报错，则往下看。
 
 　　总结流程：当我们每次更新MyBlog内容后，先利用hexo将public推送到github，然后再将其余必须同步的文件利用git推送到github。
 
+### SEO优化
+seo优化对于网站是否能被搜索引擎快速收录有很大帮助，因此适当做一些seo还是有必要的，以下内容参考：https://lancelot_lewis.coding.me/2016/08/16/blog/Hexo-NexT-SEO/
+#### 添加sitemap文件
+安装以下2个插件，然后重启hexo后，网站根目录（source）下会生成sitemap.xml与baidusitemap.xml文件，搜索引擎在爬取时会参照文件中的url去收录。
+```bash
+npm install hexo-generator-sitemap --save-dev
+npm install hexo-generator-baidu-sitemap --save-dev
+```
+#### 添加robots.txt
+新建robots.txt文件，添加以下文件内容，把robots.txt放在hexo站点的source文件下。
+```bash
+User-agent: * Allow: /
+Allow: /archives/
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://thief.one/sitemap.xml
+Sitemap: http://thief.one/baidusitemap.xml
+```
+#### 首页title的优化
+更改index.swig文件，文件路径是your-hexo-site\themes\next\layout，将下面代码
+```bash
+{% block title %}  {{ config.title }}  {% endblock %}
+```
+改成
+```bash
+{% block title %}  {{ config.title }} - {{ theme.description }}  {% endblock 
+```
+观察首页title就是标题+描述了。
+
 ### MakeDown语法
 ```bash
 [hexo](http://www.baidu.com)  表示超链接

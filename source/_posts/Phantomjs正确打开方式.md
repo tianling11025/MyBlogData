@@ -26,60 +26,84 @@ categories: 爬虫技术
 #### Phantomjs Webservice
 新建test.js，写入如下代码：
 ```bash
+//此js用来获取网页源码
+
 var system=require('system');  //get args
 var args=system.args;
-if (args.length ===2) {
-var port=Number(args[1]);
-}else{var port=8080;}
-
+if (args.length ===2){
+    var port=Number(args[1]);
+}
+else{
+    var port=8080;
+}
 var webserver = require('webserver');
 var server = webserver.create()
 var service = server.listen(port, function(request, response) {
-  try{
-    var postRaw=request.postRaw;
-    var aaa=new Array();
-    aaa=postRaw.split("=");
-    var url=aaa[0];
-    var md5_url=aaa[1];
-    url=decodeURIComponent(url);
-    console.log(url); //输出传入的url
+    try{
+        var postRaw=request.postRaw;
+        var aaa=new Array();
+        aaa=postRaw.split("=");
+        var url=aaa[0];
+        var md5_url=aaa[1];
+        url=decodeURIComponent(url);
 
-    //获取源码
-    // var webPage = require('webpage');
-    // var page = webPage.create();
-    // page.open(url, function (status) {
-    //   var url = page.url;
-    //   console.log('url: ' + url);  //输入获取到的目标网站title
-    // });
+        // 创建page
+        var webPage = require('webpage');
+        var page = webPage.create();
+        page.settings.resourceTimeout = 20000;//timeout is 20s
 
-    //页面截图
-    var webPage = require('webpage');
-    var page = webPage.create();
-    page.viewportSize = { width: 1024, height: 768 };
-    // page.settings.resourceTimeout = 5000;//timeout
-    page.open(url, function start(status) {
-      if(status=='success'){
-       /* window.setTimeout(function(){*/
-          page.render('./image/'+md5_url+'.jpg', {format: 'jpg', quality: '100'});
-        // },1000)
-      }
-      else{
-        md5_url="error"; //没有改变全局变量的值
-        // console.log("1"+md5_url);
-      }
-      // console.log("2"+md5_url);
-      //response返回信息
-      response.status=200;
-      response.write(md5_url);
-      page.close();
-      response.close();
-  });
-  }
-  catch(e)
-  {
-    md5_url="error";
-    console.log('error'+e.message+'happen'+e.lineNumber+'line');
-  }
+        // 页面错误捕捉
+        page.onError = function(msg, trace) {
+            console.log("[Warning]This is page.onError");
+            var msgStack = ['ERROR: ' + msg];
+            if (trace && trace.length) {
+                msgStack.push('TRACE:');
+                trace.forEach(function(t) {
+                  msgStack.push(' -> ' + t.file + ': ' + t.line + (t.function ? ' (in function "' + t.function +'")' : ''));
+                });
+            }
+            // console.error(msgStack.join('\n'));
+        };
+
+        // phantomjs错误捕捉
+        phantom.onError = function(msg, trace) {
+            console.log("[Warning]This is phantom.onError");
+            var msgStack = ['PHANTOM ERROR: ' + msg];
+            if (trace && trace.length) {
+              msgStack.push('TRACE:');
+              trace.forEach(function(t) {
+                msgStack.push(' -> ' + (t.file || t.sourceURL) + ': ' + t.line + (t.function ? ' (in function ' + t.function +')' : ''));
+              });
+            }
+              console.error(msgStack.join('\n'));
+              phantom.exit(1);
+        };
+        // 打开网页，获取源码
+        page.open(url, function (status) {
+
+            console.log('Target_url is ' + url);  //输出待检测的网站url
+
+            if(status=='success'){
+                var current_url = page.url;
+                var body= page.content;
+            }
+            else
+            {
+              var body="";
+              var current_url="";
+            }
+              response.status=200;
+            //  response.write(body);  //返回获取到的网页源码
+              response.write(current_url); //返回当前的网页url
+              page.close();
+              response.close();
+        });
+
+    }
+    catch(e)
+    {
+      console.log('[Error]'+e.message+'happen'+e.lineNumber+'line');
+    }
 });
 ```
 作用：处理http请求，获取url，进行截图或者获取源码操作。
@@ -96,37 +120,44 @@ phantomjs.exe test.js 8080
 
 import requests
 import hashlib
-import os
 import base64
-import sys
+from multiprocessing.dummy import Pool
 
 class http_request:
-  port=8080
 
-  def __init__(self):
-    pass
-  def run(self,domain):
-    url="http://localhost:"+str(http_request.port)
+  def __init__(self,port="8080"):
+    self.url="http://localhost:"+port
+  
+  def getwebbody(self,domain):
+    '''
+    获取网页源代码
+    '''
     base_domain=base64.b64encode(domain)
     md5_domain=hashlib.md5(base_domain).hexdigest()
     payload={domain:md5_domain}
 
-    if os.path.exists('./image/'+md5_domain+'.jpg')==False:  #如果不存在截图，则进程截图操作
-      try:
-        f=requests.post(url,data=payload)
-      except:
-        sys.exit()
-      image_name=f.content
-      return image_name
-    else:
-      return "exist"
+    try:
+      response=requests.post(self.url,data=payload,timeout=30).content
+      return response
+    except requests.exceptions.ConnectionError:
+      print "requests connection error"
+    except Exception,e:
+      print e
+    return
 
 if __name__=="__main__":
-  cur=http_request()
-  domain_list=[""]
-  for domain in domain_list:
-    print cur.run(domain)
+  port="8080"
+  cur=http_request(port)
+  domain_list=["http://thief.one"]*10
 
+  def test(domain):
+    print "Result_url is ",cur.getwebbody(domain)
+
+  pool = Pool(processes=10)
+  for domain in domain_list:  #并发下发任务
+    pool.apply_async(test, args=(domain,))   #维持执行的进程总数为10，当一个进程执行完后添加新进程.
+  pool.close()
+  pool.join()
 ```
 作用：异步并发下发任务。
 

@@ -6,7 +6,7 @@ tags:
 - DDos
 - 网络安全
 - 拒绝服务
-categories: 信息安全
+categories: 网络安全
 permalink: 01
 ---
 <blockquote class="blockquote-center">水能载舟，亦能覆舟</blockquote>
