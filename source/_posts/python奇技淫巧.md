@@ -470,10 +470,92 @@ n=["a","b","c"]
 for i,m in enumerate(n):
     print(i,m)
 ```
+#### 函数超时时间设置
+@于2017.05.27更新
+利用signal设置某个函数执行的超时时间
+```bash
+import time
+import signal
+ 
+def test(i):
+    time.sleep(0.999)#模拟超时的情况
+    print "%d within time"%(i)
+    return i
+ 
+def fuc_time(time_out):
+    # 此为函数超时控制，替换下面的test函数为可能出现未知错误死锁的函数
+    def handler(signum, frame):
+        raise AssertionError
+    try:
+        signal.signal(signal.SIGALRM, handler)
+        signal.alarm(time_out)#time_out为超时时间
+        temp = test(1) #函数设置部分，如果未超时则正常返回数据，
+        return temp
+    except AssertionError:
+        print "%d timeout"%(i)# 超时则报错
+ 
+if __name__ == '__main__':
+    for i in range(1,10):
+        fuc_time(1)
+```
+#### 函数出错重试
+利用retrying模块实现函数报错重试功能
+```bash
+import random
+from retrying import retry
+
+@retry
+def have_a_try():
+    if random.randint(0, 10) != 5:
+        raise Exception('It's not 5!')
+    print 'It's 5!'
+```
+如果我们运行have_a_try函数，那么直到random.randint返回5，它才会执行结束，否则会一直重新执行，关于该模块更多的用法请自行搜索。
+
+### 程序操作
+@于2017.05.27更新
+#### Ctrl+C退出程序
+利用signal实现ctrl+c退出程序。
+```bash
+import signal
+import sys
+import time
+
+def handler(signal_num,frame):
+    print "\nYou Pressed Ctrl-C."
+    sys.exit(signal_num)
+signal.signal(signal.SIGINT, handler)
+
+# 正常情况可以开始你自己的程序了。
+# 这里为了演示，我们做一个不会卡死机器的循环。
+while 1:
+    time.sleep(10)
+# 当你按下Ctrl-C的时候，应该会输出一段话，并退出.
+```
+#### 程序自重启
+利用os.execl方法实现程序自重启
+```bash
+import time
+import sys
+import os
+
+def restart_program():
+     python = sys.executable
+     print "info:",os.execl(python, python, * sys.argv)
+     #os.execl方法会代替自身进程，以达到自重启的目的。
+
+if __name__ == "__main__":
+     print 'start...'
+     print u"3秒后,程序将结束...".encode("utf8")
+     time.sleep(3)
+     restart_program()
+```
+
 ### 时间墙
 
 @2017.04.19创建此文
 @2017.04.24增加eval/exec函数
+@2017.05.27增加程序操作、函数超时、函数出错重试
 
 
 >转载请说明出处:[Python奇技淫巧|nMask'Blog](http://thief.one/2017/04/19/1/)

@@ -32,6 +32,9 @@ exploit地址：https://github.com/x0rz/EQGRP_Lost_in_Translation
 
 据说影响全球70%的windows服务器，想想都恐怖，不说了，我拔电源了。
 
+### 漏洞对应的补丁
+![](/upload_image/20170415/1.png)
+
 ### 临时修复方案
 
 * 关闭445,137,139,3389端口，或者上防护设备限制特定ip访问。
