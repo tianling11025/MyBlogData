@@ -13,7 +13,6 @@
         <small>{{  __('title.tag')  }}</small>
       </h2>
     </div>
-
     {% for post in page.posts %}
       {{ post_template.render(post) }}
     {% endfor %}

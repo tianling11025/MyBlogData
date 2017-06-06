@@ -6,15 +6,15 @@ comments: true
 <blockquote class="blockquote-center">将书签页中收藏的技术站点汇集在此处方便查询(持续更新)，如有补充请在下方留言，谢谢！</blockquote>
 
 ### 安全导航
-><div class="div">[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/index.htm)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　[SecNavi导航](http://coco413.com/SecNavi/)
+><div class="div">[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/index.htm)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　[SecNavi导航](http://coco413.com/SecNavi/)　　[Hacked AV](http://cmcc.ml/)
 </div>
 
 ### 安全技术论坛
-><div class="div">[FreeBuf](http://www.freebuf.com/)　　[阿里先知](https://xianzhi.aliyun.com/forum/)　　[Wiki](http://wiki.ioin.in/)　　[安全客](http://bobao.360.cn/)　　[Tools安全](https://www.t00ls.net/)　　[70Sec](https://www.70sec.com/)　　[看雪论坛](http://www.pediy.com/)　　[PKAV](http://www.pkav.net/)　　[四叶草](http://lab.seclover.com/)　　[吾爱破解](http://www.52pojie.cn/)　　[独特论坛](http://www.52pojie.cn/)　　[Kali中文网](http://www.kali.org.cn/)　　[Metasploit](http://www.metasploit.cn/)　　[黑帽中文网](http://bbs.chinablackhat.com/)　　[91ri](http://www.91ri.org/)　　[中国云安](http://www.yunsec.net/)　　[黑吧安全网](http://www.myhack58.com/)　　[黑基网](http://www.hackbase.com/)　　[红黑联盟](http://www.2cto.com/)　　[Hack80](http://www.hack80.com/)　　[安全焦点网](http://www.chncto.com/)　　[远景论坛](http://bbs.pcbeta.com/)　　[巴比特](http://8btc.com/)　　[SecWiki](https://www.sec-wiki.com/)　　[黑苹果论坛](https://imac.hk/)　　[E安全](https://www.easyaq.com/)　　[安全盒子](http://www.secbox.cn/)　　[安全脉搏](https://www.secpulse.com/?navisec)　　[安全社区](http://www.secquan.org)　　[爱尖刀](http://www.ijiandao.com/)　　[安全工具箱](https://www.92aq.com)
+><div class="div">[FreeBuf](http://www.freebuf.com/)　　[阿里先知](https://xianzhi.aliyun.com/forum/)　　[Wiki](http://wiki.ioin.in/)　　[安全客](http://bobao.360.cn/)　　[Tools安全](https://www.t00ls.net/)　　[70Sec](https://www.70sec.com/)　　[看雪论坛](http://www.pediy.com/)　　[PKAV](http://www.pkav.net/)　　[四叶草](http://lab.seclover.com/)　　[吾爱破解](http://www.52pojie.cn/)　　[独特论坛](http://www.52pojie.cn/)　　[Kali中文网](http://www.kali.org.cn/)　　[Metasploit](http://www.metasploit.cn/)　　[黑帽中文网](http://bbs.chinablackhat.com/)　　[91ri](http://www.91ri.org/)　　[中国云安](http://www.yunsec.net/)　　[黑吧安全网](http://www.myhack58.com/)　　[黑基网](http://www.hackbase.com/)　　[红黑联盟](http://www.2cto.com/)　　[Hack80](http://www.hack80.com/)　　[安全焦点网](http://www.chncto.com/)　　[远景论坛](http://bbs.pcbeta.com/)　　[巴比特](http://8btc.com/)　　[SecWiki](https://www.sec-wiki.com/)　　[黑苹果论坛](https://imac.hk/)　　[E安全](https://www.easyaq.com/)　　[安全盒子](http://www.secbox.cn/)　　[安全脉搏](https://www.secpulse.com/?navisec)　　[安全社区](http://www.secquan.org)　　[爱尖刀](http://www.ijiandao.com/)　　[安全工具箱](https://www.92aq.com)　　[漏洞银行](http://www.0daybank.org/)
 </div>
 
 ### 漏洞信息平台
-><div class="div">[美国国家漏洞库](http://nvd.nist.gov/)　　[美国国家应急响应中心](https://www.us-cert.gov/)　　[中国国家信息安全漏洞库](http://www.cnnvd.org.cn/)　　[国家信息安全漏洞共享平台](http://www.cnvd.org.cn/)　　[台湾漏洞平台vulreport](https://vulreport.net/)　　[360补天](https://butian.360.cn/)　　[安全联盟](https://www.anquan.org/)　　[seebug照妖镜](https://www.seebug.org)　　[BugScan](http://www.bugscan.net/)　　[微软官方漏洞信息](https://technet.microsoft.com/en-us/library/security/MS15-034)　　[php漏洞提交平台](https://bugs.php.net/)　　[谷歌漏洞提交平台](https://bugs.chromium.org/hosting/)　　[漏洞时代](http://0day5.com/)　　[exploit-db](https://www.exploit-db.com/)
+><div class="div">[美国国家漏洞库](http://nvd.nist.gov/)　　[美国国家应急响应中心](https://www.us-cert.gov/)　　[中国国家信息安全漏洞库](http://www.cnnvd.org.cn/)　　[国家信息安全漏洞共享平台](http://www.cnvd.org.cn/)　　[台湾漏洞平台vulreport](https://vulreport.net/)　　[360补天](https://butian.360.cn/)　　[安全联盟](https://www.anquan.org/)　　[seebug照妖镜](https://www.seebug.org)　　[BugScan](http://www.bugscan.net/)　　[微软官方漏洞信息](https://technet.microsoft.com/en-us/library/security/MS15-034)　　[php漏洞提交平台](https://bugs.php.net/)　　[谷歌漏洞提交平台](https://bugs.chromium.org/hosting/)　　[漏洞时代](http://0day5.com/)　　[exploit-db](https://www.exploit-db.com/)　　[国内exp搜索大全](http://expku.com/)
 </div>
 
 ### 在线Tools
@@ -27,11 +27,11 @@ comments: true
 </div>
 
 #### 加密解密
-><div class="div">[cmd5](http://www.cmd5.com/)　　[somd5](http://www.somd5.com/)　　[xmd5](http://xmd5.com/)　　[hash查询](http://cracker.offensive-security.com/index.php)　　[DES/AES加密解密](http://tool.chacuo.net/cryptdes)　　[PHP解密](http://dezend.qiling.org/member/register.html)　　[一点寒CMS识别](http://whatweb.yidianhan.com/)　　[BugScanner CMS指纹识别](http://whatweb.bugscaner.com/look/)　　[在线编码转换](http://www.jb51.net/tools/zhuanhuan.htm)　　[Base64解码](http://www1.tc711.com/tool/BASE64.htm)　　[beJson](http://www.bejson.com/)　　[破晓指纹识别](http://www.secbug.org:8080/)
+><div class="div">[cmd5](http://www.cmd5.com/)　　[somd5](http://www.somd5.com/)　　[xmd5](http://xmd5.com/)　　[hash查询](http://cracker.offensive-security.com/index.php)　　[DES/AES加密解密](http://tool.chacuo.net/cryptdes)　　[PHP解密](http://dezend.qiling.org/member/register.html)　　[一点寒CMS识别](http://whatweb.yidianhan.com/)　　[BugScanner CMS指纹识别](http://whatweb.bugscaner.com/look/)　　[在线编码转换](http://www.jb51.net/tools/zhuanhuan.htm)　　[Base64解码](http://www1.tc711.com/tool/BASE64.htm)　　[beJson](http://www.bejson.com/)　　[破晓指纹识别](http://www.secbug.org:8080/)　　[网站指纹查询](http://whatweb.net/)
 </div>
 
 #### 程序员相关
-><div class="div">[程序员工具](http://tool.lu/)　　[Linux命令大全](http://man.linuxde.net/)
+><div class="div">[程序员工具](http://tool.lu/)　　[Linux命令大全](http://man.linuxde.net/)　　[代码泄露查询](https://searchcode.com)
 </div>
 
 #### 在线扫描
@@ -71,7 +71,7 @@ comments: true
 </div>
 
 ### 社工库
-><div class="div">[70sec(翻墙)](http://s.70sec.com/)　　[pwned](https://haveibeenpwned.com/)
+><div class="div">[70sec(翻墙)](http://s.70sec.com/)　　[pwned](https://haveibeenpwned.com/)　　[查开房记录](http://www.ckaifang.com/?keys=)　　[checkmate](https://www.instantcheckmate.com/)　　[查询邮箱已注册过的网址](http://reg007.com)　　[查询邮箱已注册过的网址2](http://www.zhaohuini.com/)
 </div>
 
 ### 网络资源
@@ -87,7 +87,7 @@ comments: true
 </div>
 
 ### 技术文档与产品
-><div class="div">[shellter](https://www.shellterproject.com/)　　[网易蜂巢](https://c.163.com/)　　[Iftttt(软件整合)](https://ifttt.com/discover)　　[LeanCloud](https://leancloud.cn/)　　[daocloud](https://www.daocloud.io/)　　[ngrok(内网转发)](https://www.ngrok.cc/)　　[影梭(翻墙神器)](http://www.iyingsuo.com/help.html)　　[百度云加速](http://su.baidu.com/)　　[pytorch](http://pytorch.org/)　　[electron](https://electron.atom.io/)　　[Selenium](http://selenium-python-zh.readthedocs.io/en/latest/index.html)　　[Rethinkdb](https://rethinkdb.com/)　　[phantomjs](http://phantomjs.org/)　　[electron中文文档](https://www.gitbook.com/book/weishuai/electron-/details)　　[celery](http://docs.jinkan.org/docs/celery/index.html)　　[casperjs](http://casperjs.org/)　　[errbot聊天机器人](http://errbot.io/en/latest/)　　[typora-MarkDown工具](https://typora.io/)　　[Docker](https://www.docker.com/get-docker)　　[百度脑图](http://naotu.baidu.com/)
+><div class="div">[shellter](https://www.shellterproject.com/)　　[网易蜂巢](https://c.163.com/)　　[Iftttt(软件整合)](https://ifttt.com/discover)　　[LeanCloud](https://leancloud.cn/)　　[daocloud](https://www.daocloud.io/)　　[ngrok(内网转发)](https://www.ngrok.cc/)　　[影梭(翻墙神器)](http://www.iyingsuo.com/help.html)　　[百度云加速](http://su.baidu.com/)　　[pytorch](http://pytorch.org/)　　[electron](https://electron.atom.io/)　　[Selenium](http://selenium-python-zh.readthedocs.io/en/latest/index.html)　　[Rethinkdb](https://rethinkdb.com/)　　[phantomjs](http://phantomjs.org/)　　[electron中文文档](https://www.gitbook.com/book/weishuai/electron-/details)　　[celery](http://docs.jinkan.org/docs/celery/index.html)　　[casperjs](http://casperjs.org/)　　[errbot聊天机器人](http://errbot.io/en/latest/)　　[typora-MarkDown工具](https://typora.io/)　　[Docker](https://www.docker.com/get-docker)　　[百度脑图](http://naotu.baidu.com/)　　[Kali Linux中文说明书](https://www.hackfun.org/kali-tools/kali-tools-zh.html)　　[burpsuite实战指南](https://www.gitbook.com/book/t0data/burpsuite/details)
 </div>
 
 <style type="text/css"> 

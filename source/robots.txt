@@ -1,4 +1,5 @@
-User-agent: * Allow: /
+User-agent: * 
+Allow: /
 Allow: /archives/
 Disallow: /vendors/
 Disallow: /js/
@@ -6,6 +7,7 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
+Disallow: /SecWeb/
 
 Sitemap: http://thief.one/sitemap.xml
 Sitemap: http://thief.one/baidusitemap.xml
