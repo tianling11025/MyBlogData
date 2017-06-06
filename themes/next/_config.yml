@@ -28,7 +28,7 @@ canonical: true
 
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
-  home: /
+  # home: /
   count: /count
   collect_url: /SecWeb
   # about: /about
@@ -36,6 +36,7 @@ menu:
   archives: /archives
   categories: /categories
   tags: /tags
+  book: https://book.thief.one
   #commonweal: /404.html
 
 
@@ -126,7 +127,7 @@ font:
 social:
   GitHub: http://github.com/tengzhangchao
   知乎: https://www.zhihu.com/people/nmask
-  土司: https://www.t00ls.net/members-profile-9849.html
+  GitBook: https://www.gitbook.com/@nmask 
 
 
 # Social Links Icons

@@ -16,9 +16,10 @@ menu:
   about: 关于作者
   message: 留言
   search: 搜索
-  collect_url: 网站收集
+  collect_url: 安全导航
   commonweal: 公益404
-  count: 阅读排行
+  count: 琅琊榜
+  book: Book
 
 
 sidebar:
