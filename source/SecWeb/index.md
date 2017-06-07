@@ -6,7 +6,7 @@ comments: true
 <blockquote class="blockquote-center">将书签页中收藏的技术站点汇集在此处方便查询(持续更新)，如有补充请在下方留言，谢谢！</blockquote>
 
 ### 安全导航
-><div class="div">[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/index.htm)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　[SecNavi导航](http://coco413.com/SecNavi/)　　[Hacked AV](http://cmcc.ml/)
+><div class="div">[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　[SecNavi导航](http://coco413.com/SecNavi/)　　[Hacked AV](http://cmcc.ml/)
 </div>
 
 ### 安全技术论坛
