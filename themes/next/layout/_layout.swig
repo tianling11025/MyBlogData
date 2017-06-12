@@ -7,6 +7,13 @@
 
 <html class="{{ html_class | lower }}">
 <head>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-7923903290305785",
+      enable_page_level_ads: true
+    });
+  </script>
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
 </head>
