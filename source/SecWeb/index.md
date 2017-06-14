@@ -93,14 +93,19 @@ comments: true
 ### 常用软件与工具
 #### 远程操作
 ><div class="div">[Xshell]()　　[Putty]()　　[SecureCRT]()　　[Navicat数据库连接]()　　[teamviewer]()　　[VMwareVsphere]()　　[Sequel Pro Mac数据库连接]()　　[Dash文档查询]()　　[Microsoft Remote Desktop beta]()　　[VMWare Fusion for mac]()</div>
+
 #### 办公优化
 ><div class="div">[openoffice Office替代品]()　　[everything文件搜索]()　　[total commander文件管理器]()　　[Launchy快速启动]()　　[cmder加强版shell]()　　[clover资源管理器]()　　[CCleaner文件清理]()　　[Alfred快速启动]()　　[iTerm Mac增强shell]()</div>
+
 #### 代码编辑
 ><div class="div">[sublime Text]()　　[notepad++]()　　[PyCharm]()</div>
+
 #### 代理VPN
 ><div class="div">[shadowsocks]()　　[Gas Mask Host切换]()</div>
+
 #### 系统优化 
 ><div class="div">[rufus启动盘制作]()　　</div>
+
 #### 性能测试
 ><div class="div">[Disk Speed Test for Mac]()　　[Geekbench for mac]()</div>
 
