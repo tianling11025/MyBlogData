@@ -90,6 +90,21 @@ comments: true
 ><div class="div">[shellter](https://www.shellterproject.com/)　　[网易蜂巢](https://c.163.com/)　　[Iftttt(软件整合)](https://ifttt.com/discover)　　[LeanCloud](https://leancloud.cn/)　　[daocloud](https://www.daocloud.io/)　　[ngrok(内网转发)](https://www.ngrok.cc/)　　[影梭(翻墙神器)](http://www.iyingsuo.com/help.html)　　[百度云加速](http://su.baidu.com/)　　[pytorch](http://pytorch.org/)　　[electron](https://electron.atom.io/)　　[Selenium](http://selenium-python-zh.readthedocs.io/en/latest/index.html)　　[Rethinkdb](https://rethinkdb.com/)　　[phantomjs](http://phantomjs.org/)　　[electron中文文档](https://www.gitbook.com/book/weishuai/electron-/details)　　[celery](http://docs.jinkan.org/docs/celery/index.html)　　[casperjs](http://casperjs.org/)　　[errbot聊天机器人](http://errbot.io/en/latest/)　　[typora-MarkDown工具](https://typora.io/)　　[Docker](https://www.docker.com/get-docker)　　[百度脑图](http://naotu.baidu.com/)　　[Kali Linux中文说明书](https://www.hackfun.org/kali-tools/kali-tools-zh.html)　　[burpsuite实战指南](https://www.gitbook.com/book/t0data/burpsuite/details)
 </div>
 
+### 常用软件与工具
+#### 远程操作
+><div class="div">[Xshell]()　　[Putty]()　　[SecureCRT]()　　[Navicat数据库连接]()　　[teamviewer]()　　[VMwareVsphere]()　　[Sequel Pro Mac数据库连接]()　　[Dash文档查询]()　　[Microsoft Remote Desktop beta]()　　[VMWare Fusion for mac]()</div>
+#### 办公优化
+><div class="div">[openoffice Office替代品]()　　[everything文件搜索]()　　[total commander文件管理器]()　　[Launchy快速启动]()　　[cmder加强版shell]()　　[clover资源管理器]()　　[CCleaner文件清理]()　　[Alfred快速启动]()　　[iTerm Mac增强shell]()</div>
+#### 代码编辑
+><div class="div">[sublime Text]()　　[notepad++]()　　[PyCharm]()</div>
+#### 代理VPN
+><div class="div">[shadowsocks]()　　[Gas Mask Host切换]()</div>
+#### 系统优化 
+><div class="div">[rufus启动盘制作]()　　</div>
+#### 性能测试
+><div class="div">[Disk Speed Test for Mac]()　　[Geekbench for mac]()</div>
+
+
 <style type="text/css"> 
 .div a:link{ color:#0593d3/*颜色自定义*/;font-family:"楷体"; font-size:15px;} /* 未访问的链接 */ 
 .div a:visited{color:#0477ab/*颜色自定义*/} /* 已访问的链接 */ 
