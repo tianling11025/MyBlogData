@@ -6,6 +6,8 @@ tags:
 - python
 - 装饰器
 categories: 编程之道
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">种一棵树最好的时间是十年前，其次是现在!</blockquote>
 　　作为一个脚本小子，平日里写惯了脚本，不太习惯编写项目型的代码。然而报着提升代码质量、提高编码能力的态度，最近开始尝试学习一些编程高级用法，本章用于记录关于python装饰器的一些基础用法，欢迎纠错。

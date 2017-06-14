@@ -7,6 +7,8 @@ tags:
 - Multiprocessing
 - 多进程
 categories: 编程之道
+password:
+copyright: true
 ---
 　　在使用多进程的过程中，最好不要使用共享资源，如果非得使用，则请往下看。Multiprocessing类中共享资源可以使用3种方式，分别是Queue，Array，Manager。这三个都是Multiprocessing自带的组件，使用起来也非常方便。注意：普通的全局变量是不能被子进程所共享的，只有通过Multiprocessing组件构造的数据结构可以被共享。
 

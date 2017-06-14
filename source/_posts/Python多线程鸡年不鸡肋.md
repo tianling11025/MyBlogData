@@ -6,6 +6,8 @@ tags:
 - python
 - 多线程
 categories: 编程之道
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">术业有专攻，如是而已</blockquote>
 当初在刚学习python多线程时，上网搜索资料几乎都是一片倒的反应python没有真正意义上的多线程，python多线程就是鸡肋。当时不明所以，只是了解到python带有GIL解释器锁的概念，同一时刻只能有一个线程在运行，遇到IO操作才会释放切换。那么，python多线程是否真的很鸡肋呢？要解决这个疑惑，我想必须亲自动手测试。

@@ -5,6 +5,8 @@ comments: true
 tags: 
 - linux
 categories: 技术研究
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">即使跌倒了，你要懂得抓一把沙子在手里。
 </blockquote>
@@ -19,6 +21,8 @@ du -sh  文件名
 杀死python相关的进程:
 ```bash
 ps -aux | grep python | cut -d ' ' -f 2 | xargs kill
+或者
+pkill -9 python  #-9表示强制删除，pkill以进程名字匹配
 ```
 查看成功登陆ssh的IP地址：
 ```bash
@@ -37,6 +41,34 @@ linux 复制特定后缀文件（保持目录结构）:
 ```bash
 tar cvf my_txt_files.tar `find . -type f -name "*.jsp*"`
 ```
+查看磁盘大小：
+```bash
+df -h
+```
+查看进程：
+```bash
+netstat -an | less
+```
+查看系统位数：
+```bash
+getconf LONG_BIT
+```
+挂载U盘：
+```bash
+fdisk -l 查看U盘路径
+monut /dev/sdb4 /mnt  挂载U盘
+cd /mnt 进入U盘
+umount /mnt  退出U盘
+```
+nohup输出重定向:
+```bash
+nohup python revice_true_link.py > ./log/true_link.log &
+```
+文件查找：
+```bash
+find / -name filename
+```
+
 
 * watch 运行的脚本 -n 秒数　　（几秒钟执行一次，不加n默认为2秒）
 * nohup 要运行的程序 &　　(让程序在后台运行，忽略所有挂断信号)

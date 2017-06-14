@@ -7,6 +7,8 @@ tags:
 - 渗透神器
 categories: 安全工具
 permalink: 01
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">工欲善其事，必先利其器</blockquote>
 　　从事渗透测试工作几年了，在做项目过程中发现良好的渗透技术固然重要，但欲测试出更多的结果，离不开强大的工具。即使是能力超强的大牛，我想也不可能完全手工做渗透，毕竟渗透测试还是个体力活。
@@ -141,10 +143,6 @@ nc -vv victim_ip port < path\file.cmd
 参考文章：
 https://www.oschina.net/translate/linux-netcat-command
 http://www.w3cschool.cn/dosmlxxsc1/jiszug.html
-
-
->转载请说明出处:[【渗透神器系列】nc | nMask'Blog](http://thief.one/2017/04/10/1/)
-本文地址：http://thief.one/2017/04/10/1/
 
 
 

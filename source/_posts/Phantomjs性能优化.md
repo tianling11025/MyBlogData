@@ -5,6 +5,8 @@ comments: true
 tags: 
 - Phantomjs
 categories: 爬虫技术
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">人生之路需要坚持，技术之道亦然</blockquote>
 写过爬虫的朋友应该都用过一个无头浏览器--phantomjs，使用它的原因很简单明了：能够高度模拟浏览器访问（对抗反爬虫），无头浏览（可以节省性能）。Phantomjs应用最广泛的应该还是用来执行js代码，比如写一个js脚本，利用phantomjs去执行，可以写一个页面截图、网页性能测试等等功能的。

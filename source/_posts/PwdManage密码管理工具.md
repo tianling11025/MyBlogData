@@ -7,6 +7,8 @@ tags:
 - 密码管理
 categories: 安全工具
 permalink: 01
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">信任的丢失，才是末日的开始</blockquote>
 　　随着越来越多的网络服务商（主要是网站）被曝数据泄露，本人开始有点小担心了。因为我每个网站的账号密码几乎一样，一旦有一个网站被泄露，那就gg了。于是乎，趁着周末空闲，我开发了一个小工具，用于管理密码。
@@ -63,6 +65,3 @@ python pwdmanage.py --gitaddress "./pwdmanagedb"
 
 ### 补充说明
 该工具目前只供自己把玩，主要原因在于功能还不完善，不敢轻易放出。如有需要的朋友，后期会放出工具，敬请期待。
-
->转载请说明出处：[PwdManage密码管理工具|nMask'Blog](http://thief.one/2017/04/24/1)
-本文地址：http://thief.one/2017/04/24/1

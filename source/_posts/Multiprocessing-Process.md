@@ -7,6 +7,8 @@ tags:
 - Multiprocessing
 - 多进程
 categories: 编程之道
+password:
+copyright: true
 ---
 
 　　利用multiprocessing.Process对象可以创建一个进程，该Process对象与Thread对象的用法相同，也有start(), run(), join()等方法。Process类适合简单的进程创建，如需资源共享可以结合multiprocessing.Queue使用；如果想要控制进程数量，则建议使用进程池[Pool](http://thief.one/2016/11/24/Multiprocessing-Pool)类。

@@ -5,6 +5,8 @@ comments: true
 tags: 
 - python编码
 categories: 编程之道
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">技术的探索，就好像编织故事一般，其乐趣在于偶尔能够讲述给别人听，并获得一些赞同！</blockquote>
 Python编码问题一直困扰了我许久，之前有过一些总结，但并不系统，比较凌乱。当然python2.x编码问题本身，便是剪不断理还乱。本篇将系统介绍python2.x编程中会遇到的一些编码问题，并给出解决方案。基于对编码问题的摸索了解，我也尝试写了一个编码转换模块[Transcode](https://github.com/tengzhangchao/Transcode)，应该能解决绝大部分新手的疑难杂症。当然，python大神可以绕道而行，至于使用3.x的朋友，以后将会成文介绍。
@@ -253,6 +255,3 @@ print b
 [Python2编码之殇续集](http://thief.one/2017/04/14/1/)
 [Python3编码之美](http://thief.one/2017/04/18/1/)
 
-
->转载请说明出处:[Python2编码之殇|nMask'Blog](http://thief.one/2017/02/16/%E8%A7%A3%E5%86%B3Python2-x%E7%BC%96%E7%A0%81%E4%B9%8B%E6%AE%87/)
-本文地址：http://thief.one/2017/02/16/解决Python2-x编码之殇/

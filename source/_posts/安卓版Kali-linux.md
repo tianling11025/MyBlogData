@@ -5,6 +5,8 @@ comments: true
 tags: 
 - kali
 categories: 折腾不止
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">有时候折腾仅仅只是为了折腾，仅此而已！</blockquote>
 据说OPPO拍照神器最近很火，于是便凑热闹买了一款（R9s），外形不错，性能说得过去。尤其是自拍功能爱不释手（......），于是手头原本的小米便闲置了出来。作为一名崇尚节俭持家的技术男，当然是要废物利用一番，于是便有了以下的一番折腾。

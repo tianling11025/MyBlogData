@@ -6,6 +6,8 @@ tags:
 - 木马后门
 - pycmd
 categories: 安全工具
+password:
+copyright: true
 ---
 
 　　之前写了一个基于python的一句话木马客户端程序，这个程序的作用大致就是为了绕过防护设备，使敏感数据能在网络里自由穿梭。由于编程能力有限，当时以python程序作为客户端，php代码作为服务端，勉强能用，但是缺乏jsp的服务端，使之功能很局限。幸好有大神[caomei](https://github.com/8caomei)相助，帮助实现了jsp端的代码，故将两者相结合，方便使用。

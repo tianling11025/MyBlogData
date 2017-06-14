@@ -7,6 +7,8 @@ tags:
 - windows补丁
 categories: 系统安全
 permalink: 01
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">你转身的一瞬，我萧条的一生</blockquote>
 　　周一大早全民开始打补丁，由此可见此次蠕虫病毒影响空前绝后。而我在给自己电脑打补丁的时候，发现了一些问题，在此分享以帮助还未及时打补丁的朋友。
@@ -56,7 +58,3 @@ systeminfo > systeminfo.txt
 
 ### MS对应的KB号
 请移步项目：https://github.com/tengzhangchao/microsoftSpider
-
-
->转载请说明出处：[windows系统打MS17-010补丁|nMask'Blog](http://thief.one/2017/05/15/1)
-本文地址：http://thief.one/2017/05/15/1

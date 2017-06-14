@@ -7,6 +7,8 @@ tags:
 - Multiprocessing
 - 多进程
 categories: 编程之道
+password:
+copyright: true
 ---
 
 　　multiprocessing是Python的标准模块，它既可以用来编写多进程，也可以用来编写多线程。如果是多线程的话，用multiprocessing.dummy即可，用法与multiprocessing基本相同，这里主要介绍多进程的用法，欢迎纠错。

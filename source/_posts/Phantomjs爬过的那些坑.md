@@ -5,6 +5,8 @@ comments: true
 tags: 
 - Phantomjs
 categories: 爬虫技术
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">技术的探索就是不断提出假设，然后不断去推翻它</blockquote>
 最近在跟同事使用phantomjs编写爬虫时，遇到了很多有意思的坑，我们在分析了一番后得出了一些结论以及解决方案，此分享一下。

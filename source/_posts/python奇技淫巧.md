@@ -7,6 +7,8 @@ tags:
 - python奇技淫巧
 categories: 编程之道
 permalink: 01
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">叶落下了思念，风摇曳那些岁岁年年</blockquote>
 　　本文用作记录，在使用python过程中遇到的一些奇技淫巧，有些代码是本人所写，有些则是python内置函数，有些则取之互联网。在此记录，只为备份以及遗忘时方便查找。
@@ -556,7 +558,3 @@ if __name__ == "__main__":
 @2017.04.19创建此文
 @2017.04.24增加eval/exec函数
 @2017.05.27增加程序操作、函数超时、函数出错重试
-
-
->转载请说明出处:[Python奇技淫巧|nMask'Blog](http://thief.one/2017/04/19/1/)
-本文地址：http://thief.one/2017/04/19/1/

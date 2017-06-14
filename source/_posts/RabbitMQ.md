@@ -6,6 +6,8 @@ tags:
 - RabbitMQ
 - pika
 categories: 编程之道
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">如何看待“年轻时就释怀与淡泊，是没有希望的”这句话？
 试图用一句话就来总结复杂的人生，是没有希望的</blockquote>
@@ -287,8 +289,6 @@ channel.start_consuming()
 
 *本文所写内容，均为本人测试后所得，如有错误，欢迎指正，谢谢！*
 
->转载请说明出处:[RabbitMQ | nMask'Blog](http://thief.one/2017/04/06/RabbitMQ/)
-本文地址：http://thief.one/2017/04/06/RabbitMQ/
 
 
 

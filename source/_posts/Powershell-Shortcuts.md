@@ -5,6 +5,8 @@ comments: true
 tags: 
 - Powershell
 categories: 系统安全
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">我们坚持一件事情，并不是因为这样做了会有效果，而是坚信，这样做是对的——哈维尔</blockquote>
 　　Powershell是微软用来取代cmd的解决方案，其功能之强大不言而喻，因此我准备使用powershell来替换cmd。我们知道windows7以后版本，shitf+右键，有一个"在此处打开命令行窗口"的快捷方式，可以在任何目录下打开cmd窗口，比win+R打开再用cd切换目录方便得多。
@@ -54,9 +56,3 @@ reg add "HKCR\*\shell\ms-dos\command" /ve /d "cmd.exe /k cd %%1" /f
 reg add "HKCR\Folder\shell\ms-dos" /ve /d 打开DOS命令 /f
 reg add "HKCR\Folder\shell\ms-dos\command" /ve /d "cmd.exe /k cd %%1" /f
 ```
-
-转载请说明出处:
-[Powershell Shortcuts | nMask'Blog](http://thief.one/2017/03/27/Powershell-Shortcuts/)
-
-本文地址：
-http://thief.one/2017/03/27/Powershell-Shortcuts/

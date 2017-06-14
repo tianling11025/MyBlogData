@@ -6,6 +6,8 @@ tags:
 - xss
 - xss平台
 categories: web安全
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">每天把牢骚拿出来晒晒太阳，心情就不会缺钙</blockquote>
 
@@ -182,7 +184,3 @@ setTimeout("location.href='{$notice.turnto}'",3000);
 修改为
 setTimeout("location.href='{$notice.turnto}'",500);
 ```
-
-
-本文地址：[http://thief.one/2017/03/15/Xss平台搭建小记/](http://thief.one/2017/03/15/Xss平台搭建小记/)
-转载请说明来自：[nMask'Blog](http://thief.one)

@@ -8,6 +8,8 @@ tags:
 - cms漏洞
 categories: web安全
 permalink: 01
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">风华是一指流砂，苍老是一段年华</blockquote>
 　　最近某位大牛说，将放出3个phpcms的0day漏洞，目前我所了解到的已经有2个phpcms漏洞被流传开来，并放出了poc。phpcms应用范围还是比较广的，在此记录分享一下几个最新的phpcms漏洞。
@@ -131,9 +133,5 @@ index.php?m=search&c=index&a=public_get_suggest_keyword&url=asdf&q=..\/..\/cache
 
 
 *本篇将持续跟踪phpcms最新漏洞状况，并附上检测方法以及修复方案，协助管理员早日修复漏洞，谢谢！*
-
->转载请说明出处:[phpcms漏洞| nMask'Blog](http://thief.one/2017/04/12/1/)
-本文地址：http://thief.one/2017/04/12/1/
-
 
 

@@ -6,6 +6,8 @@ tags:
 - python编码
 categories: 编程之道
 permalink: 01
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">终是谁使弦断，花落肩头，恍惚迷离</blockquote>
 　　之前一直在使用python2.x版本，其中的编码问题颇为头疼，根据使用经验以及实验测试，前些日子总结了一些关于python2.x的编码问题，会在本文最后给出地址。本篇主要描述python3中的编码，如果称Python2的编码为殇，那么Python3的编码就应该为美了。
@@ -82,5 +84,3 @@ with open("test","wb") as w:
 [Python2编码之殇](http://thief.one/2017/02/16/%E8%A7%A3%E5%86%B3Python2-x%E7%BC%96%E7%A0%81%E4%B9%8B%E6%AE%87/)
 [Python2编码之殇续集](http://thief.one/2017/04/14/1/)
 
->转载请说明出处:[Python3编码之美|nMask'Blog](http://thief.one/2017/04/18/1/)
-本文地址：http://thief.one/2017/04/18/1/

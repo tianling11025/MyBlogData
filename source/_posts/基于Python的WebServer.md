@@ -5,6 +5,8 @@ comments: true
 tags: 
 - python运维脚本
 categories: 安全工具
+password:
+copyright: true
 ---
 
 　　WebServer的主要功能是用来运行代码，处理http请求等服务，比如常见的Apache，IIS，Nginx等都可以用来解析代码，处理请求。以上几种容器（中间件）功能强大，但是安装配置比较麻烦，对于像我这样的菜鸟来说，搭建一个web服务器可能要花几天时间。如果我们搭建web服务器并不是专门为了处理大规模的请求，而只是为了测试使用，那么一个方便速成的WebServer就至关重要了。

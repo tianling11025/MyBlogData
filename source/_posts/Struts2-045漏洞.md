@@ -6,6 +6,8 @@ tags:
 - struts2漏洞
 - struts2 Poc
 categories: web安全
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">Struts2是个好东西</blockquote>
 免责申明：*文章中的工具等仅供个人测试研究，请在下载后24小时内删除，不得用于商业或非法用途，否则后果自负*
@@ -130,6 +132,3 @@ POC下载地址：[https://github.com/tengzhangchao/Struts2_045-Poc](https://git
 更多检测脚本，敬请期待......
 
 欲知Struts2-046漏洞，参考：[struts2-046漏洞](http://thief.one/2017/03/21/Struts2-046%E6%BC%8F%E6%B4%9E/)
-
-转载请说明出处:[Struts2_045漏洞](http://thief.one/2017/03/07/Struts2-045%E6%BC%8F%E6%B4%9E/)
-本文地址：http://thief.one/2017/03/07/Struts2-045%E6%BC%8F%E6%B4%9E/

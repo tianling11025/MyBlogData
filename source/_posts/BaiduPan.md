@@ -7,6 +7,8 @@ tags:
 - python爬虫
 categories: 爬虫技术
 permalink: 02
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">为了荣誉而战</blockquote>
 　　事情的起因是这样的，由于我想找几部经典电影欣赏欣赏，于是便向某老司机寻求资源（我备注了需要正规视频，绝对不是他想的那种资源），然后他丢给了我一个视频资源网站，说是比较有名的视频资源网站。我信以为真，便激动地点开寻求经典电影，于是便引出了一段经典的百度网盘之战。
@@ -110,6 +112,3 @@ cookie必须填上，就是之前我们获取到的cookie值。
 
 项目GitHub地址：https://github.com/tengzhangchao/BaiDuPan
 
-
->转载请说明出处:[色情资源引发的百度网盘之战| nMask'Blog](http://thief.one/2017/04/12/2/)
-本文地址：http://thief.one/2017/04/12/2/

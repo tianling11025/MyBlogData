@@ -6,6 +6,8 @@ tags:
 - python编码
 categories: 编程之道
 permalink: 01
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">蝴蝶很美，终究蝴蝶飞不过沧海</blockquote>
 
@@ -220,7 +222,3 @@ print str([i.encode("utf-8") for i in list_nokeyword]).decode('string-escape’)
 
 [Python2编码之殇](http://thief.one/2017/02/16/%E8%A7%A3%E5%86%B3Python2-x%E7%BC%96%E7%A0%81%E4%B9%8B%E6%AE%87/)
 [Python3编码之美](http://thief.one/2017/04/18/1/)
-
-
->转载请说明出处:[Python2编码之殇续集|nMask'Blog](http://thief.one/2017/04/14/1/)
-本文地址：http://thief.one/2017/04/14/1/

@@ -5,6 +5,8 @@ comments: true
 tags: 
 - windows
 categories: 技术研究
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">除苦练内功之外，别无他法。
 </blockquote>

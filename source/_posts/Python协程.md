@@ -6,6 +6,8 @@ tags:
 - python
 - 协程
 categories: 编程之道
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">
 真正有知识的人的成长过程，就像麦穗的成长过程：麦穗空的时候，麦子长得很快，麦穗骄傲地高高昂起，但是，麦穗成熟饱满时，它们开始谦虚，垂下麦芒。
@@ -232,4 +234,3 @@ gevent.joinall(jobs)
 
 <hr>
 本文内容参考来源：[廖雪峰python教程](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432090954004980bd351f2cd4cc18c9e6c06d855c498000)，推荐新手学习。
-本文地址：[Python协程](http://thief.one/2017/02/20/Python协程/)，转载请注明出处。

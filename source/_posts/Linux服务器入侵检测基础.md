@@ -6,6 +6,8 @@ tags:
 - linux
 - 入侵检测
 categories: 系统安全
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">人是生而自由的，但却无往不在枷锁之中，自以为是其他一切主人的人，反而比其他一切更是奴隶</blockquote>
 　　最近遇到了很多服务器被入侵的例子，为了方便日后入侵检测以及排查取证，我查询了一些linux服务器入侵取证的相关资料，并在此总结分享，以便日后查询。
@@ -236,9 +238,3 @@ umount /mnt  退出U盘
 
 
 参考链接：http://www.jb51.net/hack/421908.html
-
-转载请说明出处:
-[Linux服务器入侵检测基础 | nMask'Blog](http://thief.one/2017/03/24/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80/)
-
-本文地址：
-http://thief.one/2017/03/24/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80/

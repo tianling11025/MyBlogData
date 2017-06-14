@@ -1,11 +1,14 @@
 ---
-title: Hexo搭建博客教程
+title: 【置顶】Hexo搭建博客教程
 date: 2017-03-03 14:47:03
 comments: true
 tags: 
 - hexo
 - 博客搭建
 categories: 技术研究
+password:
+copyright: true
+top: 1
 ---
 <blockquote class="blockquote-center">所谓博客，都是孤芳自赏
 </blockquote>
@@ -156,6 +159,253 @@ git clone https://github.com/iissnan/hexo-theme-next.git（主题的地址）
 ````bash
 <blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
 ```
+#### 在文章底部增加版权信息
+在目录 next/layout/_macro/下添加 my-copyright.swig：
+```bash
+{% if page.copyright %}
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="{{ url_for(page.path) }}">{{ page.title }}</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 {{ theme.author }} 的个人博客">{{ theme.author }}</a></p>
+  <p><span>发布时间:</span>{{ page.date.format("YYYY年MM月DD日 - HH:MM") }}</p>
+  <p><span>最后更新:</span>{{ page.updated.format("YYYY年MM月DD日 - HH:MM") }}</p>
+  <p><span>原始链接:</span><a href="{{ url_for(page.path) }}" title="{{ page.title }}">{{ page.permalink }}</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="{{ page.permalink }}"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+{% endif %}
+```
+在目录next/source/css/_common/components/post/下添加my-post-copyright.styl：
+```bash
+.my_post_copyright {
+  width: 85%;
+  max-width: 45em;
+  margin: 2.8em auto 0;
+  padding: 0.5em 1.0em;
+  border: 1px solid #d3d3d3;
+  font-size: 0.93rem;
+  line-height: 1.6em;
+  word-break: break-all;
+  background: rgba(255,255,255,0.4);
+}
+.my_post_copyright p{margin:0;}
+.my_post_copyright span {
+  display: inline-block;
+  width: 5.2em;
+  color: #b5b5b5;
+  font-weight: bold;
+}
+.my_post_copyright .raw {
+  margin-left: 1em;
+  width: 5em;
+}
+.my_post_copyright a {
+  color: #808080;
+  border-bottom:0;
+}
+.my_post_copyright a:hover {
+  color: #a3d2a3;
+  text-decoration: underline;
+}
+.my_post_copyright:hover .fa-clipboard {
+  color: #000;
+}
+.my_post_copyright .post-url:hover {
+  font-weight: normal;
+}
+.my_post_copyright .copy-path {
+  margin-left: 1em;
+  width: 1em;
+  +mobile(){display:none;}
+}
+.my_post_copyright .copy-path:hover {
+  color: #808080;
+  cursor: pointer;
+}
+```
+修改next/layout/_macro/post.swig，在代码
+```bash
+<div>
+      {% if not is_index %}
+        {% include 'wechat-subscriber.swig' %}
+      {% endif %}
+</div>
+```
+之前添加增加如下代码：
+```bash
+<div>
+      {% if not is_index %}
+        {% include 'my-copyright.swig' %}
+      {% endif %}
+</div>
+```
+修改next/source/css/_common/components/post/post.styl文件，在最后一行增加代码：
+```bash
+@import "my-post-copyright"
+```
+如果要在该博文下面增加版权信息的显示，需要在 Markdown 中增加copyright: true的设置，类似：
+```bash
+---
+title: 
+date: 
+tags: 
+categories: 
+copyright: true
+---
+```
+#### 自定义hexo new生成md文件的选项
+在/scaffolds/post.md文件中添加：
+```bash
+---
+title: {{ title }}
+date: {{ date }}
+tags:
+categories: 
+copyright: true
+permalink: 01
+top: 0
+password:
+---
+```
+#### 隐藏网页底部powered By Hexo / 强力驱动
+打开themes/next/layout/_partials/footer.swig,使用”<!-- -->”隐藏之间的代码即可，或者直接删除。
+```bash
+<!--
+<div class="powered-by">
+  {{ __('footer.powered', '<a class="theme-link" rel="external nofollow" href="https://hexo.io">Hexo</a>') }}
+</div>
+
+<div class="theme-info">
+  {{ __('footer.theme') }} -
+  <a class="theme-link" rel="external nofollow" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.{{ theme.scheme }}
+  </a>
+</div>
+-->
+```
+#### 文章加密访问
+打开themes->next->layout->_partials->head.swig文件,在meta标签后面插入这样一段代码：
+```bash
+<script>
+    (function(){
+        if('{{ page.password }}'){
+            if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+```
+然后文章中添加：
+```bash
+password: nmask
+```
+如果password后面为空，则表示不用密码。
+
+#### 博文置顶
+修改 hero-generator-index 插件，把文件：node_modules/hexo-generator-index/lib/generator.js 内的代码替换为：
+```bash
+'use strict';
+var pagination = require('hexo-pagination');
+module.exports = function(locals){
+  var config = this.config;
+  var posts = locals.posts;
+    posts.data = posts.data.sort(function(a, b) {
+        if(a.top && b.top) { // 两篇文章top都有定义
+            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排
+            else return b.top - a.top; // 否则按照top值降序排
+        }
+        else if(a.top && !b.top) { // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）
+            return -1;
+        }
+        else if(!a.top && b.top) {
+            return 1;
+        }
+        else return b.date - a.date; // 都没定义按照文章日期降序排
+    });
+  var paginationDir = config.pagination_dir || 'page';
+  return pagination('', posts, {
+    perPage: config.index_generator.per_page,
+    layout: ['index', 'archive'],
+    format: paginationDir + '/%d/',
+    data: {
+      __index: true
+    }
+  });
+};
+```
+在文章中添加 top 值，数值越大文章越靠前，如:
+```bash
+---
+......
+copyright: true
+top: 100
+---
+```
+默认不设置则为0，数值相同时按时间排序。
+#### 添加顶部加载条
+打开/themes/next/layout/_partials/head.swig文件，在maximum-scale=1"/>后添加如下代码:
+```bash
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+```
+但是，默认的是粉色的，要改变颜色可以在/themes/next/layout/_partials/head.swig文件中添加如下代码（接在刚才link的后面）
+```bash
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+```
+#### 添加热度
+next主题集成leanCloud，打开/themes/next/layout/_macro/post.swig
+在"leancloud-visitors-count"></span>标签后面添加<span>℃</span>。
+然后打开，/themes/next/languages/zh-Hans.yml，将visitors内容改为*热度*即可。
+
+#### 主页文章添加阴影效果
+打开\themes\next\source\css\_custom\custom.styl,向里面加入：
+```bash
+// 主页文章添加阴影效果
+ .post {
+   margin-top: 60px;
+   margin-bottom: 60px;
+   padding: 25px;
+   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+  }
+```
+#### 修改文章底部的那个带#号的标签
+修改模板/themes/next/layout/_macro/post.swig，搜索 rel="tag">#，将 # 换成<i class="fa fa-tag"></i>
+
 #### 鼠标点击小红心的设置
 将 [love.js](https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js) 文件添加到 \themes\next\source\js\src 文件目录下。
 找到 \themes\next\layout\_layout.swing 文件， 在文件的后面，</body> 标签之前 添加以下代码：
@@ -172,7 +422,7 @@ git clone https://github.com/iissnan/hexo-theme-next.git（主题的地址）
 ```
 #### 修改文章内链接文本样式
 将链接文本设置为蓝色，鼠标划过时文字颜色加深，并显示下划线。
-找到文件 themes\next\source\css\_custom\custom.styl ，添加如下 css 样式：
+找到文件 themes\next\source\css\\_custom\custom.styl ，添加如下 css 样式：
 ```bash
 .post-body p a {
   color: #0593d3;
@@ -183,7 +433,49 @@ git clone https://github.com/iissnan/hexo-theme-next.git（主题的地址）
   }
 }
 ```
-参考：https://neveryu.github.io/2016/09/30/hexo-next-two/
+#### 博文压缩
+在站点的根目录下执行以下命令：
+```bash
+$ npm install gulp -g
+$ npm install gulp-minify-css gulp-uglify gulp-htmlmin gulp-htmlclean gulp --save
+```
+在博客根目录下新建 gulpfile.js ，并填入以下内容：
+```bash
+var gulp = require('gulp');
+var minifycss = require('gulp-minify-css');
+var uglify = require('gulp-uglify');
+var htmlmin = require('gulp-htmlmin');
+var htmlclean = require('gulp-htmlclean');
+// 压缩 public 目录 css
+gulp.task('minify-css', function() {
+    return gulp.src('./public/**/*.css')
+        .pipe(minifycss())
+        .pipe(gulp.dest('./public'));
+});
+// 压缩 public 目录 html
+gulp.task('minify-html', function() {
+  return gulp.src('./public/**/*.html')
+    .pipe(htmlclean())
+    .pipe(htmlmin({
+         removeComments: true,
+         minifyJS: true,
+         minifyCSS: true,
+         minifyURLs: true,
+    }))
+    .pipe(gulp.dest('./public'))
+});
+// 压缩 public/js 目录 js
+gulp.task('minify-js', function() {
+    return gulp.src('./public/**/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('./public'));
+});
+// 执行 gulp 命令时执行的任务
+gulp.task('default', [
+    'minify-html','minify-css','minify-js'
+]);
+```
+生成博文是执行 hexo g && gulp 就会根据 gulpfile.js 中的配置，对 public 目录中的静态资源文件进行压缩。
 
 #### 增加阅读排行统计页面
 首先我们可以使用leancloud来统计页面阅读数量，以及储存这些信息，然后通过leancloud提供的api编写js脚本来获取阅读数量信息，并展示在页面上。
@@ -434,9 +726,10 @@ Sitemap: http://thief.one/baidusitemap.xml
 ![Alt text](/path/to/img.jpg)  图片
 ![](/upload_image/20161012/1.png)
 ```
+详细Markdown语法请参考：[MakeDown语法](http://www.appinn.com/markdown/)
 
-详细参考：[MakeDown语法](http://www.appinn.com/markdown/)
-
-
+### 参考文章
+http://www.jianshu.com/p/f054333ac9e6
+https://neveryu.github.io/2016/09/30/hexo-next-two/
 
 *提醒：在更新博客内容时，最好先在本地调试完毕后（hexo server），再推送到github上。*

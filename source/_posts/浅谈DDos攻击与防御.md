@@ -8,6 +8,8 @@ tags:
 - 拒绝服务
 categories: 网络安全
 permalink: 01
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">水能载舟，亦能覆舟</blockquote>
 　　最近重新拜读了道哥的经典力作《白帽子讲Web安全》一书，发觉好书看一遍是不够的，每次品味都有不同的味道。道哥此书侧重于企业安全，即所讲所写偏重企业内部的安全建设，而不是针对某些漏洞大书特书。再次细读，深感需要做点笔记加强加强记忆，于是便以本篇开始，记录一些曾经看过的经典书籍的笔记。本篇主要用于记录《白帽子讲Web安全》读后感之DDos攻击与防御相关的知识。本篇记录的绝大部分内容来自《白帽子讲Web安全》，感谢道哥！
@@ -87,7 +89,3 @@ Disassociation Flood攻击即为取消关联洪水攻击，和deauthenticaiton f
 Disassociation Broadcast攻击和Disassociation Flood攻击原理基本一致，只是在发送程度及使用工具上有所区别，前者很多时候用于配合进行无线中间人攻击，而后者常用于目标确定的点对点无线DOS，比如破坏或干扰指定机构或部门的无线接入点等。
 #### RF Jamming攻击
 RF Jamming攻击即为RF干扰攻击。该攻击是通过发出干扰射频达到破坏正常无线通信的目的。而前面几种攻击主要是基于无线通信过程及协议的。RF为射频，主要包括无线信号发射机及收信机等。
-
-
->转载请说明出处：[浅谈DDos攻击与防御|nMask'Blog](http://thief.one/2017/05/10/1)
-本文地址：http://thief.one/2017/05/10/1

@@ -6,6 +6,8 @@ tags:
 - docker
 categories: 技术研究
 permalink: 01
+password:
+copyright: true
 ---
 <blockquote class="blockquote-center">人生如戏，而你是若不是演员？</blockquote>
 　　最近玩了玩Docker，感觉还不错，在此记录分享下docker的一些基础用法。本篇内容会随着本人对docker的不断地深入研究使用而补充，也欢迎大家纠错。
@@ -265,6 +267,3 @@ add与copy都是用来向镜像中添加文件的，区别在于copy只能复制
 
 
 *docker的内容非常多，以上只是一些最基础的用法，本文也将会持续更新*
-
->转载请说明出处：[Docker基础总结|nMask'Blog](http://thief.one/2017/05/04/1)
-本文地址：http://thief.one/2017/05/04/1
