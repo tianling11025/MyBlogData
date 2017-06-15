@@ -92,22 +92,22 @@ comments: true
 
 ### 常用软件与工具
 #### 远程操作
-><div class="div">[Xshell]()　　[Putty]()　　[SecureCRT]()　　[Navicat数据库连接]()　　[teamviewer]()　　[VMwareVsphere]()　　[Sequel Pro Mac数据库连接]()　　[Dash文档查询]()　　[Microsoft Remote Desktop beta]()　　[VMWare Fusion for mac]()</div>
+><div class="div">[Xshell](https://www.netsarang.com/products/xsh_overview.html)　　[Putty](http://www.putty.org/)　　[SecureCRT](https://www.vandyke.com/download/securecrt/download.html)　　[Navicat数据库连接](https://www.navicat.com.cn/)　　[teamviewer](https://www.teamviewer.com/zhCN/)　　[VMwareVsphere](http://www.vmware.com/products/vsphere.html)　　[Sequel Pro Mac数据库连接](http://www.sequelpro.com/)　　[Dash文档查询](https://kapeli.com/dash)　　[Microsoft Remote Desktop beta](http://mac.softpedia.com/get/Utilities/Microsoft-Remote-Desktop-Connection.shtml)　　[VMWare Fusion for mac](https://www.vmware.com/products/fusion.html)</div>
 
 #### 办公优化
-><div class="div">[openoffice Office替代品]()　　[everything文件搜索]()　　[total commander文件管理器]()　　[Launchy快速启动]()　　[cmder加强版shell]()　　[clover资源管理器]()　　[CCleaner文件清理]()　　[Alfred快速启动]()　　[iTerm Mac增强shell]()</div>
+><div class="div">[openoffice Office替代品](http://www.openoffice.org/)　　[everything文件搜索](http://www.voidtools.com/)　　[total commander文件管理器](http://www.ghisler.com/)　　[Launchy快速启动](http://www.launchy.net/)　　[cmder加强版shell](http://cmder.net/)　　[clover资源管理器](http://cn.ejie.me/)　　[CCleaner文件清理](https://www.piriform.com/)　　[Alfred快速启动](https://www.alfredapp.com/)　　[iTerm Mac增强shell](http://www.iterm2.com/)</div>
 
 #### 代码编辑
-><div class="div">[sublime Text]()　　[notepad++]()　　[PyCharm]()</div>
+><div class="div">[sublime Text](http://www.sublimetext.com/)　　[notepad++](https://notepad-plus-plus.org/)　　[PyCharm](http://www.jetbrains.com/pycharm/)</div>
 
 #### 代理VPN
-><div class="div">[shadowsocks]()　　[Gas Mask Host切换]()</div>
+><div class="div">[shadowsocks](http://www.iyingsuo.com/help.html)　　[Gas Mask Host切换](http://mac.softpedia.com/get/Utilities/Gas-Mask.shtml)</div>
 
 #### 系统优化 
-><div class="div">[rufus启动盘制作]()　　</div>
+><div class="div">[rufus启动盘制作](http://rufus.akeo.ie/)　　</div>
 
 #### 性能测试
-><div class="div">[Disk Speed Test for Mac]()　　[Geekbench for mac]()</div>
+><div class="div">[Disk Speed Test for Mac](https://itunes.apple.com/us/app/blackmagic-disk-speed-test/id425264550?mt=12)　　[Geekbench for mac](http://browser.primatelabs.com/mac-benchmarks/)</div>
 
 
 <style type="text/css"> 
