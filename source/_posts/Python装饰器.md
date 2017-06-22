@@ -33,7 +33,6 @@ call now():
 ```
 执行流程说明：
 >@log相当于now=log(now)，原来的now函数还在，只是现在now变量指向了新函数。因此当我们运行now()时，并不是运行now函数，而是运行log(now)返回的函数，即warpper函数。运行warpper函数后，会输出call....，然后执行func(*args,**kwargs)，而func就是传入的函数now，因此就是执行now函数，即now(*args,*kwargs),输入2013-12-25，从而达到了不必修改now函数，在执行now函数前输出内容。
-
 ### 进阶
 ```bash
 #! -*- coding:utf-8 -*-
@@ -80,5 +79,44 @@ log函数为装饰器函数，run函数为普通函数。
 执行流程说明：
 >当执行run(1,2,3)函数时，实际先执行了log(’test')函数，返回了a， 然后继续执行a(run)，返回b函数，最后将b复制给run，执行run(1,2,3)，实际是执行b(1,2,3)，先输出begin start，然后执行run(1,2,3)（真正的run函数），输出 1,2,3，最后输出end。
 
+### 实例演示
+输入当前时间：
+```bash
+def current_time(func):
+  '''
+  输出当前时间装饰器
+  '''
+  def wrapper(*args,**kw):
+    print_time=time.strftime(ISOTIMEFORMAT,time.localtime())
+    print "%s[Log_Info]Nowtime is:%s%s" % (BLUE,print_time,END)
+    func(*args,**kw)
+    print_time=time.strftime(ISOTIMEFORMAT,time.localtime())
+    print "%s[Log_Info]Nowtime is:%s%s" % (BLUE,print_time,END)
+    print "---------------------------------"
+  
+  return wrapper
+```
+给函数添加协程：
+```bash
+def gevent_wrapper(*args):
+  '''
+  将单线程的程序变成协程并发的装饰器
+  '''
+  import gevent
+  from gevent import monkey,pool;monkey.patch_all()
+  import functools
+
+  target_list=args[0] #待检测目标列表
+
+  def run(func):
+    @functools.wraps(func)
+    def wrapper(*args,**kw):
+      p = pool.Pool(5) #协程池大小
+      tasks = [p.spawn(func,*args,**kw) for i in target_list]
+      gevent.joinall(tasks)
+
+    return wrapper
+  return run
+```
 
 参考：[装饰器|廖雪峰](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000#0) 推荐新手学习！

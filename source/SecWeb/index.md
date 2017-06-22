@@ -6,7 +6,7 @@ comments: true
 <blockquote class="blockquote-center">将书签页中收藏的技术站点汇集在此处方便查询(持续更新)，如有补充请在下方留言，谢谢！</blockquote>
 
 ### 安全导航
-><div class="div">[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　[SecNavi导航](http://coco413.com/SecNavi/)　　[Hacked AV](http://cmcc.ml/)
+><div class="div">[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　[SecNavi导航](http://coco413.com/SecNavi/)　　[Hacked AV](http://cmcc.ml/)　　[security-tools](http://lu4n.com/security-tools/)
 </div>
 
 ### 安全技术论坛
@@ -55,7 +55,7 @@ comments: true
 </div>
 
 ### 圈内Blog
-><div class="div">[Seay](http://www.cnseay.com/)　　[长亭科技](http://paper.seebug.org/)　　[lostwolf’s Blog](http://wolvez.club/)　　[暗月博客](http://www.moonsec.com/)　　[小马’s Blog](http://www.i0day.com)　　[小残’s Blog](https://www.exehack.net/)　　[廖雪峰](http://www.liaoxuefeng.com/)　　[李劼杰](http://www.lijiejie.com/)　　[san-yun](http://san-yun.iteye.com/)　　[一只猿](http://www.92ez.com/)　　[WHEREISK0SHL](http://whereisk0shl.top/)　　[余弦](http://evilcos.me/)　　[小书屋](http://www.xiaoshuwu.net/)　　[yigegou](http://www.yige.dog/)　　[虾米](http://gdd.gd/)　　[URLTeam](https://www.urlteam.org/)　　[shareditor](http://www.shareditor.com/)　　[stardustsky](http://www.stardustsky.net/)　　[Mrxn'Blog](https://www.mrxn.net/)　　[BlBana'Blog](http://drops.blbana.cc/)
+><div class="div">[Seay](http://www.cnseay.com/)　　[长亭科技](http://paper.seebug.org/)　　[lostwolf’s Blog](http://wolvez.club/)　　[暗月博客](http://www.moonsec.com/)　　[小马’s Blog](http://www.i0day.com)　　[小残’s Blog](https://www.exehack.net/)　　[廖雪峰](http://www.liaoxuefeng.com/)　　[李劼杰](http://www.lijiejie.com/)　　[san-yun](http://san-yun.iteye.com/)　　[一只猿](http://www.92ez.com/)　　[WHEREISK0SHL](http://whereisk0shl.top/)　　[余弦](http://evilcos.me/)　　[小书屋](http://www.xiaoshuwu.net/)　　[yigegou](http://www.yige.dog/)　　[虾米](http://gdd.gd/)　　[URLTeam](https://www.urlteam.org/)　　[shareditor](http://www.shareditor.com/)　　[stardustsky](http://www.stardustsky.net/)　　[Mrxn'Blog](https://www.mrxn.net/)　　[BlBana'Blog](http://drops.blbana.cc/)　　[独自等待](https://www.waitalone.cn/)
 </div>
 
 ### Python社区
