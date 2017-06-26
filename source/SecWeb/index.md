@@ -6,7 +6,7 @@ comments: true
 <blockquote class="blockquote-center">将书签页中收藏的技术站点汇集在此处方便查询(持续更新)，如有补充请在下方留言，谢谢！</blockquote>
 
 ### 安全导航
-><div class="div">[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　[SecNavi导航](http://coco413.com/SecNavi/)　　[Hacked AV](http://cmcc.ml/)　　[security-tools](http://lu4n.com/security-tools/)
+><div class="div">[安全行业全景图](http://all.aqniu.com/)　　[WebSec安全导航](http://nav.mayter.cn/)　　[纳威安全导航](http://navisec.it/)　　[安全脉搏导航](http://nav.secpulse.com/)　　[黑客榜中榜](http://www.cn-hack.cn/)　　[安全圈Info导航](http://www.anquanquan.info/)　　[SRC导航](http://www.srcsec.com/?milw0rm.cn)　　[MottoIN导航](http://www.mottoin.com/navs)　　[SecNavi导航](http://coco413.com/SecNavi/)　　[Hacked AV](http://cmcc.ml/)　　[security-tools](http://lu4n.com/security-tools/)　　[渗透师导航](http://nav.mayter.cn/)
 </div>
 
 ### 安全技术论坛
@@ -19,7 +19,7 @@ comments: true
 
 ### 在线Tools
 #### 漏洞检测平台
-><div class="div">[重大漏洞在线检测平台](http://0day.websaas.com.cn/)　　[华为安全平台](http://sec.huawei.com/sec/web/index.do)　　[微步在线threatbook(威胁分析)](https://x.threatbook.cn/)　　[在线Webshell扫描](http://scanner.baidu.com)　　[腾讯管家web检测](http://guanjia.qq.com/online_server/webindex.html)　　[蚁巢网站安全测试](http://beihei.org/)
+><div class="div">[重大漏洞在线检测平台](http://0day.websaas.com.cn/)　　[华为安全平台](http://sec.huawei.com/sec/web/index.do)　　[微步在线threatbook(威胁分析)](https://x.threatbook.cn/)　　[在线Webshell扫描](http://scanner.baidu.com)　　[腾讯管家web检测](http://guanjia.qq.com/online_server/webindex.html)　　[蚁巢网站安全测试](http://beihei.org/)　　[移动安全威胁数据平台](http://appscan.io/)
 </div>
 
 #### 站长工具
@@ -43,7 +43,7 @@ comments: true
 </div>
 
 ### 安全搜索引擎
-><div class="div">[钟馗之眼](https://www.zoomeye.org/)　　[censys](https://www.censys.io/)　　[shodan](https://www.shodan.io/)　　[NOSEC大数据安全协作平台](https://nosec.org)　　[全球DNS搜索引擎](https://www.dnsdb.io/zh-cn)　　[FOFA](https://fofa.so/)　　[谛听](http://www.ditecting.com/)　　[傻蛋](https://www.oshadan.com/)
+><div class="div">[钟馗之眼](https://www.zoomeye.org/)　　[censys](https://www.censys.io/)　　[shodan](https://www.shodan.io/)　　[NOSEC大数据安全协作平台](https://nosec.org)　　[全球DNS搜索引擎](https://www.dnsdb.io/zh-cn)　　[FOFA](https://fofa.so/)　　[谛听](http://www.ditecting.com/)　　[傻蛋](https://www.oshadan.com/)　　[pipl个人信息搜索](https://pipl.com/)　　[MyLife个人信息搜索](https://www.mylife.com/)　　[Yippy暗网搜索](https://yippy.com/)　　[Surfwax元搜索](http://lookahead.surfwax.com/)　　[Way Back Machine(搜索网站过去的样子)](https://archive.org/web/)　　[Google学术](https://scholar.google.com.ph/)　　[DuckDuckgo匿名搜索](https://duckduckgo.com/)　　[not Evil暗网搜索](http://hss3uro2hsxfogfq.onion/)　　[Start Page安全搜索](https://www.ixquick.com/)
 </div>
 
 ### 域名注册商
