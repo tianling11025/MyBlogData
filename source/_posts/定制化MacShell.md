@@ -9,7 +9,8 @@ tags:
 categories: 技术研究
 password:
 ---
-<blockquote class="blockquote-center"></blockquote>
+<blockquote class="blockquote-center">Keep on going never give up
+勇往直前，决不放弃！</blockquote>
 　　黑苹果用了将近半年，我也开始慢慢熟悉使用mac操作系统。然而之前我并没有真正发挥出mac高效率的一面，而只是停留于最基础的使用，为了能更高效的使用mac，近期我搜集了一些高效优雅地使用mac的案例，准备实操一番并做些记录。
 　　如何高效地使用Mac？面对这个问题，我们可以从如何优雅地使用shell（也就是终端）开始探讨。首先不得不说mac自带的shell功能已经很强大了，但为了更好地办公，我们能做得还有很多。本篇将介绍几款Mac下shell增强工具（插件），使得Macshell的功能更加强大。
 <!--more -->
