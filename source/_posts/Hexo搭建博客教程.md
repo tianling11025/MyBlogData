@@ -677,7 +677,9 @@ seo优化对于网站是否能被搜索引擎快速收录有很大帮助，因�
 安装以下2个插件，然后重启hexo后，网站根目录（source）下会生成sitemap.xml与baidusitemap.xml文件，搜索引擎在爬取时会参照文件中的url去收录。
 ```bash
 npm install hexo-generator-sitemap --save-dev
+hexo d -g
 npm install hexo-generator-baidu-sitemap --save-dev
+hexo d -g
 ```
 #### 添加robots.txt
 新建robots.txt文件，添加以下文件内容，把robots.txt放在hexo站点的source文件下。

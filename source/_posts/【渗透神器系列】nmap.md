@@ -199,6 +199,7 @@ nmap支持很多语言的扩展，本文简单介绍下python中如何使用nmap
 更多使用方法，参考：http://xael.org/pages/python-nmap-en.html
 
 ### 传送门
+[【渗透神器系列】DNS信息查询](http://thief.one/2017/07/12/1/)
 [【渗透神器系列】nc](http://thief.one/2017/04/10/1/)
 [【渗透神器系列】Fiddler](http://thief.one/2017/04/27/1)
 [【渗透神器系列】搜索引擎](http://thief.one/2017/05/19/1)

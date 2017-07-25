@@ -33,10 +33,11 @@ menu:
   collect_url: /SecWeb
   # about: /about
   message: /message
-  archives: /archives
+  # archives: /archives
   categories: /categories
   tags: /tags
   book: https://book.thief.one
+  yuge8: http://yuge8.com
   #commonweal: /404.html
 
 
@@ -201,6 +202,7 @@ links:
   phithon'Blog(离别歌): https://www.leavesongs.com/
   虾米'Blog: http://gdd.gd/
   Rcoil'Blog: http://rcoil.me/
+  yuge8: http://yuge8.com
   
 
 
