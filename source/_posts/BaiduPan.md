@@ -1,8 +1,8 @@
 ---
-title: 【置顶】色情资源引发的百度网盘之战
+title: 色情资源引发的百度网盘之战
 date: 2017-04-12 22:38:09
 comments: true
-top: 1
+top: 0
 tags:
 - 百度网盘
 - python爬虫

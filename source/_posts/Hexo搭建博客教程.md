@@ -1,5 +1,5 @@
 ---
-title: 【置顶】Hexo搭建博客教程
+title: Hexo搭建博客教程
 date: 2017-03-03 14:47:03
 comments: true
 tags: 
@@ -8,7 +8,7 @@ tags:
 categories: 技术研究
 password:
 copyright: true
-top: 1
+top: 0
 ---
 <blockquote class="blockquote-center">所谓博客，都是孤芳自赏
 </blockquote>
