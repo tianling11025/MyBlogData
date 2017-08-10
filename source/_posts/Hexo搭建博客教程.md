@@ -634,7 +634,7 @@ $ git config ssh.postBuffer 524288000
 　　用npm install hexo-deployer-git --save生成的.deploy_git不包含.git文件，因此正确的做法是.deploy_git文件夹也需要备份，然后再用npm install hexo-deployer-git --save更新一下其内容即可。
 　　如果已经出现这个错误，则删除.deploy_git，重新hexo d。
 
-#### hexo s报错
+#### （八）hexo s报错
 在新版本的mac上，安装运行hexo会报此错误，但不影响使用。
 ```bash
 { Error: Cannot find module

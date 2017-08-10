@@ -9,5 +9,5 @@ Disallow: /vendors/
 Disallow: /fancybox/
 Disallow: /SecWeb/
 
-Sitemap: http://thief.one/sitemap.xml
-Sitemap: http://thief.one/baidusitemap.xml
+Sitemap: https://thief.one/sitemap.xml
+Sitemap: https://thief.one/baidusitemap.xml

@@ -27,7 +27,7 @@ comments: true
 </div>
 
 #### 加密解密
-><div class="div">[cmd5](http://www.cmd5.com/)　　[somd5](http://www.somd5.com/)　　[xmd5](http://xmd5.com/)　　[hash查询](http://cracker.offensive-security.com/index.php)　　[DES/AES加密解密](http://tool.chacuo.net/cryptdes)　　[PHP解密](http://dezend.qiling.org/member/register.html)　　[一点寒CMS识别](http://whatweb.yidianhan.com/)　　[BugScanner CMS指纹识别](http://whatweb.bugscaner.com/look/)　　[在线编码转换](http://www.jb51.net/tools/zhuanhuan.htm)　　[Base64解码](http://www1.tc711.com/tool/BASE64.htm)　　[beJson](http://www.bejson.com/)　　[破晓指纹识别](http://www.secbug.org:8080/)　　[网站指纹查询](http://whatweb.net/)
+><div class="div">[cmd5](http://www.cmd5.com/)　　[somd5](http://www.somd5.com/)　　[xmd5](http://xmd5.com/)　　[hash查询](http://cracker.offensive-security.com/index.php)　　[DES/AES加密解密](http://tool.chacuo.net/cryptdes)　　[PHP解密](http://dezend.qiling.org/member/register.html)　　[一点寒CMS识别](http://whatweb.yidianhan.com/)　　[BugScanner CMS指纹识别](http://whatweb.bugscaner.com/look/)　　[在线编码转换](http://www.jb51.net/tools/zhuanhuan.htm)　　[Base64解码](http://www1.tc711.com/tool/BASE64.htm)　　[beJson](http://www.bejson.com/)　　[破晓指纹识别](http://www.secbug.org:8080/)　　[网站指纹查询](http://whatweb.net/)　　[云悉指纹扫描](http://www.yunsee.cn/)
 </div>
 
 #### 程序员相关

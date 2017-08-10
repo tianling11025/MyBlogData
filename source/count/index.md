@@ -3,14 +3,14 @@ comments: false
 ---
 <blockquote class="blockquote-center">琅琊榜首，江左梅郎</blockquote>
 
-<p id="heheda"><font size="4">阅读琅琊榜Top20：<br><br></font></p>
+<p id="heheda"><font size="4">阅读琅琊榜Top：<br><br></font></p>
 
 <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
 
 <script>AV.initialize("z4gJQDYWtJaYDKAY3kuPtn2i-gzGzoHsz", "NPG4o0CWzLFqSTL94JmNAm7X");</script>
 
 <script type="text/javascript">
-  var num=20 //最终只返回20条结果
+  var num=30 //最终只返回20条结果
   var time=0
   var title=""
   var url=""
