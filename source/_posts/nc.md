@@ -134,6 +134,7 @@ nc -vv victim_ip port < path\file.cmd
 * [Pyshell](http://thief.one/2016/09/05/PyShell-%E6%9C%A8%E9%A9%AC%E5%90%8E%E9%97%A8/) 致敬nc的一款后门shell工具。
 
 ### 传送门
+[【渗透神器系列】Metasploit](http://thief.one/2017/08/01/1/)
 [【渗透神器系列】DNS信息查询](http://thief.one/2017/07/12/1/)
 [【渗透神器系列】Fiddler](http://thief.one/2017/04/27/1)
 [【渗透神器系列】nmap](http://thief.one/2017/05/02/1/)

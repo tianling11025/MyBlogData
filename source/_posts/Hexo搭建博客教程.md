@@ -477,6 +477,19 @@ gulp.task('default', [
 ```
 生成博文是执行 hexo g && gulp 就会根据 gulpfile.js 中的配置，对 public 目录中的静态资源文件进行压缩。
 
+#### 搜索功能
+安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：
+```bash
+$ npm install hexo-generator-searchdb --save
+```
+编辑 站点配置文件，新增以下内容到任意位置：
+```bash
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+```
 #### 增加阅读排行统计页面
 首先我们可以使用leancloud来统计页面阅读数量，以及储存这些信息，然后通过leancloud提供的api编写js脚本来获取阅读数量信息，并展示在页面上。
 首先新建一个page页面，hexo new page "",然后编辑此.md文件，写下：
@@ -619,7 +632,17 @@ $ git config ssh.postBuffer 524288000
 #### （七）hero d推送的内容有问题
 　　首先检查下.deploy_git文件夹下的.git文件是否存在，此.git文件指定了hexo d时推送public文件夹，而不是所有的内容。如果此.git文件不存在，则会出现推送内容错误。
 　　用npm install hexo-deployer-git --save生成的.deploy_git不包含.git文件，因此正确的做法是.deploy_git文件夹也需要备份，然后再用npm install hexo-deployer-git --save更新一下其内容即可。
+　　如果已经出现这个错误，则删除.deploy_git，重新hexo d。
 
+#### hexo s报错
+在新版本的mac上，安装运行hexo会报此错误，但不影响使用。
+```bash
+{ Error: Cannot find module
+```
+解决方案：
+```bash
+npm install hexo --no-optional
+```
 
 ### 异地同步博客内容
 　　现在电脑已经很普及了，因为一般来说我们都是公司一台电脑，家里一台电脑，那么如何将两台电脑上博客的内容同步内，即两台电脑上都可以编辑更新博客？

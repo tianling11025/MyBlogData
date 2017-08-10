@@ -112,6 +112,7 @@ whois -p port thief.one
 更多用法可以使用*man whois*查看。
 
 ### 传送门
+[【渗透神器系列】Metasploit](http://thief.one/2017/08/01/1/)
 [【渗透神器系列】nc](http://thief.one/2017/04/10/1/)
 [【渗透神器系列】nmap](http://thief.one/2017/05/02/1/)
 [【渗透神器系列】Fiddler](http://thief.one/2017/04/27/1)

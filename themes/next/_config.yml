@@ -21,6 +21,9 @@ rss: /atom.xml
 # Tips: Before you open this tag, remeber set up your URL in hexo _config.yml ( ex. url: http://yourdomain.com )
 canonical: true
 
+local_search:
+  enable: true
+
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -33,7 +36,7 @@ menu:
   collect_url: /SecWeb
   # about: /about
   message: /message
-  # archives: /archives
+  archives: /archives
   categories: /categories
   tags: /tags
   book: https://book.thief.one
@@ -202,7 +205,6 @@ links:
   phithon'Blog(离别歌): https://www.leavesongs.com/
   虾米'Blog: http://gdd.gd/
   Rcoil'Blog: http://rcoil.me/
-  yuge8: http://yuge8.com
   
 
 

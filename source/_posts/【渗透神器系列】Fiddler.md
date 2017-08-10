@@ -125,6 +125,7 @@ if (m_SimulateModem) {
 Fiddler可以定制化很多功能，以上是我平时常用的一些内容，如想要了解更多用法请参考官方文档：[Fiddler文档](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)
 
 ### 传送门
+[【渗透神器系列】Metasploit](http://thief.one/2017/08/01/1/)
 [【渗透神器系列】DNS信息查询](http://thief.one/2017/07/12/1/)
 [【渗透神器系列】nc](http://thief.one/2017/04/10/1/)
 [【渗透神器系列】nmap](http://thief.one/2017/05/02/1/)

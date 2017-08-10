@@ -40,6 +40,7 @@ or　　||
 ![](/upload_image/20170209/1.png)
 
 ### 传送门
+[【渗透神器系列】Metasploit](http://thief.one/2017/08/01/1/)
 [【渗透神器系列】DNS信息查询](http://thief.one/2017/07/12/1/)
 [【渗透神器系列】Fiddler](http://thief.one/2017/04/27/1)
 [【渗透神器系列】nmap](http://thief.one/2017/05/02/1/)
