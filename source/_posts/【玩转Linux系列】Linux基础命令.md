@@ -283,6 +283,7 @@ http://linuxtools-rst.readthedocs.io/zh_CN/latest/
 ### 传送门
 [【玩转linux系统】Linux内网渗透](https://thief.one/2017/08/09/2/)
 [【玩转linux系列】Vim使用](https://thief.one/2017/08/09/1/)
+[【玩转linux系列】shell编程](https://thief.one/2017/08/11/1/)
 
 
 

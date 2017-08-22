@@ -15,6 +15,8 @@ password:
 </blockquote>
 　　工作中有时需要在linux服务器上写代码，然而习惯了sublime，突然切换到linux下的vim感觉很不习惯，编程效率自然下降了很多。但这并不是说vim编辑器本身效率低下，而是我并没有发挥出它强大的功能（据说大神都是用vim），为了能加快编程的效率，简单学习总结下vim的用法。
 <!--more -->
+![](/upload_image/20170809/6.png)
+
 ### 复制剪切粘贴
 ```bash
 yy  # 复制一行
@@ -34,9 +36,9 @@ bin/bash>:?nmask # 查找存在nmask字符串的位置
 
 ### 编辑器显示设置
 ```bash
-bin/bash>：set nu!        # 显示行号
-bin/bash>：set autoindent # 自动缩进
-bin/bash>：syntax enable  # 语法高亮
+:set nu!        # 显示行号
+:set autoindent # 自动缩进
+:syntax enable  # 语法高亮
 ```
 
 ### 文件内容定位
@@ -74,4 +76,5 @@ bin/bash>:％s/regexp/replacement/g   # 文本中所有匹配的都替换
 ### 传送门
 [【玩转linux系列】Linux基础命令](https://thief.one/2017/08/08/1/)
 [【玩转linux系统】Linux内网渗透](https://thief.one/2017/08/09/2/)
+[【玩转linux系列】shell编程](https://thief.one/2017/08/11/1/)
 

@@ -296,6 +296,7 @@ http://www.freebuf.com/articles/network/125278.html
 ### 传送门
 [【玩转linux系列】Vim使用](https://thief.one/2017/08/09/1/)
 [【玩转linux系列】Linux基础命令](https://thief.one/2017/08/08/1/)
+[【玩转linux系列】shell编程](https://thief.one/2017/08/11/1/)
 
 
 
