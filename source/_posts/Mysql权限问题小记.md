@@ -86,6 +86,62 @@ DELETE FROM 表名;
 ```
 *以上命令是最最基础的，但也是最常用的*
 
+## 常用Sql语句
+### 获取固定数量的结果
+```bash
+select * from table limit m,n
+```
+说明：其中m是指记录开始的index，从0开始，表示第一条记录；n是指从第m+1条开始，取n条。
+```bash
+select * from table limit 0,n
+```
+说明：查询前n条结果。
+```bash
+select * from table limit m,-1
+```
+说明：查询m行以后的结果。
+
+### 查询字符串
+```bash
+SELECT * FROM table WHERE name like '%PHP%'
+```
+说明：%表示模糊查询，%php表示以php结尾的所有结果，%php%表示包含php的所有结果。
+
+### 非空查询
+查询address字段不为空的结果。
+```bash
+SELECT * FROM table WHERE address <>''
+```
+
+### 判断查询
+查询age在0-18之间的结果。
+```bash
+SELECT * FROM table WHERE age BETWEEN 0 AND 18
+```
+
+### 查询结果的数量
+```bash
+select count(*) from table
+```
+
+### 查询结果不显示重复记录
+```bash
+SELECT DISTINCT 字段名 FROM 表名 WHERE 查询条件
+```
+注:SQL语句中的DISTINCT必须与WHERE子句联合使用，否则输出的信息不会有变化 ,且字段不能用*代替。
+
+### 查询排序
+```bash
+SELECT 字段名 FROM tb_stu WHERE 条件 ORDER BY 字段 DESC 降序
+SELECT 字段名 FROM tb_stu WHERE 条件 ORDER BY 字段 ASC  升序
+```
+注:对字段进行排序时若不指定排序方式，则默认为ASC升序。
+
+### 多条件查询排序
+```bash
+SELECT 字段名 FROM tb_stu WHERE 条件 ORDER BY 字段1 ASC 字段2 DESC
+```
+
 ## Mysql使用权限问题
 ### 只能本地连接mysql，远程机器连接不了？
 当我在服务器上搭建好mysql，输入以下命令：
