@@ -2,6 +2,7 @@
 title: python奇技淫巧
 date: 2017-04-19 10:41:52
 comments: true
+top: 1
 tags:
 - python
 - python奇技淫巧
@@ -245,6 +246,23 @@ def search(paths,file_name,tag,lists):
 isinstance("123",(int,long,float,complex)
 ```
 #### 字符串(string)
+字符串推导
+```bash
+a="True"
+b=a if a=="True" else "False"
+>>>print b
+True
+```
+format方法拼接字符串与变量
+```bash
+a="{test} abc {test2}".format(test="123",test2="456")
+>>>>print a 
+123 abc 456
+或者：
+a="{},{}".format(1,2)
+>>>>>print a
+1,2
+```
 去掉小数点后面的数字
 ```bash
 a=1.21311
@@ -558,3 +576,7 @@ if __name__ == "__main__":
 @2017.04.19创建此文
 @2017.04.24增加eval/exec函数
 @2017.05.27增加程序操作、函数超时、函数出错重试
+@2017.08.24增加format拼接字符串与变量、字符串推导
+
+
+
