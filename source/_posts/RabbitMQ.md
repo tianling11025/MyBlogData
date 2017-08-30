@@ -21,6 +21,42 @@ sudo apt-get install rabbitmq-server
 ```
 安装后，rabbitmq服务就已经启动了。
 详细参考：http://www.rabbitmq.com/download.html（官网）
+
+#### centos下安装
+安装Erlang语言：
+```bash
+yum install erlang
+```
+安装Rabbitmq：
+```bash
+wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.5/rabbitmq-server-3.3.5-1.noarch.rpm
+yum install rabbitmq-server-3.3.5-1.noarch.rpm
+```
+加入开机启动服务
+```bash
+chkconfig rabbitmq-server on
+```
+然后启动
+```bash
+service rabbitmq-server start
+service rabbitmq-server status
+service rabbitmq-server stop
+service rabbitmq-server restart
+```
+开启web插件：
+```bash
+rabbitmq-plugins enable rabbitmq_management
+```
+访问http://localhost:15672
+
+但是此时，guest用户登录不了，因为默认是不允许guest用户登录的。
+```bash
+rabbitmqctl delete_user  guest
+rabbitmqctl add_user admin 123456
+rabbitmqctl set_user_tags admin administrator
+```
+centos安装rabbitmq参考：http://www.qaulau.com/linux-centos-install-rabbitmq/
+
 ### Rabbitmq配置
 #### rabbitmq命令
 ```bash

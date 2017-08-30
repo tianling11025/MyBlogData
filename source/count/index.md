@@ -1,6 +1,9 @@
 ---
+title: 琅琊榜
+date: 2017-04-10 20:24:50
 comments: false
 ---
+
 <blockquote class="blockquote-center">琅琊榜首，江左梅郎</blockquote>
 
 <p id="heheda"><font size="4">阅读琅琊榜Top：<br><br></font></p>
@@ -10,7 +13,7 @@ comments: false
 <script>AV.initialize("z4gJQDYWtJaYDKAY3kuPtn2i-gzGzoHsz", "NPG4o0CWzLFqSTL94JmNAm7X");</script>
 
 <script type="text/javascript">
-  var num=30 //最终只返回20条结果
+  var num=30 //最终只返回n条结果
   var time=0
   var title=""
   var url=""
