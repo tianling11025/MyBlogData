@@ -233,6 +233,10 @@ do
     commandN
 done
 ```
+一句话for循环shell
+```bash
+for i in $(ps -ef | grep python | awk '{print $2}');do kill $i;done
+```
 
 #### while循环语句
 ```bash

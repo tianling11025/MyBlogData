@@ -141,6 +141,30 @@ SELECT 字段名 FROM tb_stu WHERE 条件 ORDER BY 字段 ASC  升序
 ```bash
 SELECT 字段名 FROM tb_stu WHERE 条件 ORDER BY 字段1 ASC 字段2 DESC
 ```
+### 多表联合查询
+多表查询有三种方式：交叉查询、等值查询、外部查询（左连接、右连接）
+参考：http://blog.csdn.net/hguisu/article/details/5731880
+#### 交叉连接查询
+交叉查询可将2表中所有的数据都查出，比较耗时。
+```bash
+SELECT * FROM table1 CROSS JOIN table2   
+SELECT * FROM table1 JOIN table2   
+SELECT * FROM table1,table2  
+```
+#### 等值连接查询
+```bash
+SELECT * FROM table1 INNER JOIN table2   
+```
+#### 外部连接查询
+这种查询是最常用的，查找出a与b表中公有的，另外查出只有a表或b表独有的。
+```bash
+select id, name from user left join techer on user.id = teacher.id
+select id, name from user right join techer on user.id = teacher.id
+```
+#### 三表查询
+```bash
+select id, name from user left join techer on user.id = teacher.id left join home on teacher.id=home.id
+```
 
 ## Mysql使用权限问题
 ### 只能本地连接mysql，远程机器连接不了？
@@ -275,6 +299,28 @@ bind_address=127.0.0.1 改成 bind_address=192.168.10.2
 sudo /etc/init.d/mysqld restart
 ```
 *脱坑秘籍：通过mysql命令行修改内容后，要记得plush；如果还不生效，尝试restart mysql服务*
+
+### 报错：too many connections
+一般mysql默认最大连接数是100，当mysql连接数超过这个时，会报错此错；解决方案可以更改/etc/my.cof文件，更改最大连接上限。
+在[mysqld]中新增max_connections=N，如果你没有这个文件请从编译源码中的support-files文件夹中复制你所需要的*.cnf文件为到 /etc/my.cnf
+```bash
+[mysqld]
+port = 3306
+socket = /tmp/mysql.sock
+skip-locking
+key_buffer = 160M
+max_allowed_packet = 1M
+table_cache = 64
+sort_buffer_size = 512K
+net_buffer_length = 8K
+read_buffer_size = 256K
+read_rnd_buffer_size = 512K
+myisam_sort_buffer_size = 8M
+max_connections=1000
+```
+### mysql服务重启出错
+mysql重启如果出错，可以先查看日志，在/var/log/mysql.log中查看具体的错误。
+一般来说，可能是权限问题，如果mysql是mysql用户权限，则需要切换到sudo su mysql用户下去启动mysql服务。
 
 ## Mysql性能优化
 ### mysql insert加速

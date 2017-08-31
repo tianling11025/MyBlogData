@@ -263,6 +263,8 @@ nohup python revice_true_link.py > ./log/true_link.log &
 * Ctl-W   删除当前光标到前边的最近一个空格之间的字符
 * Ctl-H   backspace,删除光标前边的字符
 * Ctl-R   匹配最相近的一个文件，然后输出
+* Ctl-a   光标移动到行首
+* Ctl-e   光标移动到行尾
 
 #### 资源下载
 访问远程资源，下载资源
