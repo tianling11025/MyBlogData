@@ -14,6 +14,21 @@ copyright: true
 命运掌握在自己手上</blockquote>
 　　最近由于项目需要，特地研究了下mysql数据库。虽然大学期间曾学习过mysql，但由于之前开发一直用rethinkdb以及mongodb数据库，因此对mysql已经有些生疏了。最近在使用期间也遇到了很多坑，但幸好最终还是靠着强大的Google解决了所有问题。因此在此记录下mysql相关问题的一些笔记，其中可能会涉及Mysql安全相关的问题，比如利用mysql导出shell、mysql提权等，权当备份。
 <!-- more -->
+## Install Mysql
+### for ubuntu
+```bash
+sudo apt-get install mysql-server
+sudo apt-get install phpmyadmin
+```
+Ubuntu上安装mysql几乎都是自动安装的，在安装过程中可以选择额外安装php／apache2。
+### for centos 
+```bash
+wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+yum install mysql-community-server
+yum install phpmyadmin
+yum install httpd
+```
 ## Mysql基础命令
 想要mysql玩得6，mysql命令行必须会用，或者说sql必须会，一起复习一下吧。
 ### 数据库操作
@@ -211,6 +226,12 @@ mysql>CREATE USER 'nmask'@'%' IDENTIFIED BY '123456';
 ```bash
 mysql>update user set host = '%' where user = 'root';
 ```
+更改root用户的密码：
+```bash
+UPDATE user SET Password=PASSWORD('nmask') where USER='root';
+```
+注意：初始化安装mysql时，默认可能只能用root用户登录，但默认root没有设置密码，因此一开始可以先给root用户添加一个密码进行登录。
+
 flush(必须要flush，使之生效)：
 ```bash
 mysql>flush privileges;
@@ -321,6 +342,35 @@ max_connections=1000
 ### mysql服务重启出错
 mysql重启如果出错，可以先查看日志，在/var/log/mysql.log中查看具体的错误。
 一般来说，可能是权限问题，如果mysql是mysql用户权限，则需要切换到sudo su mysql用户下去启动mysql服务。
+
+### phpmyadmin 403问题
+安装完phpmyadmin与apache以后，访问http://localhost/phpmyadmin路径显示403。
+```bash
+sudo vim /etc/httpd/conf.d/phpMyAdmin.conf
+```
+编辑phpmyadmin.conf文件：
+```bash
+<Directory /usr/share/phpMyAdmin/>
+   AddDefaultCharset UTF-8
+
+   <IfModule mod_authz_core.c>
+     # Apache 2.4
+     <RequireAny>
+       #Require ip 127.0.0.1
+       #Require ip ::1
+       Require all granted
+     </RequireAny>
+   </IfModule>
+   <IfModule !mod_authz_core.c>
+     # Apache 2.2
+     Order Deny,Allow
+     Deny from All
+     Allow from 127.0.0.1
+     Allow from ::1
+   </IfModule>
+</Directory>
+```
+另外补充一下，如果要更改apache的端口，则可更改/etc/httpd/conf/httpd.conf文件。
 
 ## Mysql性能优化
 ### mysql insert加速
