@@ -164,5 +164,28 @@ nohup uwsgi --ini myweb_uwsgi.ini &
 
 注意：*在更新Django代码后，最好重启一下uwsgi进程，避免出现不可预知的Bug！*
 
+### 坑点
+* 如果服务器是映射的，nginx配置文件里面的server_name要写外网的IP或者域名
+* 不要在python虚拟环境中使用uwsgi，会有一些问题，当然也可以解决，参考：https://stackoverflow.com/questions/14194859/importerror-no-module-named-django-core-wsgi-for-uwsgi
+
+### 报错
+#### No module named django.core.wsgi
+启动uwsgi时报以下错误：
+```bash
+ImportError: No module named django.core.wsgi for uwsgi
+```
+uwsgi在python虚拟环境中启动时，配置文件里面要加虚拟的路径。
+打开django.init（自己创建）写入：
+```bash
+home=/path/to/venv/
+```
+运行：
+```bash
+uwsgi --ini django.ini --protocol=http
+```
+#### uwsgi http is ambiguous
+这也是因为虚拟环境的原因，建议退出python的虚拟环境，然后pip install uwsgi。
+
+
 ### 参考文章
 http://www.cnblogs.com/fnng/p/5268633.html
