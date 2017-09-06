@@ -101,5 +101,8 @@ http://struts.apache.org/docs/s2-046.html
 https://community.hpe.com/t5/Security-Research/Struts2-046-A-new-vector/ba-p/6949723
 
 
-欲知Struts2-045请参考：[struts2_045漏洞](http://thief.one/2017/03/07/Struts2-045%E6%BC%8F%E6%B4%9E/)
-欲知Struts2历史Poc请参数：[struts2漏洞poc汇总](http://thief.one/2017/03/13/Struts2%E6%BC%8F%E6%B4%9EPOC%E6%B1%87%E6%80%BB/)
+### 传送门
+[struts2-052漏洞](http://thief.one/2017/09/06/1)
+[struts2-046漏洞](http://thief.one/2017/03/21/Struts2-046%E6%BC%8F%E6%B4%9E/)
+[struts2_045漏洞](http://thief.one/2017/03/07/Struts2-045%E6%BC%8F%E6%B4%9E/)
+[struts2漏洞poc汇总](http://thief.one/2017/03/13/Struts2%E6%BC%8F%E6%B4%9EPOC%E6%B1%87%E6%80%BB/)
