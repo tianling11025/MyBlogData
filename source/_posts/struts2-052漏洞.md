@@ -11,12 +11,13 @@ password:
 ---
 <blockquote class="blockquote-center">From small beginnings comes great things
 伟大始于渺小</blockquote>
-　　今年struts2疯了，被爆出了很多高危漏洞，之前我研究过s_045、s_046漏洞，近期又出现了s_052漏洞，同样是命令执行，但这次危害稍微小一些，因为利用环境比较苛刻，需要使用XStream插件。
+　　今年struts2疯了，被爆出了很多高危漏洞，之前我研究过s_045、s_046漏洞，近期又出现了s_052漏洞。s_052漏洞危害稍微小一些，因为利用环境比较苛刻，需要使用Struts2 REST插件的XStream组件。
 <!-- more -->
 免责申明：*文章中的工具等仅供个人测试研究，请在下载后24小时内删除，不得用于商业或非法用途，否则后果自负*
 
 ### s2-052漏洞介绍
-s2-052漏洞是当用户使用带有XStream程序的Struts-REST插件来处理XML-payloads时，会遭到远程代码执行攻击。
+s2-052漏洞是当用户使用带有XStream组件的Struts-REST插件对XML格式的数据包进行反序列化操作时，未对数据内容进行有效验证，可直接在数据包中插入恶意代码。
+
 漏洞编号：CVE-2017-9805（S2-052）
 漏洞影响：Struts2.5 – Struts2.5.12版本。
 
@@ -185,6 +186,14 @@ windows:
 java -cp marshalsec-0.0.1-SNAPSHOT-all.jar marshalsec.XStream ImageIO calc.exe > poc.txt
 ```
 marshalsec-0.0.1-SNAPSHOT-all.jar网上可以下载，这里不给出地址了，自行搜索。
+
+### 修补方法
+* 升级Struts到2.5.13最新版本。
+* 在不使用时删除Struts REST插件，或仅限于服务器普通页面和JSONs <constant name="struts.action.extension" value="xhtml,,json" />
+
+### python验证脚本
+
+https://github.com/ysrc/xunfeng/commit/f9ae69fe176c8bca622831e126cd94414ebe26f6?from=timeline&isappinstalled=0
 
 
 ### 参考文章
