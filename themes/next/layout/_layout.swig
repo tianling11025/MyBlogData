@@ -7,10 +7,11 @@
 
 <html class="{{ html_class | lower }}">
 <head>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
-</head>
 
+</head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ config.language }}">
 
   {% include '_scripts/third-party/analytics.swig' %}
@@ -27,6 +28,8 @@
       <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
     </header>
 
+
+
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
@@ -41,6 +44,18 @@
         {% endif %}
       </div>
     </main>
+
+
+    <!-- test -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7923903290305785"
+         data-ad-slot="1960662908"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
@@ -74,13 +89,11 @@
 
 
 <!-- 背景动画 -->
-<script type="text/javascript" src="/js/src/particle.js"></script>
+<!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
 </div>
-
-<!-- <a href="https://github.com/tengzhangchao"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->
 
 </body>
 </html>
