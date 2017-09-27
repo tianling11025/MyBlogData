@@ -643,6 +643,13 @@ $ git config ssh.postBuffer 524288000
 ```bash
 npm install hexo --no-optional
 ```
+### Local Search错误
+　　最近发现Local Search搜索出来的连接有错误，到不是说连接不对，而是当我在/aaa/目录下搜索一个页面时，跳转到了/aaa/正确的连接/，这样明显是正确的，应该是跟目录+跳转的目录。
+　　网上搜索了下，没有类似的案例，那么自己动手修改吧，打开node_modules/hexo-generator-searchdb/templates下的xml.ejs文件：
+```bash
+<url><%- ("../../../../../../../../"+post.path) %></url>
+```
+说明：将这个文件的两处url都改成这样就可以了。
 
 ### 异地同步博客内容
 　　现在电脑已经很普及了，因为一般来说我们都是公司一台电脑，家里一台电脑，那么如何将两台电脑上博客的内容同步内，即两台电脑上都可以编辑更新博客？

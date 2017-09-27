@@ -7,7 +7,7 @@
 
 <html class="{{ html_class | lower }}">
 <head>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ <!--  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
 
@@ -46,8 +46,8 @@
     </main>
 
 
-    <!-- test -->
-    <ins class="adsbygoogle"
+
+  <!--   <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-7923903290305785"
          data-ad-slot="1960662908"
@@ -55,7 +55,7 @@
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-
+ -->
 
     <footer id="footer" class="footer">
       <div class="footer-inner">

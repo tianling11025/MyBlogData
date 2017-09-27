@@ -234,6 +234,10 @@ free -m
 ```bash
 sudo iftop -i eth1 -B #-i 指定网卡，-B以byte显示，可以使用-h查看帮助信息
 ```
+#### 网络流量(dstat)
+```bash
+dstat
+```
 
 ### 其他内容
 #### 管道和重定向(|、||、&&、>、>>)

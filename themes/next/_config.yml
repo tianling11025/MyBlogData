@@ -32,6 +32,7 @@ local_search:
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   # home: /
+  tools: http://www.maskghost.com
   count: /count
   collect_url: /SecWeb
   # about: /about
@@ -41,7 +42,6 @@ menu:
   tags: /tags
   book: https://book.thief.one
   # yuge8: http://yuge8.com
-  tools: http://www.maskghost.com
   xss: /atom.xml
   #commonweal: /404.html
 
@@ -426,7 +426,7 @@ version: 5.0.1
 
 since: 2016  ##建站时间
 
-google_site_verification: p9ZQcLlzhS3CvgOzUqxYASnD-7EbtZe4qW16dXC2Bjc
+# google_site_verification: p9ZQcLlzhS3CvgOzUqxYASnD-7EbtZe4qW16dXC2Bjc
 
 # gentie_productKey: ba10f045f45041a5ab2fb13e3535a041
 
