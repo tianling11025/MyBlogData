@@ -1,5 +1,5 @@
 ---
-title: Brew、Pip更换国内源
+title: Brew、Pip、Yum更换国内源
 copyright: true
 permalink: 1
 top: 0
@@ -7,11 +7,12 @@ date: 2017-08-24 14:41:28
 tags:
 - Brew
 - git
+- yum
 categories: 技术研究
 password:
 ---
 <blockquote class="blockquote-center">翻过人山人海</blockquote>
-　　brew与pip是mac上常用的两款包管理软件，可惜都是国外的产品，因此默认的源也是国外的，速度被墙卡了不少，因此需要更换成国内的源。
+　　brew与pip是mac上常用的两款包管理软件，可惜都是国外的产品，因此默认的源也是国外的，速度被墙卡了不少，因此需要更换成国内的源。yum是centos操作系统的包管理工具，默认的源也是国外的，速度比较慢。
 <!--more -->
 
 ### brew
@@ -113,3 +114,24 @@ OSError: [Errno 1] Operation not permitted:
 pip install --upgrade pip
 sudo pip install numpy   --ignore-installed
 ```
+
+### yum
+#### 备份
+首先备份/etc/yum.repos.d/CentOS-Base.repo文件：
+```bash
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+```
+#### 下载国内源文件
+下载对应版本repo文件, 放入/etc/yum.repos.d/，比如网易源：
+* [CentOS7](http://mirrors.163.com/.help/CentOS7-Base-163.repo)
+* [CentOS6](http://mirrors.163.com/.help/CentOS6-Base-163.repo)
+* [CentOS5](http://mirrors.163.com/.help/CentOS5-Base-163.repo)
+
+说明：也可以不用下载，通过修改CentOS-Base.repo文件中的源地址即可。
+#### 缓存
+运行以下命令生成缓存：
+```bash
+Yum clean all
+Yum makecache
+```
+

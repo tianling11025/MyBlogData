@@ -48,6 +48,12 @@ ls -lrt
 ```bash
 ls | cat -n
 ```
+
+显示可阅读的文件大小：
+```bash
+ll -h
+```
+
 #### 文件目录权限(chmod、chown)
 ```bash
 改变文件的拥有者 chown
@@ -234,7 +240,15 @@ free -m
 ```bash
 sudo iftop -i eth1 -B #-i 指定网卡，-B以byte显示，可以使用-h查看帮助信息
 ```
+
+#### 服务器性能查看(htop)
+top的加强版，推荐安装使用。
+```bash
+htop
+```
+
 #### 网络流量(dstat)
+推荐使用。
 ```bash
 dstat
 ```

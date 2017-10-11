@@ -101,7 +101,7 @@ r=scan.s(2,2)
 res=r.delay()
 print res.get()
 ```
-
+#### 并发下发任务
 并发的下发任务，也可以使用for循环。这里指的并发，并不是所有任务一起执行，而是所有任务都下发到队列，而执行的并发数量，取决于work的数量。
 ```bash
 from celery import group
@@ -109,10 +109,66 @@ from task import scan
 g=group( scan.s(i,i) for i in range(10)).delay()
 print g.get()
 ```
+#### 指定下发的队列
+有时候我们会遇到多个任务，而每个任务的执行对象不一样，因此需要创建不同的队列去存储任务，这时就需要我们在创建任务、消费任务时指定队列的名称。
+##### 配置celery
+celery_con.py
+```bash
+from celery import Celery
+
+RABBITMQ_IP="127.0.0.1"
+RABBITMQ_PORT="5672"
+RABBITMQ_USER=""
+RABBITMQ_PASS=""
+
+app = Celery(
+    backend='amqp', 
+    broker='amqp://{}:{}@{}:{}'.format(
+        RABBITMQ_USER,
+        RABBITMQ_PASS,
+        RABBITMQ_IP,
+        RABBITMQ_PORT,
+        ),
+    CELERY_ROUTES = {
+    'worker.test1': {'queue': 'test1'},
+    'worker.test2': {'queue': 'test2'},
+    'worker.test3': {'queue': 'test3'},
+    },
+    )
+
+```
+##### 指定任务内容
+task.py
+```bash
+from celery_con import app
+@app.task
+def test(x, y):
+    time.sleep(5)
+    return x + y
+@app.task
+def scan(x,y):
+    time.sleep(1)
+    return x-y
+```
+##### 下发任务
+push_task.py
+```bash
+from celery import group
+from task import scan
+g=group( scan.s(i,i) for i in range(10)).apply_async(queue='test1')
+print g.get()
+```
+说明：下发任务时，将会把任务存入rabbitmq的test1队列中。
+
+##### 启动work处理任务
+celery_start_work.sh
+```bash
+celery -A task worker --queue=test1
+```
+说明：worker工作者将会从rabbitmq的test1队列中获取数据。
 
 
-
-说明：celery高级用法还有很多，本文将会持续更新......
+*以上内容是个人理解的celery用法以及一些原理，如有谬误，欢迎指正，谢谢！*
 
 
 

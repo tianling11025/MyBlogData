@@ -26,7 +26,7 @@ sudo apt-get install justniffer
 justniffer -i eth5 -u -l "%request.header.host  %request.method %request.url  %response.grep(\r\n\r\n(.*)) %request.grep(\r\n\r\n(.*))"
 ```
 #### 重点参数
-* -i 指定监听的端口
+* -i 指定监听的网络接口
 * -l 指定日志输出格式
 * -u 将不可打印的字符解析为.
 

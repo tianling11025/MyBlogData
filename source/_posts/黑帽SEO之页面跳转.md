@@ -3,7 +3,7 @@ title: 【黑帽SEO系列】页面跳转
 date: 2016-10-10 10:48:33
 comments: true
 tags: 
-- 黑帽SEO
+- 黑帽seo
 - 页面跳转
 categories: 黑产研究
 password:

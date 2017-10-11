@@ -3,7 +3,7 @@ title: 【黑帽SEO系列】基础知识
 date: 2016-10-09 12:11:12
 comments: true
 tags: 
-- 黑帽SEO
+- 黑帽seo
 categories: 黑产研究
 password:
 copyright: true
