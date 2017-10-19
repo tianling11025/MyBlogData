@@ -82,11 +82,25 @@ wc -l test.txt
 ```bash
 cat -n  （如：cat test.txt | cat -n）
 ```
+动态查看文件内容：
+```bash
+tail -f filename #当有内容写入文件中再输出
+```
 正向逆向查看文件内容
 ```bash
 head -1 filename # 第1行内容
 tail -5 filename # 倒数5行内容
 ```
+
+#### JSON格式化输出(jq)
+```bash
+cat test.json | jq
+```
+也可以使用python模块：
+```bash
+cat test.json | python -m json.tool
+```
+
 #### 文件搜索(find)
 linux 复制特定后缀文件（保持目录结构）:
 ```bash

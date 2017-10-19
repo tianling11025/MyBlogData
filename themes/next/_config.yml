@@ -32,15 +32,15 @@ local_search:
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   # home: /
-  tools: http://www.maskghost.com
+  # tools: http://www.maskghost.com
+  about: http://home.nmask.cn
   count: /count
   collect_url: /SecWeb
-  # about: /about
   message: /message
   archives: /archives
   categories: /categories
   tags: /tags
-  book: https://book.thief.one
+  # book: https://book.thief.one
   # yuge8: http://yuge8.com
   xss: /atom.xml
   #commonweal: /404.html
