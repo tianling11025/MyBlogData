@@ -1,6 +1,5 @@
-node_modules
-
+node_module
 scaffolds
-
 public
 .deploy_git
+.DS_Store

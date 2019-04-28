@@ -1,1 +1,1267 @@
-<!doctype html><html class="theme-next mist use-motion"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script><link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet"><style>.pace .pace-progress{background:#1e92fb;height:1px}.pace .pace-progress-inner{box-shadow:0 0 10px #1e92fb,0 0 5px #1e92fb}.pace .pace-activity{border-top-color:#1e92fb;border-left-color:#1e92fb}</style><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script></script><meta name="google-site-verification" content="p9ZQcLlzhS3CvgOzUqxYASnD-7EbtZe4qW16dXC2Bjc"><link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css"><meta name="keywords" content="Gooey,"><link rel="alternate" href="/atom.xml" title="nMask's Blog" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1"><meta name="description" content="Gooey是python的一个扩展模块，能够使用一条命令，将命令行程序变成一个 GUI 程序。它能够解析argparse模块的命令行参数，将之变成wxpython的GUI控件。当然，Gooey本身也带有命令行解析的函数—GooeyParser。下面就简单介绍Gooey的用法，以及优缺点。 安装Gooey最简单的安装方法：1pip install Gooey 或者：1git clone http"><meta name="keywords" content="Gooey"><meta property="og:type" content="article"><meta property="og:title" content="Gooey魔法"><meta property="og:url" content="http://thief.one/2017/02/15/Gooey魔法/index.html"><meta property="og:site_name" content="nMask&#39;s Blog"><meta property="og:description" content="Gooey是python的一个扩展模块，能够使用一条命令，将命令行程序变成一个 GUI 程序。它能够解析argparse模块的命令行参数，将之变成wxpython的GUI控件。当然，Gooey本身也带有命令行解析的函数—GooeyParser。下面就简单介绍Gooey的用法，以及优缺点。 安装Gooey最简单的安装方法：1pip install Gooey 或者：1git clone http"><meta property="og:locale" content="zh-Hans"><meta property="og:image" content="http://thief.one/upload_image/20170215/1.png"><meta property="og:image" content="http://thief.one/upload_image/20170215/2.png"><meta property="og:image" content="http://thief.one/upload_image/20170215/3.png"><meta property="og:updated_time" content="2017-07-25T12:05:00.000Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Gooey魔法"><meta name="twitter:description" content="Gooey是python的一个扩展模块，能够使用一条命令，将命令行程序变成一个 GUI 程序。它能够解析argparse模块的命令行参数，将之变成wxpython的GUI控件。当然，Gooey本身也带有命令行解析的函数—GooeyParser。下面就简单介绍Gooey的用法，以及优缺点。 安装Gooey最简单的安装方法：1pip install Gooey 或者：1git clone http"><meta name="twitter:image" content="http://thief.one/upload_image/20170215/1.png"><script type="text/javascript" id="hexo.configuration">var NexT=window.NexT||{},CONFIG={scheme:"Mist",sidebar:{position:"left",display:"post"},fancybox:!0,motion:!0,duoshuo:{userId:void 0,author:"博主"}}</script><link rel="canonical" href="http://thief.one/2017/02/15/Gooey魔法/"><title> Gooey魔法 | nMask's Blog</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="//hm.baidu.com/hm.js?d22cd975ccc2d560e0a480fec5629325";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(e,c)}()</script><div class="container one-collumn sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">nMask's Blog</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">那一年，风陵渡口.......</p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-count"><a href="/count" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i><br> 琅琊榜</a></li><li class="menu-item menu-item-collect_url"><a href="/SecWeb" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i><br> 安全导航</a></li><li class="menu-item menu-item-message"><a href="/message" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i><br> 留言</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-book"><a href="https://book.thief.one" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i><br> Book</a></li><li class="menu-item menu-item-yuge8"><a href="http://yuge8.com" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i><br> 资源</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="popup"><span class="search-icon fa fa-search"></span> <input type="text" id="local-search-input"><div id="local-search-result"></div> <span class="popup-btn-close">close</span></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><header class="post-header"><h1 class="post-title" itemprop="name headline"> Gooey魔法</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time itemprop="dateCreated" datetime="2017-02-15T18:47:08+08:00" content="2017-02-15">2017-02-15</time></span> <span class="post-category">&nbsp; | &nbsp;<span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/编程之道/" itemprop="url" rel="index"><span itemprop="name">编程之道</span></a></span></span> <span id="/2017/02/15/Gooey魔法/" class="leancloud_visitors" data-flag-title="Gooey魔法">&nbsp; | &nbsp;<span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">热度</span><span class="leancloud-visitors-count"></span> <span>℃</span></span></div></header><div class="post-body" itemprop="articleBody"><p>　　Gooey是python的一个扩展模块，能够使用一条命令，将命令行程序变成一个 GUI 程序。它能够解析argparse模块的命令行参数，将之变成wxpython的GUI控件。当然，Gooey本身也带有命令行解析的函数—GooeyParser。下面就简单介绍Gooey的用法，以及优缺点。</p><h3 id="安装Gooey"><a href="#安装Gooey" class="headerlink" title="安装Gooey"></a>安装Gooey</h3><p>最简单的安装方法：<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install Gooey</div></pre></td></tr></table></figure><p></p><p>或者：<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/chriskiehl/Gooey.git</div></pre></td></tr></table></figure><p></p><p>然后运行setup.py :<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python setup.py install</div></pre></td></tr></table></figure><p></p><p>相关依赖：<br>wxpython<br>安装：pip install wxpython (windows下需要去官网下载安装包)</p><h3 id="使用Gooey转化argparse"><a href="#使用Gooey转化argparse" class="headerlink" title="使用Gooey转化argparse"></a>使用Gooey转化argparse</h3><p>最简单的例子，将argparse参数转化为GUI控件：<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#! -*- coding:utf-8 -*-</span></div><div class="line"></div><div class="line">from gooey import Gooey</div><div class="line">import argparse</div><div class="line"></div><div class="line">@Gooey()</div><div class="line">def main():</div><div class="line">	parser = argparse.ArgumentParser()</div><div class="line">	parser.add_argument(<span class="string">"test"</span>,<span class="built_in">help</span>=<span class="string">"this is a test"</span> )</div><div class="line">	args=parser.parse_args()</div><div class="line">	<span class="built_in">print</span> args</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line">	main()</div></pre></td></tr></table></figure><p></p><p>运行截图：<br><img src="/upload_image/20170215/1.png" alt=""></p><p>说明：可以看到Gooey作为装饰器使用，Gooey()可以设置参数。</p><p>参数：<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@Gooey(advanced=Boolean,          <span class="comment"># toggle whether to show advanced config or not </span></div><div class="line">       language=language_string,  <span class="comment"># Translations configurable via json</span></div><div class="line">       show_config=True,          <span class="comment"># skip config screens all together</span></div><div class="line">       program_name=<span class="string">'name'</span>,       <span class="comment"># Defaults to script name</span></div><div class="line">       program_description,       <span class="comment"># Defaults to ArgParse Description</span></div><div class="line">       default_size=(610, 530),   <span class="comment"># starting size of the GUI</span></div><div class="line">       required_cols=1,           <span class="comment"># number of columns in the "Required" section</span></div><div class="line">       optional_cols=2,           <span class="comment"># number of columbs in the "Optional" section</span></div><div class="line">       dump_build_config=False,   <span class="comment"># Dump the JSON Gooey uses to configure itself</span></div><div class="line">       load_build_config=None,    <span class="comment"># Loads a JSON Gooey-generated configuration</span></div><div class="line">       monospace_display=False)   <span class="comment"># Uses a mono-spaced font in the output screen</span></div><div class="line">       image_dir                  <span class="comment"># Path to the diretory in which Gooey should look for custom inmages</span></div><div class="line">       language_dir               <span class="comment"># Path to the diretory in which Gooey should look for custom languages</span></div><div class="line">)</div></pre></td></tr></table></figure><p></p><p>参数中最常用的有program_name（标题，默认为文件名），default_size(界面大小)，image_dir(ico图标地址，可以相对地址，windows下注意用反斜杠)<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Gooey(program_name=u<span class="string">'这是一个测试脚本'</span>,default_size=(500,500))</div><div class="line">def main():</div><div class="line">	parser = argparse.ArgumentParser(description=u<span class="string">"测试描述内容"</span>)</div><div class="line">	parser.add_argument(<span class="string">"test"</span>,<span class="built_in">help</span>=<span class="string">"this is a test"</span> )</div><div class="line">	args=parser.parse_args()</div><div class="line">	<span class="built_in">print</span> args</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line">	main()</div></pre></td></tr></table></figure><p></p><p>运行截图：<br><img src="/upload_image/20170215/2.png" alt=""></p><h3 id="使用GooeyParse"><a href="#使用GooeyParse" class="headerlink" title="使用GooeyParse"></a>使用GooeyParse</h3><p>简单例子：<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">from gooey import Gooey, GooeyParser</div><div class="line"></div><div class="line">@Gooey(program_name=<span class="string">"test"</span>,image_dir=<span class="string">".\image"</span>) <span class="comment">##注意斜杠</span></div><div class="line">def main():</div><div class="line">    parser=GooeyParser(description=u<span class="string">"测试"</span>)</div><div class="line">    <span class="comment">##文本输入框</span></div><div class="line">    parser.add_argument(<span class="string">"test"</span>,<span class="built_in">help</span>=<span class="string">"this is a test"</span>)</div><div class="line">    <span class="comment">##选择框</span></div><div class="line">    parser.add_argument(</div><div class="line">     <span class="string">"test2"</span>,</div><div class="line">     metavar=<span class="string">'Should I exlode?'</span>,   <span class="comment">##描述内容</span></div><div class="line">     <span class="built_in">help</span>=<span class="string">"this is test2"</span>,         <span class="comment">##帮助内容</span></div><div class="line">     choices=[<span class="string">"Yes"</span>,<span class="string">"No"</span>],         <span class="comment">##选择框</span></div><div class="line">     default=<span class="string">"Yes"</span>                 <span class="comment">##默认值</span></div><div class="line">     )</div><div class="line">    <span class="comment">##复选框</span></div><div class="line">    parser.add_argument(</div><div class="line">       <span class="string">'-f'</span>,<span class="string">'--foo'</span>,</div><div class="line">       metavar=<span class="string">"some flag"</span>,</div><div class="line">       action=<span class="string">"store_true"</span>,        <span class="comment">##参数类型</span></div><div class="line">       <span class="built_in">help</span>=<span class="string">""</span>)</div><div class="line">    <span class="comment">##文本选择按钮</span></div><div class="line">    parser.add_argument(<span class="string">'filename'</span>, metavar=u<span class="string">"文件选择"</span>,<span class="built_in">help</span>=<span class="string">"name of the file to process"</span>, widget=<span class="string">'FileChooser'</span>) <span class="comment">#文本选择按钮</span></div><div class="line">    parser.add_argument(<span class="string">'datetime'</span>, metavar=u<span class="string">"时间选择"</span>,<span class="built_in">help</span>=<span class="string">"date to process"</span>,widget=<span class="string">'DateChooser'</span>,default=<span class="string">"2017-02-15"</span>) <span class="comment">#时间选择按钮</span></div><div class="line">    args=parser.parse_args()</div><div class="line">    <span class="built_in">print</span> args</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line">     main()</div></pre></td></tr></table></figure><p></p><p>运行截图：<br><img src="/upload_image/20170215/3.png" alt=""><br>说明：image_dir设置为当前目录下image目录，则程序会去image目录下寻找相应的图片来覆盖默认的图片，因此覆盖的图片名字必须为默认的图片名;可以看到运行界面上分为Required Arguments与Optional Arguments参数，代码中’test’对应前者，’-test’对应后者；metavar表示描述信息；action表示控件类型；help为帮助信息；widget为小工具；default为默认内容。</p><p>image目录下图片文件名，分别用来覆盖界面上的图片：</p><ul><li>program_icon.ico 　　ico图标</li><li>success_icon.png 　　运行成功的图标</li><li>running_icon.png 　　正在运行时的图标</li><li>loading_icon.gif 　　加载时的图标</li><li>config_icon.png 　　配置图片</li><li>error_icon.png 　　出错时的图片</li></ul><p>action内容表示参数类型，分别对应着wxpython相应的控件：</p><ul><li>store 　　TextCtrl</li><li>store_const 　　CheckBox</li><li>store_true 　　CheckBox</li><li>store_False 　　CheckBox</li><li>append 　　TextCtrl</li><li>count 　　DropDown</li><li>Mutually Exclusive Group 　　RadioGroup</li><li>chooice 　　DropDown</li></ul><p>除了action之外，Gooey还提供了一些小工具（Widgets）</p><ul><li>DirChooser 　　目录选择按钮工具</li><li>FileChooser 　　文件选择按钮工具</li><li>DateChooser 　　时间选择按钮工具</li></ul><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>　　说说个人使用的一点总结，优点是方便，无需太多的代码，也免去了界面设计。缺点是不太适合操作非常复杂的程序，且目前支持的控件不多。额外一点，在打包程序时，会有很多Bug，有待解决。</p><p>参考文档：<br>GitHub地址:<a href="https://github.com/chriskiehl/Gooey" target="_blank" rel="external">https://github.com/chriskiehl/Gooey</a><br>官方例子：<a href="https://github.com/chriskiehl/GooeyExamples/tree/master/examples" target="_blank" rel="external">https://github.com/chriskiehl/GooeyExamples/tree/master/examples</a><br>官方文档：<a href="https://github.com/chriskiehl/Gooey#how-does-it-work" target="_blank" rel="external">https://github.com/chriskiehl/Gooey#how-does-it-work</a></p></div><div><div class="my_post_copyright"><script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script><script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script><script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script><link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css"><p><span>本文标题:</span><a href="/2017/02/15/Gooey魔法/">Gooey魔法</a></p><p><span>文章作者:</span><a href="/" title="访问 nMask 的个人博客">nMask</a></p><p><span>发布时间:</span>2017年02月15日 - 18:02</p><p><span>最后更新:</span>2017年07月25日 - 20:07</p><p><span>原始链接:</span><a href="/2017/02/15/Gooey魔法/" title="Gooey魔法">http://thief.one/2017/02/15/Gooey魔法/</a><span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://thief.one/2017/02/15/Gooey魔法/" aria-label="复制成功！"></i></span></p><p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p></div><script>var clipboard=new Clipboard(".fa-clipboard");clipboard.on("success",$(function(){$(".fa-clipboard").click(function(){swal({title:"",text:"复制成功",html:!1,timer:500,showConfirmButton:!1})})}))</script></div><div></div><div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/Gooey/" rel="tag"><i class="fa fa-tag"></i> Gooey</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2017/02/13/联想Z470黑苹果教程/" rel="next" title="联想Z470黑化之路"><i class="fa fa-chevron-left"></i> 联想Z470黑化之路</a></div><div class="post-nav-prev post-nav-item"> <a href="/2017/02/16/解决Python2-x编码之殇/" rel="prev" title="Python2编码之殇">Python2编码之殇<i class="fa fa-chevron-right"></i></a></div></div></footer></article><div class="post-spread"></div></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC8yNzk2Ny80NTQ0"></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview"> 站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="nMask"><p class="site-author-name" itemprop="name">nMask</p><p class="site-description motion-element" itemprop="description">风陵渡口</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/"><span class="site-state-item-count">75</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories"><span class="site-state-item-count">10</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags"><span class="site-state-item-count">90</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="http://github.com/tengzhangchao" rel="external nofollow" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a href="https://www.zhihu.com/people/nmask" rel="external nofollow" target="_blank" title="知乎"><i class="fa fa-fw fa-globe"></i> 知乎</a></span><span class="links-of-author-item"><a href="https://www.gitbook.com/@nmask" rel="external nofollow" target="_blank" title="GitBook"><i class="fa fa-fw fa-globe"></i> GitBook</a></span></div><div class="cc-license motion-element" itemprop="license"> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank" rel="external nofollow"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a></div><div class="links-of-blogroll motion-element links-of-blogroll-inline"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-globe"></i> 友情链接</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a href="http://limbo.gift" title="Yzf(Web渗透)" target="_blank">Yzf(Web渗透)</a></li><li class="links-of-blogroll-item"> <a href="http://hackyzh.me" title="Hackyzh(二进制)" target="_blank">Hackyzh(二进制)</a></li><li class="links-of-blogroll-item"> <a href="http://www.kongdewei.cn/" title="草莓(软件破解)" target="_blank">草莓(软件破解)</a></li><li class="links-of-blogroll-item"> <a href="http://jusene.me/" title="Jusense(安全运维)" target="_blank">Jusense(安全运维)</a></li><li class="links-of-blogroll-item"> <a href="http://www.xiaoshuwu.net/" title="小书屋(安全书籍)" target="_blank">小书屋(安全书籍)</a></li><li class="links-of-blogroll-item"> <a href="http://www.yige.dog/" title="lxghost(安全情报)" target="_blank">lxghost(安全情报)</a></li><li class="links-of-blogroll-item"> <a href="http://www.hacksec.cn" title="血梦博客(网络安全)" target="_blank">血梦博客(网络安全)</a></li><li class="links-of-blogroll-item"> <a href="https://eth.space/" title="Mr.kua(信息安全)" target="_blank">Mr.kua(信息安全)</a></li><li class="links-of-blogroll-item"> <a href="http://coco413.com" title="Coco413(信息安全)" target="_blank">Coco413(信息安全)</a></li><li class="links-of-blogroll-item"> <a href="http://www.warmeng.com" title="warmeng(web安全)" target="_blank">warmeng(web安全)</a></li><li class="links-of-blogroll-item"> <a href="https://o-my-chenjian.com/" title="chenjian(python开发)" target="_blank">chenjian(python开发)</a></li><li class="links-of-blogroll-item"> <a href="http://im1gd.me/" title="Im1gD'Blog(信息安全)" target="_blank">Im1gD'Blog(信息安全)</a></li><li class="links-of-blogroll-item"> <a href="https://www.leavesongs.com/" title="phithon'Blog(离别歌)" target="_blank">phithon'Blog(离别歌)</a></li><li class="links-of-blogroll-item"> <a href="http://gdd.gd/" title="虾米'Blog" target="_blank">虾米'Blog</a></li><li class="links-of-blogroll-item"> <a href="http://rcoil.me/" title="Rcoil'Blog" target="_blank">Rcoil'Blog</a></li><li class="links-of-blogroll-item"> <a href="http://yuge8.com" title="yuge8" target="_blank">yuge8</a></li></ul></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Gooey"><span class="nav-number">1.</span> <span class="nav-text">安装Gooey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Gooey转化argparse"><span class="nav-number">2.</span> <span class="nav-text">使用Gooey转化argparse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用GooeyParse"><span class="nav-number">3.</span> <span class="nav-text">使用GooeyParse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">4.</span> <span class="nav-text">优缺点</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright"> &copy; 2016 - <span itemprop="copyrightYear">2017</span><span class="with-love"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">nMask</span></div><div class="busuanzi-count"><script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> <span class="site-uv">本站访客数<i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span> <span class="site-pv">本站总访问量<i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script><script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">function proceedsearch(){$("body").append('<div class="popoverlay">').css("overflow","hidden"),$(".popup").toggle()}var isfetched=!1,search_path="search.xml";0==search_path.length&&(search_path="search.xml");var path="/"+search_path,searchFunc=function(e,t,a){"use strict";$.ajax({url:e,dataType:"xml",async:!0,success:function(e){isfetched=!0,$(".popup").detach().appendTo(".header-inner");var r=$("entry",e).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get(),c=document.getElementById(t),s=document.getElementById(a);c.addEventListener("input",function(){var e=0,t='<ul class="search-result-list">',a=this.value.trim().toLowerCase().split(/[\s\-]+/);s.innerHTML="",this.value.trim().length>1&&r.forEach(function(r){var c=!0,s=r.title.trim().toLowerCase(),n=r.content.trim().replace(/<[^>]+>/g,"").toLowerCase(),i=r.url,o=-1,l=-1,p=-1;if(""!=s&&""!=n&&a.forEach(function(e,t){o=s.indexOf(e),l=n.indexOf(e),o<0&&l<0?c=!1:(l<0&&(l=0),0==t&&(p=l))}),c){e+=1,t+="<li><a href='"+i+"' class='search-result-title'>"+s+"</a>";var h=r.content.trim().replace(/<[^>]+>/g,"");if(p>=0){var u=p-20,d=p+80;u<0&&(u=0),0==u&&(d=50),d>h.length&&(d=h.length);var f=h.substring(u,d);a.forEach(function(e){var t=new RegExp(e,"gi");f=f.replace(t,'<b class="search-keyword">'+e+"</b>")}),t+='<p class="search-result">'+f+"...</p>"}t+="</li>"}}),t+="</ul>",0==e&&(t='<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'),""==a&&(t='<div id="no-result"><i class="fa fa-search fa-5x" /></div>'),s.innerHTML=t}),proceedsearch()}})};$(".popup-trigger").click(function(e){e.stopPropagation(),0==isfetched?searchFunc(path,"local-search-input","local-search-result"):proceedsearch()}),$(".popup-btn-close").click(function(e){$(".popup").hide(),$(".popoverlay").remove(),$("body").css("overflow","")}),$(".popup").click(function(e){e.stopPropagation()})</script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script><script>AV.initialize("z4gJQDYWtJaYDKAY3kuPtn2i-gzGzoHsz","NPG4o0CWzLFqSTL94JmNAm7X")</script><script>function showTime(e){var t=new AV.Query(e),n=[],o=$(".leancloud_visitors");o.each(function(){n.push($(this).attr("id").trim())}),t.containedIn("url",n),t.find().done(function(e){if(0!==e.length){for(c=0;c<e.length;c++){var t=e[c],i=t.get("url"),s=t.get("time"),l=document.getElementById(i);$(l).find(".leancloud-visitors-count").text(s)}for(var c=0;c<n.length;c++){var i=n[c],l=document.getElementById(i),r=$(l).find(".leancloud-visitors-count");""==r.text()&&r.text(0)}}else o.find(".leancloud-visitors-count").text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(e){var t=$(".leancloud_visitors"),n=t.attr("id").trim(),o=t.attr("data-flag-title").trim(),i=new AV.Query(e);i.equalTo("url",n),i.find({success:function(t){if(t.length>0){var i=t[0];i.fetchWhenSave(!0),i.increment("time"),i.save(null,{success:function(e){$(document.getElementById(n)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var s=new e,l=new AV.ACL;l.setPublicReadAccess(!0),l.setPublicWriteAccess(!0),s.setACL(l),s.set("title",o),s.set("url",n),s.set("time",1),s.save(null,{success:function(e){$(document.getElementById(n)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):$(".post-title-link").length>1&&showTime(e)})</script><script type="text/javascript" src="/js/src/particle.js"></script><script type="text/javascript" src="/js/src/love.js"></script></body></html>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+
+<!-- 自动推送链接到百度 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101844534-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-101844534-2');
+</script>
+
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 1px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Gooey," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="nMask's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Gooey是python的一个扩展模块，能够使用一条命令，将命令行程序变成一个 GUI 程序。它能够解析argparse模块的命令行参数，将之变成wxpython的GUI控件。当然，Gooey本身也带有命令行解析的函数—GooeyParser。下面就简单介绍Gooey的用法，以及优缺点。 安装Gooey最简单的安装方法：1pip install Gooey 或者：1git clone http">
+<meta name="keywords" content="Gooey">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gooey魔法">
+<meta property="og:url" content="https://thief.one/2017/02/15/Gooey魔法/index.html">
+<meta property="og:site_name" content="nMask&#39;s Blog">
+<meta property="og:description" content="Gooey是python的一个扩展模块，能够使用一条命令，将命令行程序变成一个 GUI 程序。它能够解析argparse模块的命令行参数，将之变成wxpython的GUI控件。当然，Gooey本身也带有命令行解析的函数—GooeyParser。下面就简单介绍Gooey的用法，以及优缺点。 安装Gooey最简单的安装方法：1pip install Gooey 或者：1git clone http">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://thief.one/upload_image/20170215/1.png">
+<meta property="og:image" content="https://thief.one/upload_image/20170215/2.png">
+<meta property="og:image" content="https://thief.one/upload_image/20170215/3.png">
+<meta property="og:updated_time" content="2017-07-25T12:05:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gooey魔法">
+<meta name="twitter:description" content="Gooey是python的一个扩展模块，能够使用一条命令，将命令行程序变成一个 GUI 程序。它能够解析argparse模块的命令行参数，将之变成wxpython的GUI控件。当然，Gooey本身也带有命令行解析的函数—GooeyParser。下面就简单介绍Gooey的用法，以及优缺点。 安装Gooey最简单的安装方法：1pip install Gooey 或者：1git clone http">
+<meta name="twitter:image" content="https://thief.one/upload_image/20170215/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://thief.one/2017/02/15/Gooey魔法/"/>
+
+  <title> Gooey魔法 | nMask's Blog </title>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d22cd975ccc2d560e0a480fec5629325";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">nMask's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">那一年，风陵渡口.......</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/aboutme" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-count">
+          <a href="/count" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            琅琊榜
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-collect_url">
+          <a href="/SecWeb" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            导航
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-xss">
+          <a href="/atom.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Rss订阅
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-wechat">
+          <a href="/uploads/wechat-qcode.jpg" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            微信公众号
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gooey魔法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-15T18:47:08+08:00" content="2017-02-15">
+              2017-02-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编程之道/" itemprop="url" rel="index">
+                    <span itemprop="name">编程之道</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/15/Gooey魔法/" class="leancloud_visitors" data-flag-title="Gooey魔法">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">热度 </span>
+               <span class="leancloud-visitors-count"></span>
+               <span>℃</span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　Gooey是python的一个扩展模块，能够使用一条命令，将命令行程序变成一个 GUI 程序。它能够解析argparse模块的命令行参数，将之变成wxpython的GUI控件。当然，Gooey本身也带有命令行解析的函数—GooeyParser。下面就简单介绍Gooey的用法，以及优缺点。</p>
+<h3 id="安装Gooey"><a href="#安装Gooey" class="headerlink" title="安装Gooey"></a>安装Gooey</h3><p>最简单的安装方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install Gooey</div></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/chriskiehl/Gooey.git</div></pre></td></tr></table></figure></p>
+<p>然后运行setup.py :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python setup.py install</div></pre></td></tr></table></figure></p>
+<p>相关依赖：<br>wxpython<br>安装：pip install wxpython (windows下需要去官网下载安装包)</p>
+<h3 id="使用Gooey转化argparse"><a href="#使用Gooey转化argparse" class="headerlink" title="使用Gooey转化argparse"></a>使用Gooey转化argparse</h3><p>最简单的例子，将argparse参数转化为GUI控件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#! -*- coding:utf-8 -*-</span></div><div class="line"></div><div class="line">from gooey import Gooey</div><div class="line">import argparse</div><div class="line"></div><div class="line">@Gooey()</div><div class="line">def main():</div><div class="line">	parser = argparse.ArgumentParser()</div><div class="line">	parser.add_argument(<span class="string">"test"</span>,<span class="built_in">help</span>=<span class="string">"this is a test"</span> )</div><div class="line">	args=parser.parse_args()</div><div class="line">	<span class="built_in">print</span> args</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line">	main()</div></pre></td></tr></table></figure></p>
+<p>运行截图：<br><img src="/upload_image/20170215/1.png" alt=""></p>
+<p>说明：可以看到Gooey作为装饰器使用，Gooey()可以设置参数。</p>
+<p>参数：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@Gooey(advanced=Boolean,          <span class="comment"># toggle whether to show advanced config or not </span></div><div class="line">       language=language_string,  <span class="comment"># Translations configurable via json</span></div><div class="line">       show_config=True,          <span class="comment"># skip config screens all together</span></div><div class="line">       program_name=<span class="string">'name'</span>,       <span class="comment"># Defaults to script name</span></div><div class="line">       program_description,       <span class="comment"># Defaults to ArgParse Description</span></div><div class="line">       default_size=(610, 530),   <span class="comment"># starting size of the GUI</span></div><div class="line">       required_cols=1,           <span class="comment"># number of columns in the "Required" section</span></div><div class="line">       optional_cols=2,           <span class="comment"># number of columbs in the "Optional" section</span></div><div class="line">       dump_build_config=False,   <span class="comment"># Dump the JSON Gooey uses to configure itself</span></div><div class="line">       load_build_config=None,    <span class="comment"># Loads a JSON Gooey-generated configuration</span></div><div class="line">       monospace_display=False)   <span class="comment"># Uses a mono-spaced font in the output screen</span></div><div class="line">       image_dir                  <span class="comment"># Path to the diretory in which Gooey should look for custom inmages</span></div><div class="line">       language_dir               <span class="comment"># Path to the diretory in which Gooey should look for custom languages</span></div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>参数中最常用的有program_name（标题，默认为文件名），default_size(界面大小)，image_dir(ico图标地址，可以相对地址，windows下注意用反斜杠)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Gooey(program_name=u<span class="string">'这是一个测试脚本'</span>,default_size=(500,500))</div><div class="line">def main():</div><div class="line">	parser = argparse.ArgumentParser(description=u<span class="string">"测试描述内容"</span>)</div><div class="line">	parser.add_argument(<span class="string">"test"</span>,<span class="built_in">help</span>=<span class="string">"this is a test"</span> )</div><div class="line">	args=parser.parse_args()</div><div class="line">	<span class="built_in">print</span> args</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line">	main()</div></pre></td></tr></table></figure></p>
+<p>运行截图：<br><img src="/upload_image/20170215/2.png" alt=""></p>
+<h3 id="使用GooeyParse"><a href="#使用GooeyParse" class="headerlink" title="使用GooeyParse"></a>使用GooeyParse</h3><p>简单例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">from gooey import Gooey, GooeyParser</div><div class="line"></div><div class="line">@Gooey(program_name=<span class="string">"test"</span>,image_dir=<span class="string">".\image"</span>) <span class="comment">##注意斜杠</span></div><div class="line">def main():</div><div class="line">    parser=GooeyParser(description=u<span class="string">"测试"</span>)</div><div class="line">    <span class="comment">##文本输入框</span></div><div class="line">    parser.add_argument(<span class="string">"test"</span>,<span class="built_in">help</span>=<span class="string">"this is a test"</span>)</div><div class="line">    <span class="comment">##选择框</span></div><div class="line">    parser.add_argument(</div><div class="line">     <span class="string">"test2"</span>,</div><div class="line">     metavar=<span class="string">'Should I exlode?'</span>,   <span class="comment">##描述内容</span></div><div class="line">     <span class="built_in">help</span>=<span class="string">"this is test2"</span>,         <span class="comment">##帮助内容</span></div><div class="line">     choices=[<span class="string">"Yes"</span>,<span class="string">"No"</span>],         <span class="comment">##选择框</span></div><div class="line">     default=<span class="string">"Yes"</span>                 <span class="comment">##默认值</span></div><div class="line">     )</div><div class="line">    <span class="comment">##复选框</span></div><div class="line">    parser.add_argument(</div><div class="line">       <span class="string">'-f'</span>,<span class="string">'--foo'</span>,</div><div class="line">       metavar=<span class="string">"some flag"</span>,</div><div class="line">       action=<span class="string">"store_true"</span>,        <span class="comment">##参数类型</span></div><div class="line">       <span class="built_in">help</span>=<span class="string">""</span>)</div><div class="line">    <span class="comment">##文本选择按钮</span></div><div class="line">    parser.add_argument(<span class="string">'filename'</span>, metavar=u<span class="string">"文件选择"</span>,<span class="built_in">help</span>=<span class="string">"name of the file to process"</span>, widget=<span class="string">'FileChooser'</span>) <span class="comment">#文本选择按钮</span></div><div class="line">    parser.add_argument(<span class="string">'datetime'</span>, metavar=u<span class="string">"时间选择"</span>,<span class="built_in">help</span>=<span class="string">"date to process"</span>,widget=<span class="string">'DateChooser'</span>,default=<span class="string">"2017-02-15"</span>) <span class="comment">#时间选择按钮</span></div><div class="line">    args=parser.parse_args()</div><div class="line">    <span class="built_in">print</span> args</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line">     main()</div></pre></td></tr></table></figure></p>
+<p>运行截图：<br><img src="/upload_image/20170215/3.png" alt=""><br>说明：image_dir设置为当前目录下image目录，则程序会去image目录下寻找相应的图片来覆盖默认的图片，因此覆盖的图片名字必须为默认的图片名;可以看到运行界面上分为Required Arguments与Optional Arguments参数，代码中’test’对应前者，’-test’对应后者；metavar表示描述信息；action表示控件类型；help为帮助信息；widget为小工具；default为默认内容。</p>
+<p>image目录下图片文件名，分别用来覆盖界面上的图片：</p>
+<ul>
+<li>program_icon.ico  　　ico图标</li>
+<li>success_icon.png  　　运行成功的图标</li>
+<li>running_icon.png  　　正在运行时的图标</li>
+<li>loading_icon.gif  　　加载时的图标</li>
+<li>config_icon.png   　　配置图片</li>
+<li>error_icon.png    　　出错时的图片</li>
+</ul>
+<p>action内容表示参数类型，分别对应着wxpython相应的控件：</p>
+<ul>
+<li>store 　　TextCtrl</li>
+<li>store_const 　　CheckBox</li>
+<li>store_true  　　CheckBox</li>
+<li>store_False 　　CheckBox</li>
+<li>append      　　TextCtrl</li>
+<li>count       　　DropDown</li>
+<li>Mutually Exclusive Group  　　RadioGroup</li>
+<li>chooice     　　DropDown</li>
+</ul>
+<p>除了action之外，Gooey还提供了一些小工具（Widgets）</p>
+<ul>
+<li>DirChooser   　　目录选择按钮工具</li>
+<li>FileChooser  　　文件选择按钮工具</li>
+<li>DateChooser  　　时间选择按钮工具</li>
+</ul>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>　　说说个人使用的一点总结，优点是方便，无需太多的代码，也免去了界面设计。缺点是不太适合操作非常复杂的程序，且目前支持的控件不多。额外一点，在打包程序时，会有很多Bug，有待解决。</p>
+<p>参考文档：<br>GitHub地址:<a href="https://github.com/chriskiehl/Gooey" target="_blank" rel="external">https://github.com/chriskiehl/Gooey</a><br>官方例子：<a href="https://github.com/chriskiehl/GooeyExamples/tree/master/examples" target="_blank" rel="external">https://github.com/chriskiehl/GooeyExamples/tree/master/examples</a><br>官方文档：<a href="https://github.com/chriskiehl/Gooey#how-does-it-work" target="_blank" rel="external">https://github.com/chriskiehl/Gooey#how-does-it-work</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2017/02/15/Gooey魔法/">Gooey魔法</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 nmask 的个人博客">nmask</a></p>
+  <p><span>发布时间:</span>2017年02月15日 - 18:02</p>
+  <p><span>最后更新:</span>2017年07月25日 - 20:07</p>
+  <p><span>原始链接:</span><a href="/2017/02/15/Gooey魔法/" title="Gooey魔法">https://thief.one/2017/02/15/Gooey魔法/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://thief.one/2017/02/15/Gooey魔法/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="nmask wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wx.jpeg" alt="nmask WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zfb.jpeg" alt="nmask Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Gooey/" rel="tag"><i class="fa fa-tag"></i>Gooey</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/13/联想Z470黑苹果教程/" rel="next" title="联想Z470黑化之路">
+                <i class="fa fa-chevron-left"></i> 联想Z470黑化之路
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/16/解决Python2-x编码之殇/" rel="prev" title="Python2编码之殇">
+                Python2编码之殇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yNzk2Ny80NTQ0">
+      </div>
+  
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="nmask" />
+          <p class="site-author-name" itemprop="name">nmask</p>
+          <p class="site-description motion-element" itemprop="description">风陵渡口</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">130</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/tengzhangchao" rel="external nofollow" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/nmask" rel="external nofollow" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/uploads/wechat-qcode.jpg" rel="external nofollow" target="_blank" title="公众号">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  公众号
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank" rel="external nofollow">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://limbo.gift" title="Yzf(Web渗透)" target="_blank">Yzf(Web渗透)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.kongdewei.cn/" title="草莓(软件破解)" target="_blank">草莓(软件破解)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jusene.me/" title="Jusense(安全运维)" target="_blank">Jusense(安全运维)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.hacksec.cn" title="血梦博客(网络安全)" target="_blank">血梦博客(网络安全)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://eth.space/" title="Mr.kua(信息安全)" target="_blank">Mr.kua(信息安全)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://coco413.com" title="Coco413(信息安全)" target="_blank">Coco413(信息安全)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.warmeng.com" title="warmeng(web安全)" target="_blank">warmeng(web安全)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://o-my-chenjian.com/" title="chenjian(python开发)" target="_blank">chenjian(python开发)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://im1gd.me/" title="Im1gD'Blog(信息安全)" target="_blank">Im1gD'Blog(信息安全)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.leavesongs.com/" title="phithon'Blog(离别歌)" target="_blank">phithon'Blog(离别歌)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://coao.co/" title="虾米'Blog" target="_blank">虾米'Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://rcoil.me/" title="Rcoil'Blog" target="_blank">Rcoil'Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://tom0li.github.io" title="tom0li_blog" target="_blank">tom0li_blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.inksec.cn/" title="Szrzvdny'Blog" target="_blank">Szrzvdny'Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://dastone.tk" title="Dastone's Notes" target="_blank">Dastone's Notes</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.mkernel.com/" title="deep Learning" target="_blank">deep Learning</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://ares-x.com/" title="AresX" target="_blank">AresX</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Gooey"><span class="nav-number">1.</span> <span class="nav-text">安装Gooey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Gooey转化argparse"><span class="nav-number">2.</span> <span class="nav-text">使用Gooey转化argparse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用GooeyParse"><span class="nav-number">3.</span> <span class="nav-text">使用GooeyParse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">4.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+
+
+  <!--   <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7923903290305785"
+         data-ad-slot="1960662908"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+ -->
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">nmask</span>
+</div>
+
+<!--
+<div class="powered-by">
+  Power <a class="theme-link" rel="external nofollow" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" rel="external nofollow" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv">本站总访问量<i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = '';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("z4gJQDYWtJaYDKAY3kuPtn2i-gzGzoHsz", "NPG4o0CWzLFqSTL94JmNAm7X");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+
+<!-- 背景动画 -->
+<!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+</div>
+
+</body>
+</html>
