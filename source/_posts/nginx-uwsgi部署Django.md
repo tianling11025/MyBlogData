@@ -167,6 +167,7 @@ nohup uwsgi --ini myweb_uwsgi.ini &
 ### 坑点
 * 如果服务器是映射的，nginx配置文件里面的server_name要写外网的IP或者域名
 * 不要在python虚拟环境中使用uwsgi，会有一些问题，当然也可以解决，参考：https://stackoverflow.com/questions/14194859/importerror-no-module-named-django-core-wsgi-for-uwsgi
+* 若是uwsgi运行正常，nginx运行也正常，但就是连接不起来，可以检查下系统是否开启了selinux，需要关闭它才行。
 
 ### 报错
 #### No module named django.core.wsgi

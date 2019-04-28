@@ -101,6 +101,8 @@ end 0
 * gevent.joinall 停止协程
 
 ### Python3.x协程
+python3.5协程使用可以移步：[Python3.5协程学习研究](https://thief.one/2018/06/21/1/)
+
 为了测试Python3.x下的协程应用，我在virtualenv下安装了python3.6的环境。
 python3.x协程应用：
 * asynico + yield from（python3.4）
@@ -224,8 +226,6 @@ for url in urls:
 gevent.joinall(jobs)
 ```
 
-
-*本文没有太多的干货，都是一些自学时的笔记，分享给新手朋友，仅供参考*
 
 文章学习通道：
 * [Python多进程](http://thief.one/2016/11/23/Python-multiprocessing/)

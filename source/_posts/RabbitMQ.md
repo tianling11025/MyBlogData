@@ -49,11 +49,15 @@ rabbitmq-plugins enable rabbitmq_management
 ```
 访问http://localhost:15672
 
-但是此时，guest用户登录不了，因为默认是不允许guest用户登录的。
+但是此时，guest用户登录不了，因为默认是不允许guest用户登录的，解决方案可以是创建一个新的用户：
 ```bash
 rabbitmqctl delete_user  guest
 rabbitmqctl add_user admin 123456
 rabbitmqctl set_user_tags admin administrator
+```
+当然也可以为guest添加权限，使其可以登陆：
+```bash
+[{rabbit, [{loopback_users, []}]}] #编辑rabbitmq配置文件，删除这一行中的guest
 ```
 centos安装rabbitmq参考：http://www.qaulau.com/linux-centos-install-rabbitmq/
 
@@ -71,11 +75,81 @@ rabbitmqctl reset  清除所有队列 (要先关闭)
 #### 配置rabbitmq
 ```bash
 $ sudo rabbitmqctl add_user myuser mypassword
-$ sudo rabbitmqctl 
 $ sudo rabbitmqctl add_vhost myvhost
 $ sudo rabbitmqctl set_user_tags myuser mytag
 $ sudo rabbitmqctl set_permissions -p myvhost myuser ".*" ".*" ".*"
 ```
+#### rabbitmq更改WEB插件端口
+安装完rabbitmq后，/usr/share/doc/rabbitmq-server-3.5.6目录下默认会有一个配置文件模版rabbitmq.config.example。
+
+##### 复制配置文件到/etc/rabbitmq目录下
+```bash
+cp /usr/share/doc/rabbitmq-server-3.5.6/rabbitmq.config.example /etc/rabbitmq/
+```
+##### 更改配置文件名字
+```bash
+cd /etc/rabbitmq/
+mv rabbitmq.config.example rabbitmq.config
+```
+##### 编辑配置文件
+vim rabbitmq.config
+```bash
+{rabbitmq_management,
+  [
+{listener, [{port,     8080},
+             {ip,       "0.0.0.0"},
+             {ssl,     false}
+]},
+```
+说明：可以用"?rabbitmq_management"定位到这一行，然后%%是注释的意思，将%%删除，整个rabbitmq_management字典写成上面的内容。rabbitmq配置文件可以设置很多东西，默认是没有的，建议创建起来。
+
+##### 重启rabbitmq
+```bash
+Service rabbitmq-server restart 
+```
+重启服务，如果报错，则查看日志文件：cat /var/log/rabbitmq/startup_err。
+
+### Rabbitmq报错处理
+#### [Errno 104] Connection reset by peer
+在连接rabbitmq时报此错误，说明该用户与虚拟目录的权限不够，解决方案：
+（1）查看已经存在的虚拟目录：
+```bash
+rabbitmqctl list_vhosts
+```
+（2）将用户与虚拟目录绑定且设定权限，如：
+```bash
+rabbitmqctl set_permissions -p / guest ".*" ".*" ".*"
+```
+默认情况下就一个vhost，即／，当然也可以自己添加，然后跟用户绑定：
+```bash
+sudo rabbitmqctl add_vhost myvhost
+sudo rabbitmqctl set_permissions -p myvhost myuser ".*" ".*" ".*"
+```
+#### ERROR: epmd error for host nmask: timeout (timed out)
+在启动rabbitmq时报这个错，则需要更改/etc/hosts文件，因为造成这个错误的原因是找不到host，绑定一下即可。
+比如，在/etc/host文件添加：
+```bash
+127.0.0.1 nmask
+```
+#### ** WARNING ** Mnesia is overloaded: {dump_log, write_threshold}
+字面理解这个错误是过载，异步写入太频繁，会导致rabbitmq本崩溃退出。解决方案主要有2种：修改rabbitmq配置文件、升级erlang版本。
+##### 修改rabbitmq配置文件
+在配置文件中添加：
+```bash
+{mnesia, [{dump_log_write_threshold, 50000},{dc_dump_limit,40}]},
+```
+最终效果如下：
+```bash
+[
+{mnesia, [{dump_log_write_threshold, 50000},{dc_dump_limit,40}]},
+ {rabbit,
+  [
+```
+说明：但我尝试发现还是不能解决问题。
+
+##### 升级erlang
+实际测试发现升级erlang可以解决此类问题。
+
 ### Client Usage
 接下来可以在两台不同的PC上，运行两段代码，一段用来向rabbitmq队列中发送消息，另一段用来获取消息。
 #### rabbitmq for python
@@ -97,6 +171,8 @@ import pika
 '''
 生产者模式代码，向rabbitmq消息队列中存放消息（任务）
 '''
+credentials = pika.PlainCredentials("test", "test")
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='172.16.1.2',virtual_host="/",credentials=credentials))
 connection = pika.BlockingConnection(pika.ConnectionParameters('172.16.1.2')) #链接rabbitmq服务器,端口可以不写。
 channel = connection.channel()
 
@@ -118,7 +194,8 @@ import pika
 '''
 消费者模式代码，从rabbitmq消息队列中取出消息（任务）
 '''
-connection = pika.BlockingConnection(pika.ConnectionParameters('172.16.1.2')) #链接rabbitmq服务器,端口可以不写。
+credentials = pika.PlainCredentials("test", "test")
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='172.16.1.2',virtual_host="/",credentials=credentials)) #链接rabbitmq服务器,端口可以不写。
 channel = connection.channel()
 
 #声明消息队列，消息将在这个队列中进行传递。
@@ -145,7 +222,7 @@ def callback(ch, method, properties, body):
     print " [x] Done"
     ch.basic_ack(delivery_tag = method.delivery_tag)
 ```
-或者可以这样:
+然后修改no_ack为False
 ```bash
 channel.basic_consume(callback, queue='hello', no_ack=False)
 ```

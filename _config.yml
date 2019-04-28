@@ -7,13 +7,13 @@ title: nMask's Blog
 favicon: favicon.ico
 subtitle: 那一年，风陵渡口.......
 description: 风陵渡口
-author: nMask
+author: nmask
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://thief.one
+url: https://thief.one
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -70,7 +70,8 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/tengzhangchao/tengzhangchao.github.io.git
+  repository: 
+    - https://github.com/tengzhangchao/tengzhangchao.github.io.git
   branch: master
 
 

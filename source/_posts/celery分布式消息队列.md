@@ -114,7 +114,7 @@ print g.get()
 ##### 配置celery
 celery_con.py
 ```bash
-from celery import Celery
+from celery import Celery,platforms
 
 RABBITMQ_IP="127.0.0.1"
 RABBITMQ_PORT="5672"
@@ -135,6 +135,17 @@ app = Celery(
     'worker.test3': {'queue': 'test3'},
     },
     )
+
+# 允许celery以root权限启动
+platforms.C_FORCE_ROOT = True
+
+app.conf.update(
+CELERY_TASK_SERIALIZER='json',
+CELERY_RESULT_SERIALIZER='json',
+CELERY_IGNORE_RESULT = True,
+CELERYD_PREFETCH_MULTIPLIER = 10,
+CELERYD_MAX_TASKS_PER_CHILD = 200,
+)
 
 ```
 ##### 指定任务内容
@@ -167,6 +178,154 @@ celery -A task worker --queue=test1
 ```
 说明：worker工作者将会从rabbitmq的test1队列中获取数据。
 
+### celery+rabbitmq优化
+#### 忽略结果
+我查看rabbitmqweb页面，发现celery每执行一个任务都会产生一个队列，这个队列存放的是这个任务执行的状态，而且这个队列很占内存，只有当客户端执行获取的操作，队列才会消失。
+```bash
+@app.task(ignore_result=True)  #忽略结果，这样就不会产生queue了
+```
+
+### celery定时任务（计划任务）
+一般情况下，我们会使用linux系统自带的crontab做计划任务，然而在celery中可以用自身的定时任务功能创建计划任务。
+
+#### 创建celery_con.py
+```bash
+from celery import Celery
+from celery.schedules import crontab # 计划任务模块
+
+RABBITMQ_IP=""
+RABBITMQ_PORT=""
+RABBITMQ_USER=""
+RABBITMQ_PASS=""
+
+app = Celery(
+    backend='amqp',
+    broker='amqp://{}:{}@{}:{}'.format(
+        RABBITMQ_USER,
+        RABBITMQ_PASS,
+        RABBITMQ_IP,
+        RABBITMQ_PORT,
+        ),
+    )
+
+app.conf.update(
+# 定时任务
+beat_schedule={
+        # 定时任务1
+        "crontab_1": {
+            "task": "celery_work.run", # 执行的任务，即celery_work文件的run函数
+            "schedule": crontab(minute='*/1'), # 每分钟执行一次
+            "args": ("celery_crontab_test",) # 执行任务传入的参数
+        },
+        # 定时任务2
+        # ......
+    }
+)
+```
+说明：关键点在于在app.conf.update里面设置beat_schedule（计划任务），task表示要执行的任务名称，schedule代表计划任务的执行周期，args代表执行任务时所需要传入的参数。schedule具体配置可参考：
+http://docs.celeryproject.org/en/latest/reference/celery.schedules.html#celery.schedules.crontab
+
+#### 创建celery_work.py
+```bash
+from celery_con import app
+
+@app.task
+def run(msg):
+    print msg
+```
+说明：导入celery的配置，利用装饰器给run函数设置为celery任务。
+
+#### 执行celery定时任务
+```bash
+celery -A celery_work worker -B
+```
+说明：-A代表执行的任务名称(与work文件名称一样)，-B表示执行周期任务，只能有一个进程，不能启动多个。
+
+执行结果是，每隔一分钟，输出：celery_crontab_test
+![](/upload_image/20170825/1.png)
+
+### celery+rabbitmq 优先级任务
+rabbitmq在3.5版本开始支持队列优先级，注意一定要将rabbitmq版本升级为3.5以后的，不然用不了优先级。需要说明一下，这里的优先级有两种，第一种是同一个队列，队列中不同的消息可以设置优先级；第二种是不同队列之间设置优先级。
+
+#### 同一个队列不同消息优先级
+对应需求：在work执行常规任务的时候，需要让work执行一些应急任务（突发），因此将一些突发任务push到同一个队列中，但要排在队列首位（优先级高），即先让work执行应急任务。
+
+##### 先在web界面创建一个优先级队列
+![](/upload_image/20170825/2.png)
+可以看到hello队列有Pri标志，表示是一个优先级队列。
+![](/upload_image/20170825/3.png)
+
+##### 创建celery配置文件：(config.py)
+文件写入：
+```bash
+from celery import Celery
+from kombu import Exchange, Queue
+
+RABBITMQ_IP=""
+RABBITMQ_PORT=""
+RABBITMQ_USER=""
+RABBITMQ_PASS=""
+
+app = Celery(
+    backend='amqp', 
+    broker='amqp://{}:{}@{}:{}'.format(
+        RABBITMQ_USER,
+        RABBITMQ_PASS,
+        RABBITMQ_IP,
+        RABBITMQ_PORT,
+        ),
+)
+
+# 相关配置写在这里
+app.conf.update(
+    CELERY_ACKS_LATE = True,
+    CELERYD_PREFETCH_MULTIPLIER = 1,
+    CELERYD_MAX_TASKS_PER_CHILD = 500,
+    CELERY_ENABLE_REMOTE_CONTROL = False,
+    CELERYD_TASK_TIME_LIMIT = 60,
+    CELERY_DEFAULT_QUEUE = 'hello',
+    CELERY_QUEUES = (
+    Queue('hello', Exchange('hello'), routing_key='hello',queue_arguments={'x-max-priority': 10}),   # 队列名称为hello
+    ),
+)
+```
+##### 创建一个简单的测试task：(task.py)
+文件写入：
+```bash
+import time
+from config import app
+
+@app.task(ignore_result=True)
+def run(task):
+    print task
+    time.sleep(1)
+```
+##### 创建一个push任务的py：(push_task.py)
+文件写入：
+```bash
+from celery import group
+from task import run
+
+group( run.s("111111111",) for i in range(10)).apply_async(queue='hello',priority=1) # priority=1 用来设置消息优先级
+group( run.s("999999999",) for i in range(10)).apply_async(queue='hello',priority=9) # priority=1 用来设置消息优先级
+
+# 或者也可以用下面的方式push任务：
+# for i in range(10):
+#     run.apply_async(args=['111'],queue="hello",priority=1)
+#     run.apply_async(args=['999'],queue="hello",priority=9)
+```
+##### 利用celery创建worker
+```bash
+celery -A task worker -Q hello
+```
+![](/upload_image/20170825/4.png)
+说明：从结果可以看出，worker优先执行了优先级为9的消息。
+
+
+#### 不同队列之间的优先级
+对应需求：worker将会获取多个队列中的任务并执行，但对某些队列的执行优先级高，某些队列执行的优先级低。
+
+*暂没有找到实现方案，网上的方案测试都不成功！*
 
 *以上内容是个人理解的celery用法以及一些原理，如有谬误，欢迎指正，谢谢！*
 

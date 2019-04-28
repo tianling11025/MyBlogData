@@ -13,7 +13,7 @@ menu:
   tools: 工具
   biancheng: 编程之道
   tags: 标签
-  about: 关于作者
+  about: 关于我
   message: 留言
   search: 搜索
   collect_url: 导航
@@ -22,6 +22,7 @@ menu:
   book: Book
   yuge8: 电影资源
   xss: Rss订阅
+  wechat: 微信公众号
 
 
 sidebar:

@@ -31,19 +31,15 @@ local_search:
 
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
-  # home: /
-  # tools: http://www.maskghost.com
-  about: http://home.nmask.cn
+  about: /aboutme
   count: /count
   collect_url: /SecWeb
   message: /message
   archives: /archives
   categories: /categories
   tags: /tags
-  # book: https://book.thief.one
-  # yuge8: http://yuge8.com
   xss: /atom.xml
-  #commonweal: /404.html
+  wechat: /uploads/wechat-qcode.jpg
 
 
 # Enable/Disable menu icons.
@@ -133,8 +129,7 @@ font:
 social:
   GitHub: http://github.com/tengzhangchao
   知乎: https://www.zhihu.com/people/nmask
-  GitBook: https://www.gitbook.com/@nmask 
-
+  公众号: /uploads/wechat-qcode.jpg
 
 # Social Links Icons
 # Icon Mapping:
@@ -193,11 +188,8 @@ links_title: 友情链接
 links_layout: inline
 links: 
   Yzf(Web渗透): http://limbo.gift
-  Hackyzh(二进制): http://hackyzh.me
   草莓(软件破解): http://www.kongdewei.cn/
   Jusense(安全运维): http://jusene.me/
-  小书屋(安全书籍): http://www.xiaoshuwu.net/
-  lxghost(安全情报): http://www.yige.dog/
   血梦博客(网络安全): http://www.hacksec.cn
   Mr.kua(信息安全): https://eth.space/
   Coco413(信息安全): http://coco413.com
@@ -205,9 +197,13 @@ links:
   chenjian(python开发): https://o-my-chenjian.com/
   Im1gD'Blog(信息安全): http://im1gd.me/
   phithon'Blog(离别歌): https://www.leavesongs.com/
-  虾米'Blog: http://gdd.gd/
+  虾米'Blog: http://coao.co/
   Rcoil'Blog: http://rcoil.me/
   tom0li_blog: https://tom0li.github.io
+  Szrzvdny'Blog: http://www.inksec.cn/
+  Dastone's Notes: http://dastone.tk
+  deep Learning: https://www.mkernel.com/
+  AresX: https://ares-x.com/
   
 
 
@@ -433,3 +429,12 @@ since: 2016  ##建站时间
 # gentie_productKey: 1f2ad56a530147fca1a6dd0e659c6cd1
 
 livere_uid: MTAyMC8yNzk2Ny80NTQ0 
+
+reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
+wechatpay: /uploads/wx.jpeg
+alipay: /uploads/zfb.jpeg
+
+wechat_subscriber:
+  enabled: true
+  qcode: /uploads/wechat-qcode.jpg
+  description: 欢迎您扫一扫上面的微信公众号，订阅我的博客！

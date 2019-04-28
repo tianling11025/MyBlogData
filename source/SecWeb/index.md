@@ -48,7 +48,7 @@ comments: true
 </div>
 
 ### 域名注册商
-><div class="div">[dynadot域名注册查询](https://www.dynadot.com/)　　[GoDaddy](https://sg.godaddy.com/)　　[阿里云万网](https://wanwang.aliyun.com)
+><div class="div">[dynadot域名注册查询](https://www.dynadot.com/)　　[GoDaddy](https://sg.godaddy.com/)　　[阿里云万网](https://wanwang.aliyun.com)　　[namecheap](https://www.namecheap.com/)
 </div>
 
 ### 编程之道
@@ -83,12 +83,17 @@ comments: true
 ><div class="div">[百度APIStore](http://apistore.baidu.com/)　　[聚合数据](https://www.juhe.cn/)　　[淘宝开放平台](http://open.taobao.com/)　　[必应APi](https://datamarket.azure.com/dataset/5BA839F1-12CE-4CCE-BF57-A49D98D29A44)　　[微信公众号](https://qy.weixin.qq.com/)　　[SendCloud](http://sendcloud.sohu.com)　　[腾讯OCR识别](http://mta.qq.com/mta/ctr_index/ocr)　　[阿里绿网](https://www.aliyun.com/yundun/cs?spm=5176.bbsr242678.0.0.3WzFpE)　　[HaoService数据平台](http://www.haoservice.com/)　　[e览网](http://urls.elanw.com/)　　[91cha](http://www.91cha.com/)　　[javascript Api](https://developer.mozilla.org/zh-CN/docs/Web/API)　
 </div>
 
+### 云服务提供商
+><div class="div">
+[阿里云](https://www.aliyun.com/)　　[腾讯云](https://cloud.tencent.com/)　　[百度云](https://cloud.baidu.com/)　　[滴滴云](https://www.didiyun.com/)　　[亚马逊AWS](https://amazonaws-china.com)　　[携程云](https://security.ctrip.com/hua)　　[华为云](http://activity.huaweicloud.com/)
+</div>
+
 ### 国内镜像
 ><div class="div">[taobao npm镜像](https://npm.taobao.org/)　　[网易开源镜像站](http://mirrors.163.com/)　　[搜狐开源镜像站](http://mirrors.sohu.com/)　　[北京交通大学](http://mirror.bjtu.edu.cn/cn/)　　[兰州大学](http://mirror.lzu.edu.cn/)　　[厦门大学](http://mirrors.xmu.edu.cn/)　　[上海交通大学](http://ftp.sjtu.edu.cn/)　　[清华大学](http://mirrors.tuna.tsinghua.edu.cn/)　　[清华大学Ipcv4](http://mirrors.4.tuna.tsinghua.edu.cn/)　　[中国科学技术大学](http://mirrors.ustc.edu.cn/ )　　[西南大学](http://linux.swu.edu.cn/swudownload/)　　[泰安移动](http://mirrors.ta139.com/)　　[东北大学](http://mirror.neu.edu.cn/)　　[浙江大学](http://mirrors.zju.edu.cn/)　　[东软信息学院](http://mirrors.neusoft.edu.cn/)
 </div>
 
 ### 技术文档与产品
-><div class="div">[shellter](https://www.shellterproject.com/)　　[网易蜂巢](https://c.163.com/)　　[Iftttt(软件整合)](https://ifttt.com/discover)　　[LeanCloud](https://leancloud.cn/)　　[daocloud](https://www.daocloud.io/)　　[ngrok(内网转发)](https://www.ngrok.cc/)　　[影梭(翻墙神器)](http://www.iyingsuo.com/help.html)　　[百度云加速](http://su.baidu.com/)　　[pytorch](http://pytorch.org/)　　[electron](https://electron.atom.io/)　　[Selenium](http://selenium-python-zh.readthedocs.io/en/latest/index.html)　　[Rethinkdb](https://rethinkdb.com/)　　[phantomjs](http://phantomjs.org/)　　[electron中文文档](https://www.gitbook.com/book/weishuai/electron-/details)　　[celery](http://docs.jinkan.org/docs/celery/index.html)　　[casperjs](http://casperjs.org/)　　[errbot聊天机器人](http://errbot.io/en/latest/)　　[typora-MarkDown工具](https://typora.io/)　　[Docker](https://www.docker.com/get-docker)　　[百度脑图](http://naotu.baidu.com/)　　[Kali Linux中文说明书](https://www.hackfun.org/kali-tools/kali-tools-zh.html)　　[burpsuite实战指南](https://www.gitbook.com/book/t0data/burpsuite/details)
+><div class="div">[shellter](https://www.shellterproject.com/)　　[网易蜂巢](https://c.163.com/)　　[Iftttt(软件整合)](https://ifttt.com/discover)　　[LeanCloud](https://leancloud.cn/)　　[daocloud](https://www.daocloud.io/)　　[ngrok(内网转发)](https://www.ngrok.cc/)　　[影梭(翻墙神器)](http://www.iyingsuo.com/help.html)　　[百度云加速](http://su.baidu.com/)　　[pytorch](http://pytorch.org/)　　[electron](https://electron.atom.io/)　　[Selenium](http://selenium-python-zh.readthedocs.io/en/latest/index.html)　　[Rethinkdb](https://rethinkdb.com/)　　[phantomjs](http://phantomjs.org/)　　[electron中文文档](https://www.gitbook.com/book/weishuai/electron-/details)　　[celery](http://docs.jinkan.org/docs/celery/index.html)　　[casperjs](http://casperjs.org/)　　[errbot聊天机器人](http://errbot.io/en/latest/)　　[typora-MarkDown工具](https://typora.io/)　　[Docker](https://www.docker.com/get-docker)　　[百度脑图](http://naotu.baidu.com/)　　[Kali Linux中文说明书](https://www.hackfun.org/kali-tools/kali-tools-zh.html)　　[burpsuite实战指南](https://www.gitbook.com/book/t0data/burpsuite/details)　　[etherpad协作编辑](http://etherpad.org/)
 </div>
 
 ### 常用软件与工具
@@ -110,9 +115,10 @@ comments: true
 #### 性能测试
 ><div class="div">[Disk Speed Test for Mac](https://itunes.apple.com/us/app/blackmagic-disk-speed-test/id425264550?mt=12)　　[Geekbench for mac](http://browser.primatelabs.com/mac-benchmarks/)</div>
 
-
 <style type="text/css"> 
 .div a:link{ color:#0593d3/*颜色自定义*/;font-family:"楷体"; font-size:15px;} /* 未访问的链接 */ 
 .div a:visited{color:#0477ab/*颜色自定义*/} /* 已访问的链接 */ 
 .div a:hover{ color:#0477ab/*颜色自定义*/}/* 鼠标在链接上 */ 
 </style>
+
+

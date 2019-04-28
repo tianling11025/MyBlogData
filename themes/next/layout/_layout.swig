@@ -7,7 +7,33 @@
 
 <html class="{{ html_class | lower }}">
 <head>
- <!--  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+
+<!-- 自动推送链接到百度 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101844534-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-101844534-2');
+</script>
+
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
 

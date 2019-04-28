@@ -15,7 +15,6 @@
 {% endblock %}
 
 {% block content %}
-
   <div id="posts" class="posts-expand">
     {# tagcloud page support #}
     {% if page.type === "tags" %}

@@ -1,8 +1,8 @@
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 <style>
     .pace .pace-progress {
         background: #1E92FB; /*进度条颜色*/

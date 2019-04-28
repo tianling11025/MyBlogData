@@ -54,5 +54,19 @@ GET NMASK www.baidu.com NMASK /test.html NMASK response_body={"result":"123"} NM
 ```
 说明：每一行文件内容都包含一份流量信息，流量信息分为五个内容，每个内容间用NMASK（特殊字符串，可自定义）隔开。然后我们便可以写python脚本，遍历日志文件，并用split("NMASK")获取每一个流量信息了。
 
-
 更多的配置信息、命令参数，可参考：http://www.jianshu.com/p/02021de8f82e
+
+
+### Python使用justniffer
+需要借助subprocess模块：
+```bash
+import subprocess
+
+popen=subprocess.Popen("justniffer -i eth0 -u -l '%request.header.host nmask %request.method nmask %request.url nmask %response.grep(\r\n\r\n(.*))' | awk -F nmask '$1 !~ /^-/ {print}'",shell=True,stdout=subprocess.PIPE)
+
+while 1:
+    p=popen.stdout.readline() #一行一行取
+    print p #可自定义函数去处理流量
+    if not p:
+        break
+```

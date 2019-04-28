@@ -31,7 +31,7 @@ password:
 ### nginx具体配置
 　　编辑A服务器的nginx.conf，文件位置在nginx安装目录下，一般在/etc/nginx/nginx.conf。在http段加入以下代码：
 ```bash
-upstream server_pools{
+upstream phantoms.me{ # 要与server_name的名字一致
       server 192.168.1.3:80; #分别对应三台web服务器
       server 192.168.1.4:80;
       server 192.168.1.5:80;

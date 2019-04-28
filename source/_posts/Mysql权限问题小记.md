@@ -156,6 +156,23 @@ SELECT 字段名 FROM tb_stu WHERE 条件 ORDER BY 字段 ASC  升序
 ```bash
 SELECT 字段名 FROM tb_stu WHERE 条件 ORDER BY 字段1 ASC 字段2 DESC
 ```
+### 全文检索
+使用全文检索前，先要建立字段索引，比如我要这样查询：
+```bash
+match(`name`,`name2`) aganst("abc"  IN BOOLEAN MODE) 
+```
+即查询name或者name2字段中存在字符串abc的记录，则需要事先将name与name2字段做联合的索引，类似于这样：
+![](/upload_image/20171020/1.png)
+
+#### 多表全文检索
+```bash
+select * from a left join b on a.pid = b.pid WHERE MATCH(`id`,`ip`) AGAINST("abc" IN BOOLEAN MODE) OR MATCH(`name`,`port`) AGAINST("123" IN BOOLEAN MODE)
+```
+说明：其中字符串abc也可以用%s代替，参数化构造sql语句。值得注意的是，默认情况下mysql只支持4个字符以上的全文索引。即搜索"nginx"是可以的，但是搜索"tcp"就不行。解决方案是通过修改/etc/my.conf配置文件，增加一行ft_min_word_len = 2，然后重启mysql，重新建索引（但是我测试失败了）。
+
+#### 全文检索模糊匹配与精确匹配
+当我们搜索:thief.one，若不用双引号包括，则会匹配出存在thief、one的结果，因为默认会使用.来分割字符串，搜索就变成了存在thief或者one的字符串，因此精确搜索为:"thief.one"就可以解决，因为把其当成了一个完整的字符串。
+
 ### 多表联合查询
 多表查询有三种方式：交叉查询、等值查询、外部查询（左连接、右连接）
 参考：http://blog.csdn.net/hguisu/article/details/5731880
@@ -181,7 +198,59 @@ select id, name from user right join techer on user.id = teacher.id
 select id, name from user left join techer on user.id = teacher.id left join home on teacher.id=home.id
 ```
 
+#### 导出数据库为sql文件
+```bash
+mysqldump -uusername -ppassword db_name > file_name.sql
+```
+
 ## Mysql使用权限问题
+
+### mysql初始化设置密码
+当我们刚在服务器上安装完mysql，默认是可以无密码登陆的
+```bash
+mysql -u root
+```
+当然，我们肯定要为mysql设置密码，那么怎么设置最方便呢？
+```bash
+>>use mysql;
+>>update user set host = '%' where user = 'root';
+>>UPDATE user SET Password=PASSWORD('nmask') where USER='root';
+>>flush privileges;
+```
+注意：这里需要注意一点，以上命令输入成功之后，仍然无法用root账号密码登陆，这是为什么呢？因为默认root账户有好几个，会影响设置密码的这个root账户，需要将其余几个root账户都删除。
+```bash
+>>delete from user where user='root' and host!='%';
+>>flush privileges;
+```
+重启mysql，应该可以使用设置了密码的root账户登陆了。
+
+### 忘记密码？安全模式
+如果忘记了mysql密码怎么办？没事，可以进入安全模式，重设密码。
+
+首先，我们停掉MySQL服务：
+```bash
+sudo service mysqld stop  
+```
+以安全模式启动MySQL：
+```bash
+sudo mysqld_safe --skip-grant-tables --skip-networking &  
+```
+注意我们加了--skip-networking，避免远程无密码登录 MySQL。这样我们就可以直接用root登录，无需密码：
+```bash
+mysql -u root
+```
+接着重设密码：
+```bash
+mysql> use mysql;  
+mysql> update user set password=PASSWORD("nmask") where User='root';  
+mysql> flush privileges; 
+```
+重设完毕后，我们退出，然后启动 MySQL 服务：
+```bash
+sudo service mysql restart  
+```
+参考：http://www.ghostchina.com/how-to-reset-mysqls-root-password/
+
 ### 只能本地连接mysql，远程机器连接不了？
 当我在服务器上搭建好mysql，输入以下命令：
 ```bash
@@ -396,6 +465,30 @@ COMMIT;
 1. SQL语句是有长度限制，在进行数据合并在同一SQL中务必不能超过SQL长度限制，通过max_allowed_packet配置可以修改，默认是1M。
 2. 事务需要控制大小，事务太大可能会影响执行的效率。MySQL有innodb_log_buffer_size配置项，超过这个值会日志会使用磁盘数据，这时，效率会有所下降。所以比较好的做法是，在事务大小达到配置项数据级前进行事务提交。
 
+## Mysql特殊字符编码问题
+### 存储报错
+有时会碰到在往mysql中存储一些特殊字符时（微信、qq表情等），会提示编码报错，类似如下：
+```bash
+(1366, "Incorrect string value: '\\xF0\\x9F\\x9A\\x80 D...’ for
+```
+### 存储特殊编码解决方案
+首先得明确，需要将mysql的utf8编码改成utf8mb4，utf8mb4是对utf8的补充，让其可以保存一些特殊字符。
+
+#### 修改数据库编码
+可以选择数据库，然后点击操作，排序规则改为：utf8mb4_general_ci
+
+#### 修改数据表编码
+选中数据表，点击操作，修改排序规则为：utf8mb4_general_ci
+
+#### 修改数据字段编码
+选择字段，点击修改，排序规则改为：utf8mb4_general_ci
+
+#### 修改代码中连接mysql的编码：
+这里以python为例子：
+```bash
+mysql_charset="utf8mb4"
+```
+说明：必须要以上4个编码都改成utf8mb4，才不会报错。
 
 ## Python操作Mysql
 利用python开发时，经常会用到跟mysql相关的操作，这时候需要利用第三方库，MySQLdb。

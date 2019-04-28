@@ -109,7 +109,69 @@ $.ajaxSetup({
         })
       });
 </script>
+<!-- 底部加载js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 ```
+
+#### ajax+列表字典返回
+ajax返回的内容是json格式的列表或者字典时，该如何渲染到页面？如下，若后端返回的数据是json：[{"a":"1","b":"2"},{"c":3,"d":"4"}]
+```bash
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+<input type="text" id="tn" placeholder="请输入搜索关键词">
+<button type="button" id="formquery" data-loading-text="努力加载中..." autocomplete="off" onclick="loag()">搜索一下</button>
+<!-- 搜索结果列表 -->
+<p id="list_result" style="word-wrap:break-word;word-break:break-all;"></p>
+       
+<!-- ajax请求 -->
+<script>
+    $(document).ready(function(){
+      $('#formquery').click(function(){
+          var q = $("#tn").val();
+          var btn = $("#formquery"); //获取按钮对象
+          btn.button('loading');//按钮显示为过渡状态
+
+          $.getJSON('/search/',{"q":q},function(ret){
+            document.getElementById('list_result').innerText = ""; // 重置<p>的内容
+            $.each(ret, function(i,item){ // 遍历列表
+                $.each(item, function(key,value){ // 遍历字典
+                    $('#list_result').append(key+":"+value)
+                });
+            });
+            btn.button('reset');
+          })
+      })
+    });
+</script>
+<!-- 底部加载js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+```
+
+#### ajax配合页面自动刷新
+```bash
+<input type="hidden" id="formquery" onclick="loag()"> # 按钮（隐藏）
+<div id="task_schedule_result"></div> # 显示内容的地方
+
+# 点击按钮事情时，发送ajax请求js
+<script>
+    $(document).ready(function(){
+      $('#formquery').click(function(){
+          $.getJSON("{% url 'task_schedule' %}",function(ret){
+            document.getElementById('task_schedule_result').innerHTML = ret;
+          })
+      })
+    });
+</script>
+# 自动点击按钮js
+<script type="text/javascript">
+    function myrefresh(){ 
+    document.getElementById('formquery').click();
+    } 
+    setInterval("myrefresh()","10000"); # 每个10秒执行一次点击按钮
+</script> 
+```
+说明：以上html代码是每隔10s利用ajax请求，获取后端数据代码。
+
 
 ### 参考
 http://code.ziqiangxuetang.com/django/django-ajax.html
